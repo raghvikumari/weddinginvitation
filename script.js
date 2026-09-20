@@ -43,13 +43,36 @@ async function loadPage(page) {
     initializePage(page);
 }
 
+// async function loadHome() {
+//     const welcome = await fetch("./pages/welcome.html").then(res => res.text());
+//     const meetCouple = await fetch("./pages/meetCouple.html").then(res => res.text());
+
+//     document.getElementById("app").innerHTML =
+//         welcome +
+//         meetCouple;
+// }
 async function loadHome() {
-    const welcome = await fetch("./pages/welcome.html").then(res => res.text());
-    const meetCouple = await fetch("./pages/meetCouple.html").then(res => res.text());
+
+    const welcome =
+        await fetch("./pages/welcome.html")
+        .then(res => res.text());
+
+    const meetCouple =
+        await fetch("./pages/meetCouple.html")
+        .then(res => res.text());
+
+    const saveTheDate =
+        await fetch("./pages/saveTheDate.html")
+        .then(res => res.text());
+
 
     document.getElementById("app").innerHTML =
         welcome +
-        meetCouple;
+        meetCouple +
+        saveTheDate;
+
+
+    initializeScratchCard();
 }
 
 function initializePage(page) {

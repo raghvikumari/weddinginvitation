@@ -1,0 +1,762 @@
+/* =========================================================
+   SAVE THE DATE SECTION
+========================================================= */
+
+.save-date-section {
+    position: relative;
+
+    width: 100%;
+    min-height: 100vh;
+
+    overflow: hidden;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #f8f1e7;
+
+    padding: 40px 20px;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   SCRATCH / REVEAL CARD
+========================================================= */
+
+.scratch-card {
+    position: relative;
+
+    width: min(82vw, 340px);
+    height: 430px;
+
+    overflow: hidden;
+
+    border-radius: 18px;
+
+    background: #fffaf4;
+
+    box-shadow:
+        0 15px 45px rgba(0, 0, 0, 0.18);
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   SAVE THE DATE CONTENT
+   This is underneath the gold cover
+========================================================= */
+
+.save-date-content {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 1;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    padding: 35px;
+
+    box-sizing: border-box;
+
+    background:
+        radial-gradient(
+            circle at top left,
+            rgba(255, 220, 180, 0.5),
+            transparent 35%
+        ),
+
+        radial-gradient(
+            circle at bottom right,
+            rgba(230, 190, 160, 0.4),
+            transparent 35%
+        ),
+
+        #fffaf4;
+}
+
+
+/* =========================================================
+   SMALL TEXT
+========================================================= */
+
+.save-date-small {
+    font-family: Georgia, serif;
+
+    font-size: 16px;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+
+    color: #765d45;
+
+    margin-bottom: 20px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.save-date-title {
+    font-family: Georgia, serif;
+
+    font-size: 42px;
+
+    font-weight: 500;
+
+    color: #4d3828;
+
+    margin: 0 0 25px;
+
+    line-height: 1.1;
+}
+
+
+/* =========================================================
+   DATE
+========================================================= */
+
+.save-date-date {
+    font-family: Georgia, serif;
+
+    font-size: 28px;
+
+    font-weight: 600;
+
+    letter-spacing: 3px;
+
+    color: #5e4633;
+
+    margin-bottom: 15px;
+
+    line-height: 1.3;
+}
+
+
+/* =========================================================
+   DAY
+========================================================= */
+
+.save-date-day {
+    font-family: Arial, sans-serif;
+
+    font-size: 17px;
+
+    letter-spacing: 3px;
+
+    color: #80654d;
+
+    line-height: 1.4;
+}
+
+
+/* =========================================================
+   NAMES
+========================================================= */
+
+.save-date-names {
+    margin-top: 30px;
+
+    font-family: "Brush Script MT", cursive;
+
+    font-size: 32px;
+
+    color: #60432f;
+
+    line-height: 1.2;
+}
+
+
+/* =========================================================
+   SCRATCH / GOLD CANVAS
+========================================================= */
+
+#scratchCanvas {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 5;
+
+    display: block;
+
+    width: 100%;
+
+    height: 100%;
+
+    cursor: pointer;
+
+    touch-action: manipulation;
+
+    user-select: none;
+
+    -webkit-user-select: none;
+
+    -webkit-touch-callout: none;
+
+    transition:
+        opacity 0.35s ease-out;
+}
+
+
+/* =========================================================
+   TAP / SCRATCH INSTRUCTION
+========================================================= */
+
+.scratch-instruction {
+    position: absolute;
+
+    left: 50%;
+
+    bottom: 30px;
+
+    z-index: 8;
+
+    transform: translateX(-50%);
+
+    pointer-events: none;
+
+    white-space: nowrap;
+
+    padding: 10px 18px;
+
+    border-radius: 30px;
+
+    background:
+        rgba(255, 255, 255, 0.88);
+
+    color: #654b35;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 14px;
+
+    letter-spacing: 1px;
+
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.08);
+
+    transition:
+        opacity 0.35s ease,
+        transform 0.35s ease;
+}
+
+
+/* Instruction disappears */
+
+.scratch-instruction.hide {
+    opacity: 0;
+
+    transform:
+        translateX(-50%)
+        translateY(10px);
+}
+
+
+/* =========================================================
+   CELEBRATION CONTAINER
+========================================================= */
+
+#celebrationContainer {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 20;
+
+    pointer-events: none;
+
+    overflow: hidden;
+
+    display: none;
+}
+
+
+/* =========================================================
+   CONFETTI
+========================================================= */
+
+.confetti {
+    position: absolute;
+
+    display: block;
+
+    width: 7px;
+
+    height: 13px;
+
+    border-radius: 2px;
+
+    opacity: 0;
+
+    animation-name: confettiFall;
+
+    animation-timing-function: linear;
+
+    animation-fill-mode: forwards;
+
+    will-change:
+        transform,
+        opacity;
+}
+
+
+/* Confetti animation */
+
+@keyframes confettiFall {
+
+    0% {
+        transform:
+            translate3d(
+                0,
+                -40px,
+                0
+            )
+            rotate(0deg);
+
+        opacity: 1;
+    }
+
+
+    25% {
+        transform:
+            translate3d(
+                25px,
+                25vh,
+                0
+            )
+            rotate(180deg);
+
+        opacity: 1;
+    }
+
+
+    50% {
+        transform:
+            translate3d(
+                -20px,
+                50vh,
+                0
+            )
+            rotate(360deg);
+
+        opacity: 1;
+    }
+
+
+    75% {
+        transform:
+            translate3d(
+                30px,
+                75vh,
+                0
+            )
+            rotate(540deg);
+
+        opacity: 0.8;
+    }
+
+
+    100% {
+        transform:
+            translate3d(
+                -30px,
+                110vh,
+                0
+            )
+            rotate(720deg);
+
+        opacity: 0;
+    }
+}
+
+
+/* =========================================================
+   FLOWERS / PETALS
+========================================================= */
+
+.flower {
+    position: absolute;
+
+    display: block;
+
+    opacity: 0;
+
+    animation-name: flowerFall;
+
+    animation-timing-function: ease-in;
+
+    animation-fill-mode: forwards;
+
+    will-change:
+        transform,
+        opacity;
+}
+
+
+/* Flower animation */
+
+@keyframes flowerFall {
+
+    0% {
+        transform:
+            translate3d(
+                0,
+                -50px,
+                0
+            )
+            rotate(0deg)
+            scale(0.6);
+
+        opacity: 0;
+    }
+
+
+    15% {
+        opacity: 1;
+    }
+
+
+    35% {
+        transform:
+            translate3d(
+                25px,
+                30vh,
+                0
+            )
+            rotate(120deg)
+            scale(1);
+    }
+
+
+    60% {
+        transform:
+            translate3d(
+                -25px,
+                60vh,
+                0
+            )
+            rotate(240deg)
+            scale(0.95);
+
+        opacity: 1;
+    }
+
+
+    100% {
+        transform:
+            translate3d(
+                35px,
+                110vh,
+                0
+            )
+            rotate(360deg)
+            scale(0.8);
+
+        opacity: 0;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .save-date-section {
+        min-height: 100svh;
+
+        padding: 25px 15px;
+    }
+
+
+    .scratch-card {
+        width: 82vw;
+        max-width: 340px;
+        height: 430px;
+        border-radius: 18px;
+    }
+
+
+    .save-date-content {
+        padding: 25px;
+    }
+
+
+    .save-date-small {
+        font-size: 13px;
+
+        letter-spacing: 2px;
+
+        margin-bottom: 18px;
+    }
+
+
+    .save-date-title {
+        font-size: 36px;
+
+        margin-bottom: 22px;
+    }
+
+
+    .save-date-date {
+        font-size: 23px;
+
+        letter-spacing: 2px;
+    }
+
+
+    .save-date-day {
+        font-size: 15px;
+
+        letter-spacing: 2px;
+    }
+
+
+    .save-date-names {
+        font-size: 29px;
+
+        margin-top: 25px;
+    }
+
+
+    .scratch-instruction {
+        bottom: 22px;
+
+        font-size: 13px;
+
+        padding: 9px 15px;
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
+
+@media (max-width: 380px) {
+
+    .scratch-card {
+        height: 400px;
+    }
+
+
+    .save-date-title {
+        font-size: 32px;
+    }
+
+
+    .save-date-date {
+        font-size: 20px;
+    }
+
+
+    .save-date-names {
+        font-size: 26px;
+    }
+}
+/* =========================
+   SAVE DATE SECTION
+========================= */
+
+.save-date-section {
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 35px;
+
+    background: #f8f1e7;
+
+    padding: 50px 20px;
+
+    box-sizing: border-box;
+
+    overflow: visible;
+}
+
+
+/* =========================
+   COUNTDOWN
+========================= */
+
+.countdown-container {
+    width: min(90vw, 390px);
+
+    text-align: center;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: translateY(20px);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+
+    pointer-events: none;
+}
+
+
+/* This class is added after scratching */
+
+.countdown-container.show {
+    opacity: 1;
+    visibility: visible;
+
+    transform: translateY(0);
+}
+
+
+/* Heading */
+
+.countdown-heading {
+    font-family: Georgia, serif;
+
+    font-size: 18px;
+
+    letter-spacing: 1.5px;
+
+    color: #5c4636;
+
+    margin-bottom: 18px;
+}
+
+
+/* Countdown boxes */
+
+.countdown {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+
+.countdown-box {
+    width: 72px;
+    height: 72px;
+
+    background: #fffaf4;
+
+    border-radius: 12px;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    box-shadow:
+        0 5px 18px rgba(0, 0, 0, 0.12);
+}
+
+
+/* Numbers */
+
+.countdown-box span {
+    font-family: Georgia, serif;
+
+    font-size: 25px;
+
+    font-weight: 600;
+
+    color: #5c4636;
+
+    line-height: 1;
+}
+
+
+/* Labels */
+
+.countdown-box small {
+    margin-top: 7px;
+
+    font-size: 10px;
+
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+
+    color: #8a7464;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    .save-date-section {
+        gap: 30px;
+        padding: 40px 15px;
+    }
+
+    .countdown-container {
+        width: 100%;
+    }
+
+    .countdown-heading {
+        font-size: 16px;
+    }
+
+    .countdown {
+        gap: 7px;
+    }
+
+    .countdown-box {
+        width: 65px;
+        height: 65px;
+    }
+
+    .countdown-box span {
+        font-size: 22px;
+    }
+}
+
+
+@media (max-width: 380px) {
+
+    .countdown {
+        gap: 5px;
+    }
+
+    .countdown-box {
+        width: 58px;
+        height: 58px;
+    }
+
+    .countdown-box span {
+        font-size: 19px;
+    }
+
+    .countdown-box small {
+        font-size: 8px;
+    }
+}
