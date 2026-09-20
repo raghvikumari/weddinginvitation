@@ -1,0 +1,182 @@
+.our-journey{
+    width:100%;
+    padding:100px 8%;
+    background:#fbf7f0;
+}
+
+.journey-subtitle{
+    text-align:center;
+    letter-spacing:4px;
+    color:#b78c47;
+    font-size:15px;
+    margin-bottom:10px;
+}
+
+.journey-title{
+    text-align:center;
+    font-size:64px;
+    color:#9d233d;
+    font-family:cursive;
+    margin-bottom:80px;
+}
+
+.timeline{
+    position:relative;
+    max-width:1200px;
+    margin:auto;
+}
+
+.timeline::before{
+    content:"";
+    position:absolute;
+    left:50%;
+    top:0;
+    width:2px;
+    height:100%;
+    background:#e1c27b;
+    transform:translateX(-50%);
+}
+
+.timeline-item{
+    width:50%;
+    position:relative;
+    margin-bottom:90px;
+}
+
+.timeline-item.left{
+    padding-right:70px;
+    text-align:right;
+}
+
+.timeline-item.right{
+    margin-left:50%;
+    padding-left:70px;
+}
+
+.timeline-content h3{
+    color:#a1263d;
+    font-size:36px;
+    font-weight:500;
+    margin-bottom:18px;
+}
+
+.timeline-content p{
+    font-size:28px;
+    line-height:1.8;
+    color:#43352f;
+}
+
+.timeline-content img{
+    width:100%;
+    max-width:420px;
+    margin-top:30px;
+    border-radius:22px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+.timeline-item.left .timeline-content img{
+    margin-left:auto;
+}
+
+.timeline-icon{
+    position:absolute;
+    top:10px;
+    right:-24px;
+
+    width:48px;
+    height:48px;
+
+    border-radius:50%;
+    border:2px solid #d9a94b;
+
+    background:#fff;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:22px;
+
+    z-index:2;
+}
+
+.timeline-item.right .timeline-icon{
+    left:-24px;
+}
+
+@media(max-width:900px){
+
+    .timeline::before{
+        left:25px;
+    }
+
+    .timeline-item,
+    .timeline-item.left,
+    .timeline-item.right{
+
+        width:100%;
+        margin-left:0;
+
+        padding-left:80px;
+        padding-right:0;
+
+        text-align:left;
+    }
+
+    .timeline-icon{
+        left:0 !important;
+        right:auto;
+    }
+
+    .timeline-content h3{
+        font-size:28px;
+    }
+
+    .timeline-content p{
+        font-size:20px;
+    }
+
+    .journey-title{
+        font-size:42px;
+    }
+
+    .timeline-content img{
+        max-width:100%;
+    }
+}
+
+.journey-photo{
+    width:100%;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    margin-top:80px;
+}
+
+.journey-photo img{
+    width:100%;
+    max-width:900px;
+
+    border:10px solid #fff;
+    border-radius:20px;
+
+    display:block;
+
+    box-shadow:0 12px 35px rgba(0,0,0,0.15);
+}
+
+@media (max-width:768px){
+
+    .journey-photo{
+        margin-top:50px;
+        padding:0 20px;
+    }
+
+    .journey-photo img{
+        border-width:6px;
+        border-radius:15px;
+    }
+
+}
