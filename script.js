@@ -10,7 +10,7 @@ async function loadPage(page) {
 
 async function loadHome() {
 
-    
+
     const welcome = await fetch("./pages/welcome.html").then(res => res.text());
     const saveTheDate = await fetch("./pages/saveTheDate.html").then(res => res.text());
     const meetCouple = await fetch("./pages/meetCouple.html").then(res => res.text());
@@ -23,9 +23,10 @@ async function loadHome() {
         saveTheDate +
         meetCouple +
         ourJourney +
-        capturedMoments+
+        capturedMoments +
         eventSchedule;
 
+    initializePetals();
     initializeScratchCard();
     initializeCapturedMoments();
     initializeEventSchedule();
