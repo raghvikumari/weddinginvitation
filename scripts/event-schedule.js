@@ -1,38 +1,76 @@
+/* =========================================
+   WEDDING EVENT SCHEDULE
+   ========================================= */
+
+
+/*
+   This function is called from script.js
+   AFTER event-schedule.html is loaded.
+*/
+
 function initializeEventSchedule() {
 
-    const events =
-        document.querySelectorAll(".reveal-event");
+    const eventRows = document.querySelectorAll(".event-row");
 
-    if (!events.length) {
+    /*
+       If Event Schedule is not loaded yet,
+       simply stop.
+    */
+
+    if (!eventRows.length) {
         return;
     }
 
-    const observer =
-        new IntersectionObserver(
-            (entries) => {
 
-                entries.forEach((entry) => {
+    /* =========================================
+       SCROLL REVEAL
+       ========================================= */
 
-                    if (entry.isIntersecting) {
+    const observer = new IntersectionObserver(
+        (entries) => {
 
-                        entry.target.classList.add("show");
+            entries.forEach((entry) => {
 
-                        observer.unobserve(entry.target);
-                    }
+                if (entry.isIntersecting) {
 
-                });
+                    entry.target.classList.add("visible");
 
-            },
-            {
-                threshold: 0.15
-            }
-        );
+                    observer.unobserve(entry.target);
+                }
+
+            });
+
+        },
+        {
+            threshold: 0.15
+        }
+    );
 
 
-    events.forEach((event) => {
+    eventRows.forEach((row, index) => {
 
-        observer.observe(event);
+        /*
+           Each card appears slightly after
+           the previous one.
+        */
+
+        row.style.transitionDelay =
+            `${index * 120}ms`;
+
+        observer.observe(row);
 
     });
+
+
+    /* =========================================
+       LOCATION BUTTON
+       =========================================
+
+       Location URLs are already written directly
+       inside event-schedule.html.
+
+       Therefore no extra JavaScript is needed
+       for Google Maps.
+    */
 
 }
