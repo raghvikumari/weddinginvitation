@@ -366,8 +366,8 @@
 
     .gallery-item {
 
-        width: 165px;
-        height: 245px;
+        width: 190px;
+        height: 280px;
 
         border-radius: 22px;
 
@@ -400,8 +400,8 @@
 
     .gallery-item {
 
-        width: 145px;
-        height: 215px;
+        width: 70vw;
+        height: 400px;
 
         border-radius: 20px;
     }
