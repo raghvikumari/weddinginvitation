@@ -1,238 +1,3 @@
-// function initializeScratchCard() {
-
-//     const canvas = document.getElementById("scratchCanvas");
-
-//     if (!canvas) {
-//         return;
-//     }
-
-//     const ctx = canvas.getContext("2d");
-//     const card = canvas.parentElement;
-
-//     let revealed = false;
-
-//     function resizeCanvas() {
-
-//         const rect = card.getBoundingClientRect();
-
-//         canvas.width = rect.width;
-//         canvas.height = rect.height;
-
-//         createScratchLayer();
-//     }
-
-
-//     function createScratchLayer() {
-
-//         ctx.globalCompositeOperation = "source-over";
-
-//         // Scratch-cover background
-//         ctx.fillStyle = "#d8c2a8";
-
-//         ctx.fillRect(
-//             0,
-//             0,
-//             canvas.width,
-//             canvas.height
-//         );
-
-
-//         // Decorative pattern
-//         ctx.fillStyle = "rgba(255,255,255,0.18)";
-
-//         for (let x = 0; x < canvas.width; x += 30) {
-
-//             for (let y = 0; y < canvas.height; y += 30) {
-
-//                 ctx.beginPath();
-
-//                 ctx.arc(
-//                     x,
-//                     y,
-//                     2,
-//                     0,
-//                     Math.PI * 2
-//                 );
-
-//                 ctx.fill();
-//             }
-//         }
-
-
-//         // Text on cover
-//         ctx.fillStyle = "#ffffff";
-
-//         ctx.textAlign = "center";
-
-//         ctx.font = "600 22px Georgia";
-
-//         ctx.fillText(
-//             "Scratch Here",
-//             canvas.width / 2,
-//             canvas.height / 2
-//         );
-
-//         ctx.font = "15px Arial";
-
-//         ctx.fillText(
-//             "Touch to reveal",
-//             canvas.width / 2,
-//             canvas.height / 2 + 30
-//         );
-//     }
-
-
-//     /*
-//      * ONE TOUCH / CLICK = REVEAL
-//      */
-//     function revealCard() {
-
-//         if (revealed) {
-//             return;
-//         }
-
-//         revealed = true;
-
-
-//         // Smooth fade-out
-//         canvas.style.transition =
-//             "opacity 0.7s ease";
-
-//         canvas.style.opacity = "0";
-
-
-//         // Hide instruction
-//         const instruction =
-//             document.getElementById("scratchInstruction");
-
-//         if (instruction) {
-//             instruction.classList.add("hide");
-//         }
-
-
-//         // After fade, completely remove cover
-//         setTimeout(() => {
-
-//             canvas.style.display = "none";
-
-//         }, 700);
-
-
-//         // Celebration
-//         createCelebration();
-//     }
-
-
-//     /*
-//      * Desktop
-//      */
-//     canvas.addEventListener("click", revealCard);
-
-
-//     /*
-//      * Mobile
-//      */
-//     canvas.addEventListener(
-//         "touchstart",
-//         function (event) {
-
-//             event.preventDefault();
-
-//             revealCard();
-
-//         },
-//         { passive: false }
-//     );
-
-
-//     /*
-//      * Celebration
-//      */
-//     function createCelebration() {
-
-//         const container =
-//             document.getElementById(
-//                 "celebrationContainer"
-//             );
-
-//         if (!container) {
-//             return;
-//         }
-
-
-//         const flowers = [
-//             "🌸",
-//             "🌼",
-//             "🌺",
-//             "🌷",
-//             "🌹"
-//         ];
-
-
-//         // Flowers
-//         for (let i = 0; i < 20; i++) {
-
-//             const flower =
-//                 document.createElement("span");
-
-//             flower.className = "flower";
-
-//             flower.innerText =
-//                 flowers[
-//                     Math.floor(
-//                         Math.random() *
-//                         flowers.length
-//                     )
-//                 ];
-
-
-//             flower.style.left =
-//                 Math.random() * 100 + "%";
-
-//             flower.style.top =
-//                 "-30px";
-
-//             flower.style.animationDelay =
-//                 Math.random() * 0.8 + "s";
-
-
-//             container.appendChild(flower);
-//         }
-
-
-//         // Confetti
-//         for (let i = 0; i < 40; i++) {
-
-//             const confetti =
-//                 document.createElement("span");
-
-//             confetti.className =
-//                 "confetti";
-
-
-//             confetti.style.left =
-//                 Math.random() * 100 + "%";
-
-//             confetti.style.top =
-//                 "-20px";
-
-//             confetti.style.animationDelay =
-//                 Math.random() * 0.8 + "s";
-
-
-//             container.appendChild(confetti);
-//         }
-//     }
-
-
-//     resizeCanvas();
-
-
-//     window.addEventListener(
-//         "resize",
-//         resizeCanvas
-//     );
-// }
 function initializeScratchCard() {
 
     const canvas = document.getElementById("scratchCanvas");
@@ -390,17 +155,14 @@ function revealCard() {
 
     scratchInstruction.classList.add("hide");
 
-    createCelebration();
+    showCelebration();
 
-    // Show countdown
-    const countdown =
-        document.getElementById("countdownContainer");
+    const countdown = document.getElementById("countdownContainer");
 
     if (countdown) {
         countdown.classList.add("show");
         initializeCountdown();
     }
-
 }
 
 
@@ -538,10 +300,10 @@ function revealCard() {
 
             flower.innerText =
                 flowers[
-                    Math.floor(
-                        Math.random() *
-                        flowers.length
-                    )
+                Math.floor(
+                    Math.random() *
+                    flowers.length
+                )
                 ];
 
 
@@ -635,4 +397,31 @@ function initializeCountdown() {
     updateCountdown();
 
     setInterval(updateCountdown, 1000);
+}
+
+function showCelebration() {
+
+    // Left side burst
+    confetti({
+        particleCount: 80,
+        angle: 60,
+        spread: 80,
+        origin: { x: 0, y: 0.6 }
+    });
+
+    // Right side burst
+    confetti({
+        particleCount: 80,
+        angle: 120,
+        spread: 80,
+        origin: { x: 1, y: 0.6 }
+    });
+
+    // Top center burst
+    confetti({
+        particleCount: 120,
+        spread: 140,
+        origin: { x: 0.5, y: 0.3 }
+    });
+
 }
