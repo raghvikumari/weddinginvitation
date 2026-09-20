@@ -88,16 +88,32 @@
 
 @media(max-width:900px) {
 
-    .couple-row,
+     .couple-row:first-of-type {
+        margin-top: 30px;
+    }
+
+       .couple-row,
     .couple-row.reverse {
-
+        display: flex;
         flex-direction: column;
-
+        align-items: center;
         text-align: center;
+        gap: 30px;
+        margin-bottom: 80px;
+    }
+
+    /* Make the reverse row behave like a normal column */
+    .couple-row.reverse .couple-image {
+        order: 1;
+    }
+
+    .couple-row.reverse .couple-content {
+        order: 2;
     }
 
     .section-title {
         font-size: 42px;
+        margin-bottom: 50px;
     }
 
     .name {
@@ -110,7 +126,9 @@
 
     .couple-image img {
         max-width: 340px;
+        width: 100%;
     }
+
 }
 
 .couple-quote {
