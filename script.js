@@ -46,10 +46,16 @@ async function loadPage(page) {
 async function loadHome() {
     const welcome = await fetch("./pages/welcome.html").then(res => res.text());
     const meetCouple = await fetch("./pages/meetCouple.html").then(res => res.text());
+    const ourJourney = await fetch("./pages/ourJourney.html").then(res => res.text());
+    const capturedMoments = await fetch("./pages/capturedMoments.html").then(res => res.text());
 
     document.getElementById("app").innerHTML =
         welcome +
-        meetCouple;
+        meetCouple +
+        ourJourney +
+        capturedMoments;
+
+        initializeCapturedMoments();
 }
 
 function initializePage(page) {
