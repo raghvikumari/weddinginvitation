@@ -1,0 +1,515 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
+
+
+/* =====================================================
+   MAIN SECTION
+===================================================== */
+
+.family-section {
+
+    position: relative;
+
+    overflow: hidden;
+
+    padding: 90px 6% 100px;
+
+    background:
+        radial-gradient(
+            circle at 10% 20%,
+            rgba(181, 154, 98, 0.09),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 90% 75%,
+            rgba(138, 63, 74, 0.06),
+            transparent 30%
+        ),
+        #f8f5ee;
+
+    color: #493a35;
+
+    text-align: center;
+
+}
+
+
+/* =====================================================
+   TOP ORNAMENT
+===================================================== */
+
+.family-ornament {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 16px;
+
+    margin-bottom: 25px;
+
+}
+
+.family-ornament span {
+
+    width: 70px;
+
+    height: 1px;
+
+    background: #bda56e;
+
+}
+
+.family-ornament i {
+
+    color: #8a3f4a;
+
+    font-size: 20px;
+
+    font-style: normal;
+
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.family-header {
+
+    max-width: 720px;
+
+    margin: 0 auto 60px;
+
+}
+
+.family-eyebrow {
+
+    margin: 0 0 12px;
+
+    color: #a58952;
+
+    font-size: 10px;
+
+    font-weight: 600;
+
+    letter-spacing: 3px;
+
+}
+
+.family-header h1 {
+
+    margin: 0;
+
+    color: #49332f;
+
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: clamp(48px, 6vw, 70px);
+
+    font-weight: 500;
+
+    line-height: 1;
+
+}
+
+.family-header h1 span {
+
+    color: #8a3f4a;
+
+}
+
+.family-intro {
+
+    max-width: 600px;
+
+    margin: 22px auto 0;
+
+    color: #7d726c;
+
+    font-family: 'Montserrat', sans-serif;
+
+    font-size: 13px;
+
+    font-weight: 300;
+
+    line-height: 1.9;
+
+}
+
+
+/* =====================================================
+   FAMILY TREES CONTAINER
+===================================================== */
+
+.family-trees {
+
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 35px;
+
+    align-items: start;
+
+}
+
+
+/* =====================================================
+   FAMILY CARD
+===================================================== */
+
+.family-tree-card {
+
+    position: relative;
+
+    padding: 28px 25px 25px;
+
+    background: #fffdf8;
+
+    border: 1px solid rgba(181, 154, 98, 0.35);
+
+    border-radius: 6px;
+
+    box-shadow:
+        0 18px 50px rgba(70, 50, 40, 0.09);
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
+
+}
+
+.family-tree-card:hover {
+
+    transform: translateY(-6px);
+
+    box-shadow:
+        0 25px 60px rgba(70, 50, 40, 0.14);
+
+}
+
+
+/* Inner border */
+
+.family-tree-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 9px;
+
+    border: 1px solid rgba(181, 154, 98, 0.20);
+
+    pointer-events: none;
+
+}
+
+
+/* =====================================================
+   CARD TITLE
+===================================================== */
+
+.tree-title {
+
+    position: relative;
+
+    z-index: 2;
+
+    margin-bottom: 25px;
+
+}
+
+.tree-flower {
+
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #a58952;
+
+    font-size: 18px;
+
+}
+
+.tree-title p {
+
+    margin: 0 0 5px;
+
+    color: #a58952;
+
+    font-family: 'Montserrat', sans-serif;
+
+    font-size: 9px;
+
+    font-weight: 600;
+
+    letter-spacing: 3px;
+
+}
+
+.tree-title h2 {
+
+    margin: 0;
+
+    color: #8a3f4a;
+
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 35px;
+
+    font-weight: 600;
+
+}
+
+
+/* =====================================================
+   TREE IMAGE
+===================================================== */
+
+.tree-image-wrapper {
+
+    position: relative;
+
+    z-index: 1;
+
+    padding: 12px;
+
+    background: #fdfbf5;
+
+    border: 1px solid rgba(181, 154, 98, 0.20);
+
+}
+
+.family-tree-image {
+
+    display: block;
+
+    width: 100%;
+
+    height: auto;
+
+    max-height: 700px;
+
+    object-fit: contain;
+
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.family-footer {
+
+    max-width: 750px;
+
+    margin: 75px auto 0;
+
+}
+
+.family-line {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    margin-bottom: 22px;
+
+}
+
+.family-line span {
+
+    width: 60px;
+
+    height: 1px;
+
+    background: #c5b27f;
+
+}
+
+.family-line i {
+
+    color: #8a3f4a;
+
+    font-size: 21px;
+
+    font-style: normal;
+
+}
+
+.family-blessing {
+
+    margin: 0 0 10px;
+
+    color: #a58952;
+
+    font-family: 'Montserrat', sans-serif;
+
+    font-size: 9px;
+
+    font-weight: 600;
+
+    letter-spacing: 3px;
+
+}
+
+.family-footer h2 {
+
+    margin: 0;
+
+    color: #49332f;
+
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 37px;
+
+    font-weight: 500;
+
+}
+
+.family-names {
+
+    margin-top: 18px;
+
+    color: #8a3f4a;
+
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 31px;
+
+}
+
+.family-names span {
+
+    padding: 0 8px;
+
+    color: #a58952;
+
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 850px) {
+
+    .family-section {
+
+        padding: 75px 4% 85px;
+
+    }
+
+    .family-trees {
+
+        grid-template-columns: 1fr;
+
+        max-width: 650px;
+
+        gap: 40px;
+
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .family-section {
+
+        padding: 65px 15px 75px;
+
+    }
+
+    .family-ornament span {
+
+        width: 45px;
+
+    }
+
+    .family-header {
+
+        margin-bottom: 45px;
+
+    }
+
+    .family-eyebrow {
+
+        font-size: 8px;
+
+        letter-spacing: 2px;
+
+    }
+
+    .family-header h1 {
+
+        font-size: 49px;
+
+    }
+
+    .family-intro {
+
+        font-size: 11px;
+
+        line-height: 1.8;
+
+    }
+
+    .family-trees {
+
+        gap: 30px;
+
+    }
+
+    .family-tree-card {
+
+        padding: 23px 15px 18px;
+
+    }
+
+    .tree-title h2 {
+
+        font-size: 31px;
+
+    }
+
+    .tree-image-wrapper {
+
+        padding: 8px;
+
+    }
+
+    .family-footer {
+
+        margin-top: 55px;
+
+    }
+
+    .family-footer h2 {
+
+        font-size: 30px;
+
+    }
+
+    .family-names {
+
+        font-size: 28px;
+
+    }
+
+}

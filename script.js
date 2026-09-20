@@ -18,6 +18,7 @@ async function loadHome() {
     const capturedMoments = await fetch("./pages/capturedMoments.html").then(res => res.text());
     const eventSchedule = await fetch("./pages/event-schedule.html").then(res => res.text());
     const ourVenues = await fetch("./pages/our-venues.html").then(res => res.text());
+    const family = await fetch("./pages/family.html").then(res => res.text());
 
     document.getElementById("app").innerHTML =
         welcome +
@@ -26,7 +27,8 @@ async function loadHome() {
         ourJourney +
         capturedMoments+
         eventSchedule+
-        ourVenues;
+        ourVenues +
+        family;
 
     initializePetals();
     initializeScratchCard();
