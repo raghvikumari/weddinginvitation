@@ -17,19 +17,22 @@ async function loadHome() {
     const ourJourney = await fetch("./pages/ourJourney.html").then(res => res.text());
     const capturedMoments = await fetch("./pages/capturedMoments.html").then(res => res.text());
     const eventSchedule = await fetch("./pages/event-schedule.html").then(res => res.text());
+    const ourVenues = await fetch("./pages/our-venues.html").then(res => res.text());
 
     document.getElementById("app").innerHTML =
         welcome +
         saveTheDate +
         meetCouple +
         ourJourney +
-        capturedMoments +
-        eventSchedule;
+        capturedMoments+
+        eventSchedule+
+        ourVenues;
 
     initializePetals();
     initializeScratchCard();
     initializeCapturedMoments();
     initializeEventSchedule();
+    initializeOurVenues();
 }
 
 function initializePage(page) {

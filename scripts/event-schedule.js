@@ -1,76 +1,119 @@
-/* =========================================
-   WEDDING EVENT SCHEDULE
-   ========================================= */
-
-
-/*
-   This function is called from script.js
-   AFTER event-schedule.html is loaded.
-*/
-
 function initializeEventSchedule() {
 
-    const eventRows = document.querySelectorAll(".event-row");
+    /* =====================================================
+       SCROLL REVEAL
+    ===================================================== */
 
-    /*
-       If Event Schedule is not loaded yet,
-       simply stop.
-    */
+    const eventItems =
+        document.querySelectorAll(".timeline-item");
 
-    if (!eventRows.length) {
-        return;
+    if ("IntersectionObserver" in window) {
+
+        const observer = new IntersectionObserver(
+            (entries, observer) => {
+
+                entries.forEach(entry => {
+
+                    if (entry.isIntersecting) {
+
+                        entry.target.classList.add("show");
+
+                        observer.unobserve(entry.target);
+                    }
+
+                });
+
+            },
+            {
+                threshold: 0.15
+            }
+        );
+
+        eventItems.forEach(item => {
+            observer.observe(item);
+        });
+
+    } else {
+
+        eventItems.forEach(item => {
+            item.classList.add("show");
+        });
+
     }
 
 
-    /* =========================================
-       SCROLL REVEAL
-       ========================================= */
+    /* =====================================================
+       GOOGLE CALENDAR
+    ===================================================== */
 
-    const observer = new IntersectionObserver(
-        (entries) => {
-
-            entries.forEach((entry) => {
-
-                if (entry.isIntersecting) {
-
-                    entry.target.classList.add("visible");
-
-                    observer.unobserve(entry.target);
-                }
-
-            });
-
-        },
-        {
-            threshold: 0.15
-        }
-    );
+    const calendarButtons =
+        document.querySelectorAll(".calendar-button");
 
 
-    eventRows.forEach((row, index) => {
+    calendarButtons.forEach(button => {
 
-        /*
-           Each card appears slightly after
-           the previous one.
-        */
+        button.addEventListener("click", () => {
 
-        row.style.transitionDelay =
-            `${index * 120}ms`;
+            const title =
+                button.dataset.title;
 
-        observer.observe(row);
+            const date =
+                button.dataset.date;
+
+            const start =
+                button.dataset.start;
+
+            const end =
+                button.dataset.end;
+
+            const location =
+                button.dataset.location;
+
+            const description =
+                button.dataset.description;
+
+
+            /*
+             * Convert:
+             *
+             * 2026-12-25 + 10:00
+             *
+             * into:
+             *
+             * 20261225T100000
+             */
+
+            const formatDateTime = (date, time) => {
+
+                const cleanTime =
+                    time.replace(":", "");
+
+                return `${date.replace(/-/g, "")}T${cleanTime}00`;
+            };
+
+
+            const startDate =
+                formatDateTime(date, start);
+
+            const endDate =
+                formatDateTime(date, end);
+
+
+            const googleCalendarURL =
+                "https://calendar.google.com/calendar/render?action=TEMPLATE" +
+                `&text=${encodeURIComponent(title)}` +
+                `&dates=${startDate}/${endDate}` +
+                `&details=${encodeURIComponent(description)}` +
+                `&location=${encodeURIComponent(location)}`;
+
+
+            window.open(
+                googleCalendarURL,
+                "_blank"
+            );
+
+        });
 
     });
-
-
-    /* =========================================
-       LOCATION BUTTON
-       =========================================
-
-       Location URLs are already written directly
-       inside event-schedule.html.
-
-       Therefore no extra JavaScript is needed
-       for Google Maps.
-    */
 
 }
