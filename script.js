@@ -53,6 +53,7 @@ async function loadPage(page) {
 // }
 async function loadHome() {
 
+<<<<<<< HEAD
     const welcome =
         await fetch("./pages/welcome.html")
         .then(res => res.text());
@@ -65,14 +66,31 @@ async function loadHome() {
         await fetch("./pages/saveTheDate.html")
         .then(res => res.text());
 
+=======
+    
+    const welcome = await fetch("./pages/welcome.html").then(res => res.text());
+    const saveTheDate = await fetch("./pages/saveTheDate.html").then(res => res.text());
+    const meetCouple = await fetch("./pages/meetCouple.html").then(res => res.text());
+    const ourJourney = await fetch("./pages/ourJourney.html").then(res => res.text());
+    const capturedMoments = await fetch("./pages/capturedMoments.html").then(res => res.text());
+>>>>>>> 8b7226ec656f4d18cb708d2bbc890aca264915f4
 
     document.getElementById("app").innerHTML =
         welcome +
+        saveTheDate +
         meetCouple +
+<<<<<<< HEAD
         saveTheDate;
 
 
     initializeScratchCard();
+=======
+        ourJourney +
+        capturedMoments;
+
+    initializeScratchCard();
+    initializeCapturedMoments();
+>>>>>>> 8b7226ec656f4d18cb708d2bbc890aca264915f4
 }
 
 function initializePage(page) {
