@@ -1,0 +1,825 @@
+/* =========================================================
+   EVENT SCHEDULE
+========================================================= */
+
+.event-schedule {
+
+    width: 100%;
+    min-height: 100vh;
+
+    padding: 90px 20px 80px;
+
+    background: #edf5e8;
+
+    position: relative;
+
+    overflow: hidden;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.schedule-header {
+
+    max-width: 800px;
+
+    margin: 0 auto 70px;
+
+    text-align: center;
+
+    position: relative;
+
+    z-index: 5;
+}
+
+
+.schedule-subtitle {
+
+    margin: 0;
+
+    font-family: "Montserrat", sans-serif;
+
+    font-size: 11px;
+
+    font-weight: 500;
+
+    letter-spacing: 6px;
+
+    color: #b29b58;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   GOLD DIVIDER
+========================================================= */
+
+.schedule-divider {
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 14px;
+
+    margin: 13px auto 17px;
+
+    width: 220px;
+}
+
+
+.schedule-divider span {
+
+    width: 78px;
+
+    height: 1px;
+
+    background: #c5aa69;
+}
+
+
+.schedule-divider b {
+
+    font-size: 18px;
+
+    font-weight: 400;
+
+    color: #c5aa69;
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.schedule-title {
+
+    margin: 0;
+
+    font-family:
+        "Cormorant Garamond",
+        Georgia,
+        serif;
+
+    font-size: 62px;
+
+    line-height: 1;
+
+    font-weight: 500;
+
+    color: #972741;
+}
+
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.schedule-intro {
+
+    max-width: 500px;
+
+    margin: 20px auto 0;
+
+    font-family:
+        "Cormorant Garamond",
+        Georgia,
+        serif;
+
+    font-size: 22px;
+
+    line-height: 1.5;
+
+    color: #765d61;
+}
+
+
+/* =========================================================
+   TIMELINE
+========================================================= */
+
+.events-timeline {
+
+    width: 100%;
+
+    max-width: 1050px;
+
+    margin: 0 auto;
+
+    position: relative;
+
+    z-index: 3;
+}
+
+
+/* Vertical gold line */
+
+.events-timeline::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    bottom: 0;
+
+    left: 50%;
+
+    width: 1px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            transparent,
+            #c5aa69 8%,
+            #c5aa69 92%,
+            transparent
+        );
+
+    transform: translateX(-50%);
+}
+
+
+/* =========================================================
+   EVENT ROW
+========================================================= */
+
+.event-row {
+
+    display: grid;
+
+    grid-template-columns: 1fr 80px 1fr;
+
+    align-items: center;
+
+    min-height: 310px;
+
+    position: relative;
+}
+
+
+/* =========================================================
+   NUMBER
+========================================================= */
+
+.event-side {
+
+    text-align: right;
+
+    padding-right: 55px;
+}
+
+
+.event-number {
+
+    font-family:
+        "Cormorant Garamond",
+        Georgia,
+        serif;
+
+    font-size: 65px;
+
+    font-weight: 300;
+
+    color: rgba(178, 155, 88, 0.35);
+
+    line-height: 1;
+}
+
+
+/* =========================================================
+   TIMELINE POINT
+========================================================= */
+
+.timeline-point {
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+
+    z-index: 5;
+}
+
+
+.timeline-icon {
+
+    width: 48px;
+
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #edf5e8;
+
+    border: 1px solid #c5aa69;
+
+    color: #972741;
+
+    font-size: 20px;
+
+    box-shadow:
+        0 0 0 8px #edf5e8;
+}
+
+
+/* =========================================================
+   EVENT CARD
+========================================================= */
+
+.event-card {
+
+    padding-left: 30px;
+}
+
+
+.event-card-inner {
+
+    max-width: 430px;
+
+    padding: 32px 35px;
+
+    background:
+        rgba(255, 255, 255, 0.72);
+
+    border: 1px solid rgba(197, 170, 105, 0.45);
+
+    border-radius: 22px;
+
+    box-shadow:
+        0 12px 35px rgba(73, 50, 39, 0.08);
+
+    backdrop-filter: blur(5px);
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease,
+        border-color 0.4s ease;
+}
+
+
+/* Hover */
+
+.event-card-inner:hover {
+
+    transform: translateY(-7px);
+
+    border-color: #c5aa69;
+
+    box-shadow:
+        0 20px 45px rgba(73, 50, 39, 0.14);
+}
+
+
+/* =========================================================
+   EVENT TEXT
+========================================================= */
+
+.event-label {
+
+    margin: 0 0 7px;
+
+    font-family: "Montserrat", sans-serif;
+
+    font-size: 9px;
+
+    font-weight: 600;
+
+    letter-spacing: 3px;
+
+    color: #b29b58;
+}
+
+
+.event-name {
+
+    margin: 0;
+
+    font-family:
+        "Cormorant Garamond",
+        Georgia,
+        serif;
+
+    font-size: 42px;
+
+    font-weight: 500;
+
+    color: #972741;
+
+    line-height: 1;
+}
+
+
+/* =========================================================
+   SMALL GOLD LINE
+========================================================= */
+
+.event-line {
+
+    width: 45px;
+
+    height: 1px;
+
+    margin: 16px 0 22px;
+
+    background: #c5aa69;
+}
+
+
+/* =========================================================
+   EVENT INFO
+========================================================= */
+
+.event-info {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 15px;
+}
+
+
+.event-info-item {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+}
+
+
+.event-icon {
+
+    width: 32px;
+
+    height: 32px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #f6f1df;
+
+    color: #a88745;
+
+    font-size: 14px;
+}
+
+
+.event-info-item div {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 2px;
+}
+
+
+.event-info-item small {
+
+    font-family: "Montserrat", sans-serif;
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+    color: #a88745;
+}
+
+
+.event-info-item strong {
+
+    font-family: "Montserrat", sans-serif;
+
+    font-size: 12px;
+
+    font-weight: 500;
+
+    color: #5e4c4f;
+
+}
+
+
+/* =========================================================
+   LOCATION BUTTON
+========================================================= */
+
+.location-button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    margin-top: 25px;
+
+    padding: 10px 17px;
+
+    border: 1px solid #c5aa69;
+
+    border-radius: 30px;
+
+    text-decoration: none;
+
+    font-family: "Montserrat", sans-serif;
+
+    font-size: 9px;
+
+    font-weight: 600;
+
+    letter-spacing: 1px;
+
+    color: #972741;
+
+    background: transparent;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+.location-button:hover {
+
+    background: #972741;
+
+    color: white;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.schedule-footer {
+
+    position: relative;
+
+    z-index: 5;
+
+    max-width: 550px;
+
+    margin: 70px auto 0;
+
+    text-align: center;
+}
+
+
+.footer-heart {
+
+    color: #b29b58;
+
+    font-size: 20px;
+
+    margin-bottom: 10px;
+}
+
+
+.schedule-footer p {
+
+    margin: 0;
+
+    font-family:
+        "Cormorant Garamond",
+        Georgia,
+        serif;
+
+    font-size: 23px;
+
+    font-style: italic;
+
+    color: #972741;
+}
+
+
+/* =========================================================
+   BOTANICAL DECORATIONS
+========================================================= */
+
+.schedule-decoration {
+
+    position: absolute;
+
+    z-index: 1;
+
+    font-family: Georgia, serif;
+
+    color: #cdbd91;
+
+    opacity: 0.45;
+
+    pointer-events: none;
+}
+
+
+.schedule-decoration-left {
+
+    top: 20px;
+
+    left: -35px;
+
+    font-size: 170px;
+
+    transform: rotate(-35deg);
+}
+
+
+.schedule-decoration-right {
+
+    right: -35px;
+
+    bottom: 20px;
+
+    font-size: 170px;
+
+    transform: rotate(145deg);
+}
+
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+.reveal-event {
+
+    opacity: 0;
+
+    transform: translateY(35px);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+
+.reveal-event.show {
+
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .event-schedule {
+
+        padding: 60px 15px 55px;
+    }
+
+
+    .schedule-header {
+
+        margin-bottom: 45px;
+    }
+
+
+    .schedule-title {
+
+        font-size: 45px;
+    }
+
+
+    .schedule-intro {
+
+        font-size: 19px;
+
+        padding: 0 20px;
+    }
+
+
+    /* Timeline moves to left */
+
+    .events-timeline::before {
+
+        left: 22px;
+
+        transform: none;
+    }
+
+
+    .event-row {
+
+        display: grid;
+
+        grid-template-columns: 45px 1fr;
+
+        min-height: auto;
+
+        margin-bottom: 30px;
+
+        align-items: start;
+    }
+
+
+    .event-side {
+
+        display: none;
+    }
+
+
+    .timeline-point {
+
+        grid-column: 1;
+
+        grid-row: 1;
+
+        justify-content: flex-start;
+    }
+
+
+    .timeline-icon {
+
+        width: 44px;
+
+        height: 44px;
+
+        box-shadow:
+            0 0 0 7px #edf5e8;
+    }
+
+
+    .event-card {
+
+        grid-column: 2;
+
+        grid-row: 1;
+
+        padding-left: 18px;
+    }
+
+
+    .event-card-inner {
+
+        padding: 25px 22px;
+
+        border-radius: 18px;
+    }
+
+
+    .event-name {
+
+        font-size: 36px;
+    }
+
+
+    .event-info-item strong {
+
+        font-size: 11px;
+    }
+
+
+    .schedule-decoration-left,
+    .schedule-decoration-right {
+
+        font-size: 100px;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .schedule-title {
+
+        font-size: 39px;
+    }
+
+
+    .schedule-subtitle {
+
+        font-size: 9px;
+
+        letter-spacing: 4px;
+    }
+
+
+    .event-row {
+
+        grid-template-columns: 40px 1fr;
+    }
+
+
+    .timeline-icon {
+
+        width: 38px;
+
+        height: 38px;
+
+        font-size: 16px;
+    }
+
+
+    .event-card {
+
+        padding-left: 12px;
+    }
+
+
+    .event-card-inner {
+
+        padding: 22px 18px;
+    }
+
+
+    .event-name {
+
+        font-size: 33px;
+    }
+
+
+    .event-label {
+
+        font-size: 8px;
+
+        letter-spacing: 2px;
+    }
+
+
+    .location-button {
+
+        font-size: 8px;
+
+        padding: 9px 13px;
+    }
+
+
+    .schedule-footer p {
+
+        font-size: 20px;
+    }
+}

@@ -16,16 +16,19 @@ async function loadHome() {
     const meetCouple = await fetch("./pages/meetCouple.html").then(res => res.text());
     const ourJourney = await fetch("./pages/ourJourney.html").then(res => res.text());
     const capturedMoments = await fetch("./pages/capturedMoments.html").then(res => res.text());
+    const eventSchedule = await fetch("./pages/event-schedule.html").then(res => res.text());
 
     document.getElementById("app").innerHTML =
         welcome +
         saveTheDate +
         meetCouple +
         ourJourney +
-        capturedMoments;
+        capturedMoments+
+        eventSchedule;
 
     initializeScratchCard();
     initializeCapturedMoments();
+    initializeEventSchedule();
 }
 
 function initializePage(page) {
