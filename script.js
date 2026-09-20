@@ -1,7 +1,41 @@
+// async function loadPage(page) {
+
+//     const response = await fetch(`./pages/${page}.html`);
+
+//     const html = await response.text();
+
+//     document.getElementById("app").innerHTML = html;
+
+//     initializePage(page);
+// }
+
+// function initializePage(page) {
+
+//     if (page === "opening") {
+
+//         const video = document.querySelector(".opening-video");
+//         const button = document.querySelector(".tap-button");
+
+//         button.addEventListener("click", () => {
+
+//             video.play();
+
+//             button.style.display = "none";
+
+//         });
+
+//         video.addEventListener("ended", () => {
+//             loadPage("/");
+//         });
+
+//     }
+
+// }
+
+// loadPage("opening");
+
 async function loadPage(page) {
-
     const response = await fetch(`./pages/${page}.html`);
-
     const html = await response.text();
 
     document.getElementById("app").innerHTML = html;
@@ -9,14 +43,23 @@ async function loadPage(page) {
     initializePage(page);
 }
 
-function initializePage(page){
+async function loadHome() {
+    const welcome = await fetch("./pages/welcome.html").then(res => res.text());
+    const meetCouple = await fetch("./pages/meetCouple.html").then(res => res.text());
 
-    if(page === "opening"){
+    document.getElementById("app").innerHTML =
+        welcome +
+        meetCouple;
+}
+
+function initializePage(page) {
+
+    if (page === "opening") {
 
         const video = document.querySelector(".opening-video");
         const button = document.querySelector(".tap-button");
 
-        button.addEventListener("click",()=>{
+        button.addEventListener("click", () => {
 
             video.play();
 
@@ -24,9 +67,9 @@ function initializePage(page){
 
         });
 
-        video.addEventListener("ended",()=>{
+        video.addEventListener("ended", () => {
 
-            loadPage("welcome");
+            loadHome();
 
         });
 
