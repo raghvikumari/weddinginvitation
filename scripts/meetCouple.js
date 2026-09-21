@@ -18,7 +18,9 @@ function initializeMeetCouple() {
         "./public/images/gallery/3.jpeg",
         "./public/images/gallery/4.jpeg",
         "./public/images/gallery/5.jpg",
-        "./public/images/gallery/6.jpg"
+        "./public/images/gallery/6.jpg",
+        "./public/images/gallery/7.jpeg",
+        "./public/images/gallery/8.jpeg",
     ];
 
     // Create Photos
