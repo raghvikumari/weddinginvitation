@@ -1,208 +1,92 @@
-.meet-couple {
-    width: 100%;
-    min-height: 100vh;
+.meet-couple{
 
-    padding: 70px 8%;
+    width:100%;
+    min-height:100vh;
+    position:relative;
 
-    background: #fbf7f0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    overflow:hidden;
+
+    background: #ffffff;  
 }
 
-.section-title {
-    text-align: center;
+.burst-container{
 
-    font-size: 64px;
-    font-family: cursive;
+    position:absolute;
 
-    color: #9d233d;
+    inset:0;
 
-    margin-bottom: 90px;
+    background: transparent;   /* Not black */
+
+    pointer-events:none;
 }
 
-.couple-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.small-photo {
 
-    gap: 70px;
+    position: absolute;
 
-    margin-bottom: 120px;
-}
+    left: 50%;
+    top: 50%;
 
-.couple-row.reverse {
-    flex-direction: row-reverse;
-}
+    width: 110px;
+    height: 110px;
 
-.couple-image {
-    flex: 1;
-
-    display: flex;
-    justify-content: center;
-}
-
-.couple-image img {
-    width: 100%;
-    max-width: 420px;
-
-    border-radius: 40px;
+    transform: translate(-50%, -50%);
 
     object-fit: cover;
 
-    border: 2px solid #e7c76a;
+    border-radius: 14px;
 
-    box-shadow: 0 8px 25px rgba(0, 0, 0, .12);
+    border: 5px solid #fff;
+
+    background: transparent;
+
+    box-shadow: 0 12px 30px rgba(0,0,0,.18);
+
+    will-change: transform, opacity;
 }
 
-.couple-content {
-    flex: 1;
+.couple-final{
+
+    position:relative;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:80px;
+
+    opacity:0;
 }
 
-.label {
-    color: #d48a96;
+.person{
 
-    letter-spacing: 4px;
+    text-align:center;
 
-    font-size: 15px;
+    opacity:0;
 
-    margin-bottom: 10px;
+    transform:translateY(80px);
 }
 
-.name {
-    font-size: 54px;
+.person img{
 
-    color: #a3213b;
+    width:320px;
 
-    font-family: cursive;
+    height:420px;
 
-    margin-bottom: 25px;
+    object-fit:cover;
+
+    border-radius:25px;
+
+    box-shadow:0 20px 40px rgba(0,0,0,.2);
 }
 
-.description {
-    font-size: 28px;
+.person h2{
 
-    line-height: 1.8;
-
-    color: #47352d;
-
-    font-style: italic;
-}
-
-@media(max-width:900px) {
-
-     .couple-row:first-of-type {
-        margin-top: 30px;
-    }
-
-       .couple-row,
-    .couple-row.reverse {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 30px;
-        margin-bottom: 80px;
-    }
-
-    /* Make the reverse row behave like a normal column */
-    .couple-row.reverse .couple-image {
-        order: 1;
-    }
-
-    .couple-row.reverse .couple-content {
-        order: 2;
-    }
-
-    .section-title {
-        font-size: 42px;
-        margin-bottom: 50px;
-    }
-
-    .name {
-        font-size: 42px;
-    }
-
-    .description {
-        font-size: 22px;
-    }
-
-    .couple-image img {
-        max-width: 340px;
-        width: 100%;
-    }
-
-}
-
-.couple-quote {
-    position: relative;
-
-    max-width: 1100px;
-    width: 100%;
-
-    margin: 80px auto 0;
-    padding: 50px 90px;
-
-    background: #fdf8f1;
-
-    border: 1.5px solid #e5c78b;
-    border-radius: 35px;
-
-    text-align: center;
-
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-}
-
-.couple-quote p {
-    color: #b3475a;
-
-    font-size: 2rem;
-    line-height: 1.7;
-
-    font-style: italic;
-    font-family: "Cormorant Garamond", serif;
-}
-
-.quote-left,
-.quote-right {
-    position: absolute;
-
-    font-size: 4rem;
-    font-weight: bold;
-
-    color: #3e2a26;
-}
-
-.quote-left {
-    top: 15px;
-    left: 25px;
-}
-
-.quote-right {
-    right: 25px;
-    bottom: 15px;
-}
-
-@media (max-width: 768px) {
-
-    .couple-quote {
-        padding: 35px 25px;
-        margin-top: 50px;
-    }
-
-    .couple-quote p {
-        font-size: 1.3rem;
-    }
-
-    .quote-left,
-    .quote-right {
-        font-size: 2.5rem;
-    }
-
-    .quote-left {
-        left: 15px;
-        top: 10px;
-    }
-
-    .quote-right {
-        right: 15px;
-        bottom: 10px;
-    }
+    margin-top:20px;
 }

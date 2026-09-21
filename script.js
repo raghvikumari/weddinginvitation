@@ -33,10 +33,12 @@ async function loadHome() {
         contact;
 
     initializePetals();
+    initializeMeetCouple();
     initializeScratchCard();
     initializeCapturedMoments();
     initializeEventSchedule();
     initializeOurVenues();
+    initializeOurJourney
 }
 
 function initializePage(page) {
