@@ -26,8 +26,8 @@ async function loadHome() {
         saveTheDate +
         meetCouple +
         ourJourney +
-        capturedMoments+
-        eventSchedule+
+        capturedMoments +
+        eventSchedule +
         ourVenues +
         family +
         contact;
