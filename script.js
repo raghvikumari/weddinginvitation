@@ -32,7 +32,7 @@ async function loadHome() {
         ourVenues +
         family +
         contact +
-        test;
+        // test;
 
     initializePetals();
     initializeMeetCouple();
@@ -45,6 +45,7 @@ async function loadHome() {
     initializeCalendarButton();
     initializeLoveButton();
     initializeHorizontalScroll();
+    initializeContactForm()
 }
 
 function initializePage(page) {
