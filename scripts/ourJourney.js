@@ -1,137 +1,492 @@
 function initializeOurJourney() {
 
-    const diary = document.getElementById("ourDiary");
-    const section = document.getElementById("our-journey");
+    const diaryEntrance = document.getElementById("diaryEntrance");
+    const diaryBook = document.getElementById("diaryBook");
 
-    if (!diary || !section) {
-
-        console.log("Our Journey elements not found");
-
+    if (!diaryEntrance || !diaryBook) {
+        console.warn("Our Journey elements not found.");
         return;
     }
 
-    console.log("OUR JOURNEY ANIMATION READY");
+    if (diaryBook.dataset.initialized === "true") {
+        return;
+    }
+
+    diaryBook.dataset.initialized = "true";
 
 
-    let animationStarted = false;
+    /* =====================================================
+       CHECK LIBRARY
+    ===================================================== */
+
+    if (
+        typeof St === "undefined" ||
+        typeof St.PageFlip === "undefined"
+    ) {
+        console.error("StPageFlip library is not loaded.");
+        return;
+    }
 
 
-    const observer = new IntersectionObserver(
-        function(entries) {
+    /* =====================================================
+       PAGES
+    ===================================================== */
 
-            entries.forEach(function(entry) {
+    const pages =
+        diaryBook.querySelectorAll(".diary-page");
 
-                if (
-                    entry.isIntersecting &&
-                    !animationStarted
-                ) {
+    if (!pages.length) {
+        console.error("No diary pages found.");
+        return;
+    }
 
-                    animationStarted = true;
 
-                    observer.disconnect();
+    /* =====================================================
+       DEVICE
+    ===================================================== */
 
-                    playDiaryAnimation();
+    const isMobile =
+        window.matchMedia("(max-width: 768px)").matches;
 
+
+    /* =====================================================
+       PAGE FLIP CONFIGURATION
+    ===================================================== */
+
+    let pageFlip;
+
+
+    if (isMobile) {
+
+        /*
+         * MOBILE
+         *
+         * One page at a time.
+         * This prevents the 1120px desktop
+         * spread from going outside the phone.
+         */
+
+        pageFlip = new St.PageFlip(
+            diaryBook,
+            {
+                width: 360,
+                height: 500,
+
+                size: "stretch",
+
+                minWidth: 270,
+                maxWidth: 380,
+
+                minHeight: 380,
+                maxHeight: 530,
+
+                showCover: true,
+
+                usePortrait: true,
+
+                drawShadow: true,
+
+                maxShadowOpacity: 0.4,
+
+                flippingTime: 1100,
+
+                startPage: 0,
+
+                mobileScrollSupport: false,
+
+                swipeDistance: 25,
+
+                useMouseEvents: true,
+
+                disableFlipByClick: false,
+
+                autoSize: true
+            }
+        );
+
+    } else {
+
+        /*
+         * DESKTOP
+         *
+         * Normal two-page diary.
+         */
+
+        pageFlip = new St.PageFlip(
+            diaryBook,
+            {
+                width: 560,
+                height: 440,
+
+                size: "fixed",
+
+                minWidth: 500,
+                maxWidth: 560,
+
+                minHeight: 400,
+                maxHeight: 440,
+
+                showCover: true,
+
+                usePortrait: false,
+
+                drawShadow: true,
+
+                maxShadowOpacity: 0.45,
+
+                flippingTime: 1200,
+
+                startPage: 0,
+
+                mobileScrollSupport: false,
+
+                swipeDistance: 30,
+
+                useMouseEvents: true,
+
+                disableFlipByClick: false,
+
+                autoSize: false
+            }
+        );
+    }
+
+
+    /* =====================================================
+       LOAD PAGES
+    ===================================================== */
+
+    pageFlip.loadFromHTML(pages);
+
+
+    /* =====================================================
+       VARIABLES
+    ===================================================== */
+
+    let autoFlipTimer = null;
+
+    let entranceStarted = false;
+
+    let userHasTakenControl = false;
+
+    let isFlipping = false;
+
+
+    /* =====================================================
+       STOP AUTO FLIP
+    ===================================================== */
+
+    function stopAutomaticFlipping() {
+
+        if (autoFlipTimer) {
+
+            clearTimeout(autoFlipTimer);
+
+            autoFlipTimer = null;
+        }
+    }
+
+
+    /* =====================================================
+       AUTOMATIC FLIP
+    ===================================================== */
+
+    function scheduleNextFlip(delay = 2500) {
+
+        stopAutomaticFlipping();
+
+        autoFlipTimer = setTimeout(function () {
+
+            if (userHasTakenControl) {
+                return;
+            }
+
+            if (isFlipping) {
+                return;
+            }
+
+            const current =
+                pageFlip.getCurrentPageIndex();
+
+            const total =
+                pageFlip.getPageCount();
+
+
+            if (current >= total - 1) {
+                return;
+            }
+
+
+            isFlipping = true;
+
+            pageFlip.flipNext("bottom");
+
+        }, delay);
+    }
+
+
+    /* =====================================================
+       PAGE FLIP EVENT
+    ===================================================== */
+
+    pageFlip.on("flip", function (event) {
+
+        console.log(
+            "Diary page:",
+            event.data
+        );
+
+        isFlipping = false;
+
+        if (!userHasTakenControl) {
+
+            scheduleNextFlip(2500);
+        }
+
+    });
+
+
+    /* =====================================================
+       USER FOLD EVENT
+    ===================================================== */
+
+    pageFlip.on("changeState", function (event) {
+
+        if (
+            event.data === "user_fold" ||
+            event.data === "fold_corner"
+        ) {
+
+            userHasTakenControl = true;
+
+            stopAutomaticFlipping();
+        }
+
+
+        if (event.data === "read") {
+
+            isFlipping = false;
+        }
+
+    });
+
+
+    /* =====================================================
+       PREVIOUS BUTTON
+    ===================================================== */
+
+    const previousButton =
+        document.getElementById("diaryPrev");
+
+
+    if (previousButton) {
+
+        previousButton.addEventListener(
+            "click",
+            function (event) {
+
+                event.preventDefault();
+                event.stopPropagation();
+
+                userHasTakenControl = true;
+
+                stopAutomaticFlipping();
+
+                if (!isFlipping) {
+
+                    pageFlip.flipPrev("top");
                 }
 
-            });
+            }
+        );
+    }
 
-        },
-        {
-            threshold: 0.35
+
+    /* =====================================================
+       NEXT BUTTON
+    ===================================================== */
+
+    const nextButton =
+        document.getElementById("diaryNext");
+
+
+    if (nextButton) {
+
+        nextButton.addEventListener(
+            "click",
+            function (event) {
+
+                event.preventDefault();
+                event.stopPropagation();
+
+                userHasTakenControl = true;
+
+                stopAutomaticFlipping();
+
+                if (!isFlipping) {
+
+                    pageFlip.flipNext("bottom");
+                }
+
+            }
+        );
+    }
+
+
+    /* =====================================================
+       KEYBOARD
+    ===================================================== */
+
+    diaryBook.setAttribute("tabindex", "0");
+
+
+    diaryBook.addEventListener(
+        "keydown",
+        function (event) {
+
+            if (event.key === "ArrowRight") {
+
+                userHasTakenControl = true;
+
+                stopAutomaticFlipping();
+
+                pageFlip.flipNext("bottom");
+            }
+
+
+            if (event.key === "ArrowLeft") {
+
+                userHasTakenControl = true;
+
+                stopAutomaticFlipping();
+
+                pageFlip.flipPrev("top");
+            }
+
         }
     );
 
 
-    observer.observe(section);
+    /* =====================================================
+       ENTRANCE ANIMATION
+    ===================================================== */
 
+    function startDiaryAnimation() {
 
-    function playDiaryAnimation() {
+        if (entranceStarted) {
+            return;
+        }
 
-        console.log("Diary animation started");
-
-
-        /* =================================
-           STEP 1
-           Force browser to recognise
-           the starting corner position
-        ================================= */
-
-        diary.classList.add("diary-ready");
+        entranceStarted = true;
 
 
         /*
-         * This is VERY important.
-         * It forces the browser to render
-         * the starting position first.
+         * Diary comes from corner.
          */
 
-        void diary.offsetWidth;
+        requestAnimationFrame(function () {
 
-
-        /* =================================
-           STEP 2
-           Move diary from corner
-           to centre
-        ================================= */
-
-        requestAnimationFrame(function() {
-
-            setTimeout(function() {
-
-                diary.classList.remove("diary-ready");
-
-                diary.classList.add("diary-arrived");
-
-            }, 100);
+            diaryEntrance.classList.add(
+                "is-arrived"
+            );
 
         });
 
 
-        /* =================================
-           STEP 3
-           Straighten diary
-        ================================= */
+        /*
+         * Settle.
+         */
 
-        setTimeout(function() {
+        setTimeout(function () {
 
-            diary.classList.remove("diary-arrived");
+            diaryEntrance.classList.add(
+                "is-settled"
+            );
 
-            diary.classList.add("diary-settled");
-
-        }, 2500);
-
-
-        /* =================================
-           STEP 4
-           Open cover
-        ================================= */
-
-        setTimeout(function() {
-
-            diary.classList.add("diary-open");
-
-        }, 3700);
+        }, 2400);
 
 
-        /* =================================
-           STEP 5
-           Turn page
-        ================================= */
+        /*
+         * Open cover.
+         */
 
-        setTimeout(function() {
+        setTimeout(function () {
 
-            const page =
-                document.getElementById("turningPage");
-
-            if (page) {
-
-                page.classList.add("turn");
-
+            if (userHasTakenControl) {
+                return;
             }
 
-        }, 6200);
+            isFlipping = true;
+
+            pageFlip.flipNext("bottom");
+
+        }, 3500);
 
     }
 
+
+    /* =====================================================
+       INTERSECTION OBSERVER
+    ===================================================== */
+
+    const observer =
+        new IntersectionObserver(
+            function (entries) {
+
+                entries.forEach(function (entry) {
+
+                    if (
+                        entry.isIntersecting &&
+                        entry.intersectionRatio > 0.15
+                    ) {
+
+                        startDiaryAnimation();
+
+                        observer.disconnect();
+                    }
+
+                });
+
+            },
+            {
+                threshold: 0.15
+            }
+        );
+
+
+    observer.observe(diaryEntrance);
+
+
+    /* =====================================================
+       FALLBACK
+    ===================================================== */
+
+    setTimeout(function () {
+
+        if (entranceStarted) {
+            return;
+        }
+
+        const rect =
+            diaryEntrance.getBoundingClientRect();
+
+        const visible =
+            rect.top < window.innerHeight &&
+            rect.bottom > 0;
+
+
+        if (visible) {
+
+            startDiaryAnimation();
+
+            observer.disconnect();
+        }
+
+    }, 500);
+
+
+    /*
+     * Debug access
+     */
+    window.ourJourneyPageFlip = pageFlip;
 }

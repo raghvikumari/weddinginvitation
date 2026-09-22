@@ -1,16 +1,1339 @@
-.welcome-page {
-    width: 100vw;
-    height: 100vh;
+
+/* =========================================================
+   WELCOME SECTION
+   Completely scoped to .welcome-section
+   ========================================================= */
+
+.welcome-section {
+    --gold: #d8ad55;
+    --gold-light: #f5d98b;
+    --gold-dark: #8e641f;
+
+    --maroon-dark: #35030b;
+    --maroon: #570711;
+    --maroon-light: #76111b;
+
+    position: relative;
+    width: 100%;
+    min-height: 100svh;
+
+    overflow: hidden;
 
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+
+    isolation: isolate;
+
+    background:
+        radial-gradient(
+            circle at 50% 45%,
+            rgba(151, 22, 39, 0.55),
+            transparent 38%
+        ),
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(217, 173, 85, 0.12),
+            transparent 25%
+        ),
+        linear-gradient(
+            135deg,
+            #260207 0%,
+            #4a050d 40%,
+            #680b17 70%,
+            #2b0207 100%
+        );
+
+    color: #f8e7b2;
+}
+
+
+/* =========================================================
+   BACKGROUND
+   ========================================================= */
+
+.welcome-section .welcome-bg {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.welcome-section .welcome-glow {
+    position: absolute;
+
+    width: 45vw;
+    height: 45vw;
+
+    border-radius: 50%;
+
+    filter: blur(80px);
+
+    opacity: 0.18;
+
+    animation: welcomeGlow 7s ease-in-out infinite alternate;
+}
+
+.welcome-section .welcome-glow-1 {
+    top: -20%;
+    left: -10%;
+
+    background: #e5b85b;
+}
+
+.welcome-section .welcome-glow-2 {
+    right: -15%;
+    bottom: -20%;
+
+    background: #b51531;
+
+    animation-delay: -3s;
+}
+
+@keyframes welcomeGlow {
+    from {
+        transform: scale(0.9);
+        opacity: 0.12;
+    }
+
+    to {
+        transform: scale(1.15);
+        opacity: 0.25;
+    }
+}
+
+
+/* =========================================================
+   MANDALA
+   ========================================================= */
+
+.welcome-section .welcome-mandala {
+    position: absolute;
+
+    width: min(85vw, 850px);
+    height: min(85vw, 850px);
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    opacity: 0.11;
+
+    background:
+        repeating-conic-gradient(
+            from 0deg,
+            transparent 0deg 7deg,
+            rgba(239, 196, 103, 0.8) 7deg 8deg
+        );
+
+    mask-image:
+        radial-gradient(
+            circle,
+            transparent 0 42%,
+            #000 43% 44%,
+            transparent 45% 58%,
+            #000 59% 60%,
+            transparent 61%
+        );
+
+    animation: mandalaRotate 70s linear infinite;
+}
+
+@keyframes mandalaRotate {
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+
+/* =========================================================
+   STAGE
+   ========================================================= */
+
+.welcome-section .welcome-stage {
+    position: relative;
+
+    width: 100%;
+    min-height: 100svh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 80px 25px;
+}
+
+
+/* =========================================================
+   CARD
+   ========================================================= */
+
+.welcome-section .welcome-card {
+    position: relative;
+
+    width: min(570px, 88vw);
+
+    min-height: 690px;
+
+    padding: 48px 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(122, 14, 28, 0.97),
+            rgba(65, 4, 12, 0.98)
+        );
+
+    border-radius: 6px;
+
+    box-shadow:
+        0 40px 100px rgba(0, 0, 0, 0.55),
+        0 0 0 1px rgba(241, 199, 107, 0.18),
+        inset 0 0 80px rgba(0, 0, 0, 0.25);
+
+    transform:
+        perspective(1400px)
+        rotateX(0deg)
+        rotateY(0deg);
+
+    transform-style: preserve-3d;
+
+    animation: cardFloat 6s ease-in-out infinite;
+
+    will-change: transform;
+}
+
+@keyframes cardFloat {
+    0%,
+    100% {
+        margin-top: 0;
+    }
+
+    50% {
+        margin-top: -8px;
+    }
+}
+
+
+/* =========================================================
+   CARD BORDERS
+   ========================================================= */
+
+.welcome-section .card-border {
+    position: absolute;
+    inset: 14px;
+
+    border: 1px solid rgba(225, 181, 82, 0.75);
+
+    pointer-events: none;
+}
+
+.welcome-section .card-border-inner {
+    inset: 22px;
+
+    border: 1px solid rgba(225, 181, 82, 0.25);
+}
+
+
+/* =========================================================
+   CORNERS
+   ========================================================= */
+
+.welcome-section .card-corner {
+    position: absolute;
+
+    color: var(--gold-light);
+
+    font-size: 25px;
+
+    opacity: 0.8;
+
+    z-index: 2;
+}
+
+.welcome-section .corner-tl {
+    top: 19px;
+    left: 19px;
+}
+
+.welcome-section .corner-tr {
+    top: 19px;
+    right: 19px;
+}
+
+.welcome-section .corner-bl {
+    bottom: 19px;
+    left: 19px;
+}
+
+.welcome-section .corner-br {
+    bottom: 19px;
+    right: 19px;
+}
+
+
+/* =========================================================
+   CONTENT
+   ========================================================= */
+
+.welcome-section .welcome-content {
+    position: relative;
+
+    width: 100%;
+
+    text-align: center;
+
+    z-index: 3;
+}
+
+
+/* =========================================================
+   OM
+   ========================================================= */
+
+.welcome-section .welcome-om {
+    font-family: "Noto Serif Devanagari", serif;
+
+    font-size: 54px;
+
+    line-height: 1;
+
+    color: var(--gold-light);
+
+    text-shadow:
+        0 0 15px rgba(238, 194, 91, 0.5);
+
+    margin-bottom: 16px;
+
+    animation: omGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes omGlow {
+    from {
+        text-shadow:
+            0 0 8px rgba(238, 194, 91, 0.3);
+    }
+
+    to {
+        text-shadow:
+            0 0 25px rgba(238, 194, 91, 0.8);
+    }
+}
+
+
+/* =========================================================
+   MANTRA
+   ========================================================= */
+
+.welcome-section .welcome-mantra {
+    font-family: "Noto Serif Devanagari", serif;
+
+    font-size: 18px;
+
+    letter-spacing: 1.5px;
+
+    color: #f4d48a;
+
+    margin-bottom: 12px;
+}
+
+.welcome-section .welcome-small-line {
+    font-family: Georgia, serif;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    color: rgba(255, 231, 176, 0.68);
+}
+
+
+/* =========================================================
+   TITLE
+   ========================================================= */
+
+.welcome-section .welcome-title-wrapper {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 14px;
+
+    margin-top: 30px;
+}
+
+.welcome-section .title-line {
+    width: 50px;
+    height: 1px;
+
+    background:
+        linear-gradient(
+            to right,
+            transparent,
+            var(--gold)
+        );
+}
+
+.welcome-section .title-line:last-child {
+    background:
+        linear-gradient(
+            to left,
+            transparent,
+            var(--gold)
+        );
+}
+
+.welcome-section .welcome-title {
+    margin: 0;
+
+    font-family: "Noto Serif Devanagari", Georgia, serif;
+
+    font-size: clamp(38px, 6vw, 55px);
+
+    font-weight: 500;
+
+    color: #f8d987;
+
+    line-height: 1.2;
+
+    text-shadow:
+        0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.welcome-section .welcome-subtitle {
+    margin: 10px 0 0;
+
+    font-family: Georgia, serif;
+
+    font-size: 13px;
+
+    letter-spacing: 4px;
+
+    text-transform: uppercase;
+
+    color: rgba(255, 231, 176, 0.72);
+}
+
+
+/* =========================================================
+   LOTUS
+   ========================================================= */
+
+.welcome-section .welcome-lotus {
+    margin: 17px 0 10px;
+
+    color: var(--gold-light);
+
+    font-size: 29px;
+
+    line-height: 1;
+
+    animation: lotusPulse 3s ease-in-out infinite;
+}
+
+@keyframes lotusPulse {
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+
+    50% {
+        transform: scale(1.12);
+        opacity: 1;
+    }
+}
+
+
+/* =========================================================
+   NAMES
+   ========================================================= */
+
+.welcome-section .welcome-names {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 17px;
+}
+
+.welcome-section .person-name {
+    font-family: "Cormorant Garamond", Georgia, serif;
+
+    font-size: clamp(34px, 6vw, 48px);
+
+    font-weight: 500;
+
+    color: #fff0c4;
+
+    letter-spacing: 1px;
+}
+
+.welcome-section .ampersand {
+    font-family: "Cormorant Garamond", Georgia, serif;
+
+    font-size: 38px;
+
+    color: var(--gold-light);
+}
+
+
+/* =========================================================
+   DIVIDER
+   ========================================================= */
+
+.welcome-section .welcome-divider {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    margin: 20px auto;
+
+    max-width: 280px;
+}
+
+.welcome-section .welcome-divider span {
+    flex: 1;
+
+    height: 1px;
+
+    background:
+        linear-gradient(
+            to right,
+            transparent,
+            rgba(226, 183, 83, 0.7)
+        );
+}
+
+.welcome-section .welcome-divider span:last-child {
+    background:
+        linear-gradient(
+            to left,
+            transparent,
+            rgba(226, 183, 83, 0.7)
+        );
+}
+
+.welcome-section .welcome-divider i {
+    font-style: normal;
+
+    color: var(--gold-light);
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   MESSAGE
+   ========================================================= */
+
+.welcome-section .welcome-message {
+    margin: 0 auto;
+
+    max-width: 400px;
+
+    font-family: Georgia, serif;
+
+    font-size: 15px;
+
+    line-height: 1.8;
+
+    color: rgba(255, 239, 199, 0.82);
+}
+
+
+/* =========================================================
+   DETAILS
+   ========================================================= */
+
+.welcome-section .welcome-details {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 28px;
+}
+
+.welcome-section .welcome-detail {
+    display: flex;
+
     flex-direction: column;
 
-    background-image: url("../public/images/invitation/invitationBg.jpg");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: auto 100%;
+    gap: 7px;
 
-    background-color: #fff;
+    padding: 0 25px;
+}
+
+.welcome-section .detail-label {
+    font-family: Arial, sans-serif;
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    color: var(--gold);
+}
+
+.welcome-section .welcome-detail strong {
+    font-family: Georgia, serif;
+
+    font-size: 12px;
+
+    font-weight: 500;
+
+    letter-spacing: 1.2px;
+
+    color: #f8df9e;
+}
+
+.welcome-section .detail-separator {
+    width: 1px;
+    height: 38px;
+
+    background:
+        linear-gradient(
+            transparent,
+            rgba(221, 180, 83, 0.6),
+            transparent
+        );
+}
+
+
+/* =========================================================
+   BOTTOM ORNAMENT
+   ========================================================= */
+
+.welcome-section .welcome-bottom-ornament {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 14px;
+
+    margin-top: 28px;
+
+    color: var(--gold);
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   DIYAS
+   ========================================================= */
+
+.welcome-section .welcome-diya {
+    position: absolute;
+
+    bottom: 9%;
+
+    width: 70px;
+    height: 80px;
+
+    z-index: 5;
+
+    animation: diyaFloat 4s ease-in-out infinite;
+}
+
+.welcome-section .diya-left {
+    left: calc(50% - 390px);
+}
+
+.welcome-section .diya-right {
+    right: calc(50% - 390px);
+
+    animation-delay: -2s;
+}
+
+.welcome-section .diya-bowl {
+    position: absolute;
+
+    bottom: 0;
+    left: 50%;
+
+    width: 65px;
+    height: 28px;
+
+    transform: translateX(-50%);
+
+    border-radius: 0 0 50% 50%;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #e7b95e,
+            #8b571b
+        );
+
+    box-shadow:
+        0 8px 18px rgba(0, 0, 0, 0.4),
+        0 0 15px rgba(235, 182, 72, 0.25);
+}
+
+.welcome-section .diya-bowl::before {
+    content: "";
+
+    position: absolute;
+
+    top: -5px;
+    left: 5px;
+    right: 5px;
+
+    height: 10px;
+
+    border-radius: 50%;
+
+    background: #f0c568;
+}
+
+.welcome-section .diya-flame {
+    position: absolute;
+
+    left: 50%;
+    bottom: 25px;
+
+    width: 20px;
+    height: 32px;
+
+    transform: translateX(-50%);
+
+    border-radius: 50% 50% 45% 45%;
+
+    background:
+        radial-gradient(
+            ellipse at center bottom,
+            #fff7c4 0 22%,
+            #ffd45d 35%,
+            #e88d1d 65%,
+            transparent 70%
+        );
+
+    filter:
+        drop-shadow(
+            0 0 9px rgba(255, 191, 52, 0.9)
+        );
+
+    animation: flame 0.8s ease-in-out infinite alternate;
+}
+
+@keyframes flame {
+    from {
+        transform:
+            translateX(-50%)
+            scale(0.9)
+            rotate(-4deg);
+    }
+
+    to {
+        transform:
+            translateX(-50%)
+            scale(1.08)
+            rotate(4deg);
+    }
+}
+
+@keyframes diyaFloat {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-7px);
+    }
+}
+
+
+/* =========================================================
+   PEACOCK FEATHERS
+   ========================================================= */
+
+.welcome-section .welcome-feather {
+    position: absolute;
+
+    width: 125px;
+    height: 270px;
+
+    z-index: 1;
+
+    opacity: 0.85;
+
+    pointer-events: none;
+}
+
+.welcome-section .feather-left {
+    left: 3%;
+    top: 17%;
+
+    transform: rotate(-27deg);
+}
+
+.welcome-section .feather-right {
+    right: 3%;
+    bottom: 17%;
+
+    transform: rotate(153deg);
+}
+
+.welcome-section .feather-shaft {
+    position: absolute;
+
+    left: 50%;
+    bottom: 0;
+
+    width: 3px;
+    height: 190px;
+
+    transform: translateX(-50%);
+
+    border-radius: 5px;
+
+    background:
+        linear-gradient(
+            to top,
+            #80601e,
+            #e0ba63
+        );
+}
+
+.welcome-section .feather-eye {
+    position: absolute;
+
+    top: 5px;
+    left: 50%;
+
+    width: 92px;
+    height: 135px;
+
+    transform: translateX(-50%);
+
+    border-radius: 50% 50% 45% 45%;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            #e9c75d 0 8%,
+            #0d6870 9% 20%,
+            #154c91 21% 35%,
+            #168b69 36% 48%,
+            transparent 49%
+        );
+
+    filter:
+        drop-shadow(
+            0 5px 12px rgba(0, 0, 0, 0.3)
+        );
+}
+
+.welcome-section .feather-eye::after {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    bottom: -45px;
+
+    width: 55px;
+    height: 100px;
+
+    transform: translateX(-50%);
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(30, 110, 80, 0.6),
+            transparent
+        );
+
+    border-radius: 50%;
+}
+
+
+/* =========================================================
+   KALASH
+   ========================================================= */
+
+.welcome-section .welcome-kalash {
+    position: absolute;
+
+    width: 90px;
+    height: 125px;
+
+    z-index: 2;
+
+    pointer-events: none;
+
+    opacity: 0.9;
+
+    animation: kalashFloat 5s ease-in-out infinite;
+}
+
+.welcome-section .kalash-left {
+    left: 5%;
+    bottom: 15%;
+}
+
+.welcome-section .kalash-right {
+    right: 5%;
+    top: 15%;
+
+    animation-delay: -2.5s;
+}
+
+.welcome-section .kalash-pot {
+    position: absolute;
+
+    left: 50%;
+    bottom: 0;
+
+    transform: translateX(-50%);
+}
+
+.welcome-section .kalash-neck {
+    width: 26px;
+    height: 27px;
+
+    margin: auto;
+
+    background:
+        linear-gradient(
+            90deg,
+            #8a581d,
+            #f0c75f,
+            #9c681e
+        );
+
+    border-radius: 3px 3px 5px 5px;
+}
+
+.welcome-section .kalash-body {
+    width: 70px;
+    height: 60px;
+
+    margin-top: -2px;
+
+    border-radius:
+        12px 12px
+        42% 42%;
+
+    background:
+        radial-gradient(
+            ellipse at 35% 25%,
+            #ffe292,
+            #d29a37 45%,
+            #80501a 100%
+        );
+
+    border: 2px solid #e6b94f;
+
+    box-shadow:
+        inset 0 0 15px rgba(255, 230, 130, 0.3),
+        0 8px 20px rgba(0, 0, 0, 0.35);
+}
+
+.welcome-section .kalash-leaves {
+    position: absolute;
+
+    top: 0;
+    left: 50%;
+
+    width: 60px;
+    height: 45px;
+
+    transform: translateX(-50%);
+}
+
+.welcome-section .kalash-leaves span {
+    position: absolute;
+
+    width: 18px;
+    height: 40px;
+
+    border-radius: 100% 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            #6b9d45,
+            #b5bf54
+        );
+
+    transform-origin: bottom center;
+}
+
+.welcome-section .kalash-leaves span:nth-child(1) {
+    left: 20px;
+    transform: rotate(-30deg);
+}
+
+.welcome-section .kalash-leaves span:nth-child(2) {
+    left: 21px;
+    transform: rotate(0deg);
+}
+
+.welcome-section .kalash-leaves span:nth-child(3) {
+    left: 20px;
+    transform: rotate(30deg);
+}
+
+@keyframes kalashFloat {
+    0%,
+    100% {
+        transform: translateY(0) rotate(-1deg);
+    }
+
+    50% {
+        transform: translateY(-10px) rotate(2deg);
+    }
+}
+
+
+/* =========================================================
+   PARTICLES
+   ========================================================= */
+
+.welcome-section .welcome-particle {
+    position: absolute;
+
+    width: 3px;
+    height: 3px;
+
+    border-radius: 50%;
+
+    background: #f0c969;
+
+    box-shadow:
+        0 0 8px rgba(240, 201, 105, 0.8);
+
+    animation:
+        particleFloat
+        var(--particle-duration)
+        ease-in-out
+        infinite
+        alternate;
+}
+
+@keyframes particleFloat {
+    from {
+        transform: translateY(0);
+        opacity: 0.25;
+    }
+
+    to {
+        transform: translateY(-35px);
+        opacity: 0.9;
+    }
+}
+
+
+/* =========================================================
+   PETALS
+   ========================================================= */
+
+.welcome-section .welcome-petal {
+    position: absolute;
+
+    top: -30px;
+
+    font-size: 15px;
+
+    opacity: 0;
+
+    animation:
+        petalFall
+        var(--petal-duration)
+        linear
+        infinite;
+
+    pointer-events: none;
+}
+
+@keyframes petalFall {
+    0% {
+        transform:
+            translate3d(0, -30px, 0)
+            rotate(0deg);
+
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.8;
+    }
+
+    50% {
+        transform:
+            translate3d(var(--petal-x), 50vh, 0)
+            rotate(180deg);
+    }
+
+    100% {
+        transform:
+            translate3d(calc(var(--petal-x) * -0.6), 110vh, 0)
+            rotate(360deg);
+
+        opacity: 0;
+    }
+}
+
+
+/* =========================================================
+   SCROLL
+   ========================================================= */
+
+.welcome-section .welcome-scroll {
+    position: absolute;
+
+    left: 50%;
+    bottom: 20px;
+
+    transform: translateX(-50%);
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 6px;
+
+    z-index: 10;
+
+    opacity: 0.7;
+}
+
+.welcome-section .scroll-text {
+    font-family: Arial, sans-serif;
+
+    font-size: 9px;
+
+    letter-spacing: 2.5px;
+
+    text-transform: uppercase;
+
+    color: #efd18a;
+
+    white-space: nowrap;
+}
+
+.welcome-section .scroll-arrow {
+    font-size: 19px;
+
+    color: #efd18a;
+
+    animation:
+        scrollArrow
+        1.6s
+        ease-in-out
+        infinite;
+}
+
+@keyframes scrollArrow {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(7px);
+    }
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .welcome-section .welcome-feather {
+        opacity: 0.45;
+        transform: scale(0.75) rotate(-27deg);
+    }
+
+    .welcome-section .feather-right {
+        transform: scale(0.75) rotate(153deg);
+    }
+
+    .welcome-section .welcome-kalash {
+        transform: scale(0.75);
+    }
+
+    .welcome-section .kalash-left {
+        left: 1%;
+    }
+
+    .welcome-section .kalash-right {
+        right: 1%;
+    }
+
+    .welcome-section .diya-left {
+        left: 8%;
+    }
+
+    .welcome-section .diya-right {
+        right: 8%;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .welcome-section .welcome-stage {
+        padding: 45px 12px 70px;
+    }
+
+    .welcome-section .welcome-card {
+        width: 94vw;
+
+        min-height: 620px;
+
+        padding:
+            40px
+            25px;
+    }
+
+    .welcome-section .card-border {
+        inset: 10px;
+    }
+
+    .welcome-section .card-border-inner {
+        inset: 17px;
+    }
+
+    .welcome-section .welcome-om {
+        font-size: 43px;
+    }
+
+    .welcome-section .welcome-mantra {
+        font-size: 15px;
+    }
+
+    .welcome-section .welcome-small-line {
+        font-size: 8px;
+    }
+
+    .welcome-section .welcome-title {
+        font-size: 38px;
+    }
+
+    .welcome-section .welcome-title-wrapper {
+        gap: 8px;
+    }
+
+    .welcome-section .title-line {
+        width: 25px;
+    }
+
+    .welcome-section .person-name {
+        font-size: 34px;
+    }
+
+    .welcome-section .ampersand {
+        font-size: 27px;
+    }
+
+    .welcome-section .welcome-message {
+        font-size: 13px;
+    }
+
+    .welcome-section .welcome-details {
+        flex-direction: column;
+
+        gap: 15px;
+    }
+
+    .welcome-section .detail-separator {
+        width: 80px;
+        height: 1px;
+    }
+
+    .welcome-section .welcome-detail {
+        padding: 0;
+    }
+
+    .welcome-section .welcome-feather,
+    .welcome-section .welcome-kalash {
+        opacity: 0.18;
+
+        transform: scale(0.55);
+    }
+
+    .welcome-section .feather-left {
+        left: -35px;
+    }
+
+    .welcome-section .feather-right {
+        right: -35px;
+    }
+
+    .welcome-section .kalash-left {
+        left: -15px;
+        bottom: 8%;
+    }
+
+    .welcome-section .kalash-right {
+        right: -15px;
+        top: 8%;
+    }
+
+    .welcome-section .welcome-diya {
+        transform: scale(0.7);
+    }
+
+    .welcome-section .diya-left {
+        left: 3%;
+        bottom: 5%;
+    }
+
+    .welcome-section .diya-right {
+        right: 3%;
+        bottom: 5%;
+    }
+
+    .welcome-section .welcome-scroll {
+        bottom: 8px;
+    }
+
+    .welcome-section .scroll-text {
+        font-size: 7px;
+        letter-spacing: 1.8px;
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .welcome-section *,
+    .welcome-section *::before,
+    .welcome-section *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+    }
 }

@@ -31,14 +31,14 @@ function initializeScratchCard() {
     let scratchedDistance = 0;
 
     const BRUSH_SIZE = 42;
-    const TAP_DISTANCE = 8;
+    const TAP_DISTANCE = 6;
 
     /*
      * We don't inspect the canvas while scratching.
      * Instead, use approximate movement distance.
      * This is dramatically lighter and prevents freezing.
      */
-    const REQUIRED_SCRATCH_DISTANCE = 1800;
+    const REQUIRED_SCRATCH_DISTANCE = 45;
 
 
     /* =====================================================
@@ -369,8 +369,7 @@ function initializeScratchCard() {
              */
 
             if (
-                scratchedDistance >=
-                REQUIRED_SCRATCH_DISTANCE
+                scratchedDistance >= REQUIRED_SCRATCH_DISTANCE
             ) {
 
                 revealCard();
@@ -648,13 +647,10 @@ function revealCard() {
     // 🎉 CONFETTI
     // =========================================
 
-    setTimeout(() => {
-
-        launchBigConfetti();
-
-        launchCelebrationHearts();
-
-    }, 400);
+   // 🎉 INSTANT CELEBRATION
+launchBigConfetti();
+launchCelebrationHearts();
+createGoldenSparkles();
 }
 
     /* =====================================================
