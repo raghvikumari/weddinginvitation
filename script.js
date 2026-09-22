@@ -32,14 +32,13 @@ async function loadHome() {
         family +
         contact;
 
-    initializeMeetCouple();
     initializePetals();
     initializeMeetCouple();
     initializeScratchCard();
     initializeCapturedMoments();
     initializeEventSchedule();
     initializeOurVenues();
-    initializeOurJourney
+    initializeOurJourney();
 }
 
 function initializePage(page) {
