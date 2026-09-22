@@ -39,6 +39,9 @@ async function loadHome() {
     initializeEventSchedule();
     initializeOurVenues();
     initializeOurJourney();
+    initializeCalendarButton();
+    initializeCalendarButton();
+    initializeLoveButton();
 }
 
 function initializePage(page) {
