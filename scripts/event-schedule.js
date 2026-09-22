@@ -1,119 +1,28 @@
-function initializeEventSchedule() {
+// Register GSAP ScrollTrigger plugin
+gsap.registerPlugin(ScrollTrigger);
 
-    /* =====================================================
-       SCROLL REVEAL
-    ===================================================== */
+function initializeHorizontalScroll() {
+    const pinnedContainer = document.querySelector(".pinned-container");
+    const slider = document.querySelector(".event-slider");
 
-    const eventItems =
-        document.querySelectorAll(".timeline-item");
+    if (!pinnedContainer || !slider) return;
 
-    if ("IntersectionObserver" in window) {
+    // Refresh ScrollTrigger in case dynamically loaded elements shifted layout height
+    ScrollTrigger.refresh();
 
-        const observer = new IntersectionObserver(
-            (entries, observer) => {
+    // Calculate the horizontal distance the slider needs to translate
+    const getScrollAmount = () => -(slider.scrollWidth - window.innerWidth);
 
-                entries.forEach(entry => {
-
-                    if (entry.isIntersecting) {
-
-                        entry.target.classList.add("show");
-
-                        observer.unobserve(entry.target);
-                    }
-
-                });
-
-            },
-            {
-                threshold: 0.15
-            }
-        );
-
-        eventItems.forEach(item => {
-            observer.observe(item);
-        });
-
-    } else {
-
-        eventItems.forEach(item => {
-            item.classList.add("show");
-        });
-
-    }
-
-
-    /* =====================================================
-       GOOGLE CALENDAR
-    ===================================================== */
-
-    const calendarButtons =
-        document.querySelectorAll(".calendar-button");
-
-
-    calendarButtons.forEach(button => {
-
-        button.addEventListener("click", () => {
-
-            const title =
-                button.dataset.title;
-
-            const date =
-                button.dataset.date;
-
-            const start =
-                button.dataset.start;
-
-            const end =
-                button.dataset.end;
-
-            const location =
-                button.dataset.location;
-
-            const description =
-                button.dataset.description;
-
-
-            /*
-             * Convert:
-             *
-             * 2026-12-25 + 10:00
-             *
-             * into:
-             *
-             * 20261225T100000
-             */
-
-            const formatDateTime = (date, time) => {
-
-                const cleanTime =
-                    time.replace(":", "");
-
-                return `${date.replace(/-/g, "")}T${cleanTime}00`;
-            };
-
-
-            const startDate =
-                formatDateTime(date, start);
-
-            const endDate =
-                formatDateTime(date, end);
-
-
-            const googleCalendarURL =
-                "https://calendar.google.com/calendar/render?action=TEMPLATE" +
-                `&text=${encodeURIComponent(title)}` +
-                `&dates=${startDate}/${endDate}` +
-                `&details=${encodeURIComponent(description)}` +
-                `&location=${encodeURIComponent(location)}`;
-
-
-            window.open(
-                googleCalendarURL,
-                "_blank"
-            );
-
-        });
-
+    gsap.to(slider, {
+        x: getScrollAmount,
+        ease: "none",
+        scrollTrigger: {
+            trigger: pinnedContainer,
+            pin: true,
+            scrub: 1, // Smooth scrubbing effect
+            start: "top top",
+            end: () => `+=${slider.scrollWidth - window.innerWidth}`,
+            invalidateOnRefresh: true, // Recalculates dynamically on window resize
+        }
     });
-
 }

@@ -20,6 +20,7 @@ async function loadHome() {
     const ourVenues = await fetch("./pages/our-venues.html").then(res => res.text());
     const family = await fetch("./pages/family.html").then(res => res.text());
     const contact = await fetch("./pages/contact.html").then(res => res.text());
+    const test = await fetch("./pages/test.html").then(res => res.text());
 
     document.getElementById("app").innerHTML =
         welcome +
@@ -30,18 +31,20 @@ async function loadHome() {
         eventSchedule +
         ourVenues +
         family +
-        contact;
+        contact +
+        test;
 
     initializePetals();
     initializeMeetCouple();
     initializeScratchCard();
     initializeCapturedMoments();
-    initializeEventSchedule();
+    // initializeEventSchedule();
     initializeOurVenues();
     initializeOurJourney();
     initializeCalendarButton();
     initializeCalendarButton();
     initializeLoveButton();
+    initializeHorizontalScroll();
 }
 
 function initializePage(page) {
