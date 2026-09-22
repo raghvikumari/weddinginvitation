@@ -1,53 +1,69 @@
 /* =========================================================
-   OUR JOURNEY
+   OUR JOURNEY — COMPLETE DIARY STYLESHEET
+========================================================= */
+
+
+/* =========================================================
+   ROOT SECTION
 ========================================================= */
 
 .our-story-section {
     position: relative;
+
+    width: 100%;
     min-height: 100vh;
 
     padding: 110px 20px 130px;
 
-    overflow: hidden;
+    box-sizing: border-box;
+
+    overflow-x: hidden;
+    overflow-y: visible;
 
     background:
         radial-gradient(
-            ellipse at 50% 42%,
-            rgba(255, 250, 238, 0.98) 0%,
-            rgba(250, 238, 218, 0.96) 38%,
-            rgba(239, 216, 191, 0.92) 72%,
-            rgba(224, 195, 166, 0.95) 100%
+            ellipse at 50% 40%,
+            rgba(255, 251, 241, 0.98) 0%,
+            rgba(250, 239, 220, 0.97) 38%,
+            rgba(239, 216, 191, 0.94) 72%,
+            rgba(224, 195, 166, 0.98) 100%
         );
 
-    font-family: "Cormorant Garamond", Georgia, serif;
+    font-family:
+        "Cormorant Garamond",
+        Georgia,
+        serif;
 }
+
+
 /* =========================================================
-   LUXURY DIARY BACKGROUND
+   BACKGROUND GLOW
 ========================================================= */
 
 .our-story-section::before {
     content: "";
 
     position: absolute;
+
     inset: 0;
 
     pointer-events: none;
 
     background:
         radial-gradient(
-            circle at 15% 20%,
+            circle at 12% 20%,
             rgba(111, 27, 42, 0.08),
-            transparent 28%
+            transparent 27%
         ),
         radial-gradient(
-            circle at 85% 75%,
+            circle at 88% 75%,
             rgba(111, 27, 42, 0.08),
-            transparent 30%
+            transparent 29%
         ),
         radial-gradient(
             circle at 50% 50%,
-            rgba(255, 255, 255, 0.55),
-            transparent 50%
+            rgba(255, 255, 255, 0.60),
+            transparent 55%
         );
 
     z-index: 0;
@@ -55,18 +71,19 @@
 
 
 /* =========================================================
-   GOLD ORNAMENTAL PATTERN
+   GOLD DOT PATTERN
 ========================================================= */
 
 .our-story-section::after {
     content: "";
 
     position: absolute;
+
     inset: 0;
 
     pointer-events: none;
 
-    opacity: 0.16;
+    opacity: 0.13;
 
     background-image:
         radial-gradient(
@@ -81,14 +98,14 @@
         radial-gradient(
             ellipse at center,
             black 0%,
-            transparent 72%
+            transparent 75%
         );
 
     -webkit-mask-image:
         radial-gradient(
             ellipse at center,
             black 0%,
-            transparent 72%
+            transparent 75%
         );
 
     z-index: 0;
@@ -100,55 +117,85 @@
 ========================================================= */
 
 .journey-heading {
-    text-align: center;
-    margin-bottom: 55px;
     position: relative;
+
     z-index: 10;
+
+    width: 100%;
+
+    margin: 0 auto 55px;
+
+    text-align: center;
 }
+
 
 .journey-heading > span {
     display: block;
 
+    margin-bottom: 10px;
+
     font-family: Arial, sans-serif;
+
     font-size: 11px;
+
     font-weight: 600;
 
     letter-spacing: 5px;
-    color: #8a5a48;
 
-    margin-bottom: 10px;
+    color: #8a5a48;
 }
+
 
 .journey-heading h1 {
     margin: 0;
 
-    font-family: "Cormorant Garamond", Georgia, serif;
-    font-size: clamp(42px, 5vw, 68px);
+    font-family:
+        "Cormorant Garamond",
+        Georgia,
+        serif;
+
+    font-size:
+        clamp(
+            42px,
+            5vw,
+            68px
+        );
+
     font-weight: 500;
 
-    color: #5b1721;
     line-height: 0.95;
+
+    color: #5b1721;
 }
+
 
 .heading-line {
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 
     gap: 12px;
+
     margin-top: 18px;
 }
 
+
 .heading-line i {
     display: block;
+
     width: 70px;
+
     height: 1px;
 
     background: #b28a54;
 }
 
+
 .heading-line span {
     color: #9b6d3e;
+
     font-size: 15px;
 }
 
@@ -160,44 +207,66 @@
 .diary-area {
     position: relative;
 
+    z-index: 5;
+
     width: 100%;
+
     min-height: 610px;
 
     display: flex;
-    justify-content: center;
+
+    flex-direction: column;
+
     align-items: center;
+
+    justify-content: center;
+
+    box-sizing: border-box;
+
+    overflow: visible;
 }
 
 
-/* Glow behind book */
+/* =========================================================
+   DIARY SPOTLIGHT
+========================================================= */
 
 .diary-glow {
     position: absolute;
 
     width: 850px;
+
     height: 520px;
 
     left: 50%;
+
     top: 47%;
 
-    transform: translate(-50%, -50%);
+    transform:
+        translate(-50%, -50%);
 
     background:
         radial-gradient(
             ellipse,
-            rgba(255, 255, 255, 0.95) 0%,
-            rgba(255, 247, 230, 0.75) 30%,
+            rgba(255, 255, 255, 0.96) 0%,
+            rgba(255, 247, 230, 0.78) 30%,
             rgba(159, 76, 76, 0.12) 58%,
             transparent 75%
         );
 
     filter: blur(18px);
 
+    opacity: 0.9;
+
     pointer-events: none;
 
     z-index: 1;
 
-    animation: diarySpotlight 7s ease-in-out infinite;
+    animation:
+        diarySpotlight
+        7s
+        ease-in-out
+        infinite;
 }
 
 
@@ -209,7 +278,7 @@
             translate(-50%, -50%)
             scale(0.96);
 
-        opacity: 0.8;
+        opacity: 0.75;
     }
 
     50% {
@@ -220,155 +289,174 @@
         opacity: 1;
     }
 }
+
+
 /* =========================================================
-   DECORATIVE CORNERS
+   DECORATIVE CORNER ORNAMENTS
 ========================================================= */
 
 .our-story-section .diary-area::before,
 .our-story-section .diary-area::after {
+
     position: absolute;
 
-    font-family: "Cormorant Garamond", Georgia, serif;
+    font-family:
+        "Cormorant Garamond",
+        Georgia,
+        serif;
 
     font-size: 90px;
 
     line-height: 1;
 
-    color: rgba(143, 96, 45, 0.20);
+    color:
+        rgba(
+            143,
+            96,
+            45,
+            0.20
+        );
 
     pointer-events: none;
 
     z-index: 2;
 }
 
+
 .our-story-section .diary-area::before {
+
     content: "❦";
 
     left: 3%;
 
     top: 5%;
 
-    transform: rotate(-25deg);
+    transform:
+        rotate(-25deg);
 }
 
+
 .our-story-section .diary-area::after {
+
     content: "❦";
 
     right: 3%;
 
     bottom: 5%;
 
-    transform: rotate(155deg);
+    transform:
+        rotate(155deg);
 }
-.diary-area::after {
+
+
+/* =========================================================
+   SECONDARY LIGHT
+========================================================= */
+
+.diary-area > .diary-glow::after {
     content: "";
 
     position: absolute;
 
     width: 320px;
+
     height: 320px;
 
-    border-radius: 50%;
-
     left: 50%;
+
     top: 50%;
 
-    transform: translate(-50%, -50%);
+    transform:
+        translate(-50%, -50%);
+
+    border-radius: 50%;
 
     background:
         radial-gradient(
             circle,
-            rgba(255, 255, 255, 0.5),
+            rgba(255, 255, 255, 0.45),
             transparent 70%
         );
 
     filter: blur(30px);
 
-    opacity: 0.5;
-
     pointer-events: none;
-
-    animation: softLight 8s ease-in-out infinite;
-
-    z-index: 1;
 }
 
-
-@keyframes softLight {
-
-    0%,
-    100% {
-        transform:
-            translate(-50%, -50%)
-            scale(0.9);
-
-        opacity: 0.35;
-    }
-
-    50% {
-        transform:
-            translate(-50%, -50%)
-            scale(1.15);
-
-        opacity: 0.65;
-    }
-}
 
 /* =========================================================
    DIARY ENTRANCE
 ========================================================= */
 
-/* =========================================================
-   DIARY CORNER → CENTRE ENTRANCE
-========================================================= */
-
 .diary-entrance {
+
     position: relative;
 
+    z-index: 10;
+
     width: 100%;
+
     max-width: 1180px;
 
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
 
-    z-index: 10;
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: flex-start;
 
     opacity: 0;
 
     /*
-     * START:
-     * diary is visually far outside the
+     * Initial position:
      * bottom-right corner.
      */
     transform:
-        translate3d(48vw, 42vh, 0)
+        translate3d(
+            48vw,
+            42vh,
+            0
+        )
         rotateZ(28deg)
         rotateY(-18deg)
         scale(0.48);
 
-    transform-origin: center center;
+    transform-origin:
+        center center;
 
     transition:
-        transform 2.4s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 2.4s
+        cubic-bezier(
+            0.16,
+            1,
+            0.3,
+            1
+        ),
         opacity 0.8s ease;
 
-    will-change: transform, opacity;
+    will-change:
+        transform,
+        opacity;
 
     perspective: 1800px;
 }
 
 
 /* =========================================================
-   DIARY ARRIVES AT CENTRE
+   DIARY ARRIVES
 ========================================================= */
 
 .diary-entrance.is-arrived {
+
     opacity: 1;
 
     transform:
-        translate3d(0, 0, 0)
+        translate3d(
+            0,
+            0,
+            0
+        )
         rotateZ(-2deg)
         rotateY(0deg)
         scale(0.96);
@@ -376,61 +464,40 @@
 
 
 /* =========================================================
-   FINAL SETTLE
+   DIARY SETTLES
 ========================================================= */
 
 .diary-entrance.is-settled {
+
     transform:
-        translate3d(0, 0, 0)
+        translate3d(
+            0,
+            0,
+            0
+        )
         rotateZ(0deg)
         rotateY(0deg)
         scale(0.96);
 }
 
 
-/* Book reaches center */
-
-/* .diary-entrance.is-arrived {
-    opacity: 1;
-
-    transform:
-        translate3d(0, 0, 0)
-        rotateZ(-1deg)
-        rotateY(0deg)
-        scale(1);
-} */
-
-
-/* Small settling movement */
-
-/* .diary-entrance.is-settled {
-    transform:
-        translate3d(0, 0, 0)
-        rotateZ(0deg)
-        rotateY(0deg)
-        scale(1);
-} */
-
-
 /* =========================================================
-   PAGE FLIP ROOT
+   PAGE FLIP BOOK — DESKTOP
 ========================================================= */
 
 .diary-book {
+
     position: relative;
 
-    /*
-     * IMPORTANT:
-     *
-     * PageFlip width = 560px per page
-     * Two pages = approximately 1120px
-     */
     width: 1120px;
+
     height: 440px;
 
-    max-width: 94vw;
+    max-width: none;
 
     margin: 0 auto;
+
+    box-sizing: border-box;
 
     user-select: none;
 
@@ -438,22 +505,35 @@
 
     filter:
         drop-shadow(
-            0 28px 30px rgba(67, 28, 19, 0.20)
+            0 28px 30px
+            rgba(
+                67,
+                28,
+                19,
+                0.20
+            )
         )
         drop-shadow(
-            0 8px 12px rgba(67, 28, 19, 0.12)
+            0 8px 12px
+            rgba(
+                67,
+                28,
+                19,
+                0.12
+            )
         );
 }
 
 
 /*
-   IMPORTANT:
-   StPageFlip itself controls the page positions.
-   Do NOT add position:absolute to .diary-page.
-*/
+ * Do not manually position pages.
+ * StPageFlip controls them.
+ */
 
 .diary-page {
+
     width: 100%;
+
     height: 100%;
 
     box-sizing: border-box;
@@ -477,9 +557,11 @@
 ========================================================= */
 
 .diary-page::before {
+
     content: "";
 
     position: absolute;
+
     inset: 0;
 
     pointer-events: none;
@@ -488,11 +570,18 @@
 
     background-image:
         radial-gradient(
-            rgba(92, 52, 32, 0.09) 0.7px,
+            rgba(
+                92,
+                52,
+                32,
+                0.09
+            ) 0.7px,
             transparent 0.7px
         );
 
     background-size: 5px 5px;
+
+    z-index: 1;
 }
 
 
@@ -501,6 +590,19 @@
 ========================================================= */
 
 .diary-cover-page {
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    overflow: hidden;
+
+    color: #f5dfae;
+
     background:
         radial-gradient(
             circle at center,
@@ -508,29 +610,22 @@
             #751d2b 55%,
             #57131f 100%
         );
-
-    color: #f5dfae;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    overflow: hidden;
 }
 
 
-/* cover shine */
-
 .diary-cover-page::after {
+
     content: "";
 
     position: absolute;
 
     width: 260px;
+
     height: 600px;
 
     top: -100px;
-    left: -250px;
+
+    left: -280px;
 
     transform: rotate(24deg);
 
@@ -538,12 +633,24 @@
         linear-gradient(
             90deg,
             transparent,
-            rgba(255,255,255,0.11),
+            rgba(
+                255,
+                255,
+                255,
+                0.11
+            ),
             transparent
         );
 
-    animation: coverShine 5s ease-in-out infinite;
+    animation:
+        coverShine
+        5s
+        ease-in-out
+        infinite;
+
+    pointer-events: none;
 }
+
 
 @keyframes coverShine {
 
@@ -558,21 +665,35 @@
 }
 
 
+/* =========================================================
+   COVER BORDER
+========================================================= */
+
 .cover-border {
+
     position: absolute;
 
     inset: 22px;
 
     border:
-        1px solid rgba(226, 190, 119, 0.75);
+        1px solid
+        rgba(
+            226,
+            190,
+            119,
+            0.75
+        );
 
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 }
 
 
 .cover-border::before {
+
     content: "";
 
     position: absolute;
@@ -580,11 +701,18 @@
     inset: 9px;
 
     border:
-        1px solid rgba(226, 190, 119, 0.28);
+        1px solid
+        rgba(
+            226,
+            190,
+            119,
+            0.28
+        );
 }
 
 
 .cover-content {
+
     position: relative;
 
     z-index: 2;
@@ -596,23 +724,30 @@
 
 
 .cover-small {
+
+    margin-bottom: 13px;
+
     font-family: Arial, sans-serif;
 
     font-size: 11px;
-    letter-spacing: 7px;
 
-    margin-bottom: 13px;
+    letter-spacing: 7px;
 
     color: #e7c987;
 }
 
 
 .cover-title {
+
     margin: 0;
 
-    font-family: "Cormorant Garamond", Georgia, serif;
+    font-family:
+        "Cormorant Garamond",
+        Georgia,
+        serif;
 
     font-size: 61px;
+
     line-height: 0.78;
 
     font-weight: 500;
@@ -629,19 +764,26 @@
 
 
 .cover-divider {
+
     display: flex;
 
     align-items: center;
+
     justify-content: center;
 
     gap: 10px;
 
-    margin: 25px auto 18px;
+    margin:
+        25px
+        auto
+        18px;
 }
 
 
 .cover-divider span {
+
     width: 55px;
+
     height: 1px;
 
     background: #cfa967;
@@ -649,12 +791,15 @@
 
 
 .cover-divider b {
+
     color: #e3bd73;
+
     font-size: 14px;
 }
 
 
 .cover-names {
+
     font-size: 25px;
 
     letter-spacing: 1px;
@@ -664,15 +809,17 @@
 
 
 .cover-names span {
-    color: #d8b46f;
 
     margin: 0 7px;
+
+    color: #d8b46f;
 
     font-style: italic;
 }
 
 
 .cover-subtitle {
+
     margin-top: 9px;
 
     font-family: Arial, sans-serif;
@@ -686,6 +833,7 @@
 
 
 .cover-date {
+
     margin-top: 32px;
 
     font-family: Arial, sans-serif;
@@ -694,13 +842,22 @@
 
     letter-spacing: 3px;
 
-    color: rgba(239, 212, 157, 0.7);
+    color:
+        rgba(
+            239,
+            212,
+            157,
+            0.7
+        );
 }
 
 
-/* Cover corner decorations */
+/* =========================================================
+   COVER DECORATIONS
+========================================================= */
 
 .cover-decoration {
+
     position: absolute;
 
     color: #d6af6c;
@@ -710,30 +867,45 @@
     opacity: 0.8;
 }
 
+
 .top-left {
+
     top: 8px;
+
     left: 12px;
 }
+
 
 .top-right {
+
     top: 8px;
+
     right: 12px;
 
-    transform: scaleX(-1);
+    transform:
+        scaleX(-1);
 }
+
 
 .bottom-left {
+
     bottom: 8px;
+
     left: 12px;
 
-    transform: scaleY(-1);
+    transform:
+        scaleY(-1);
 }
 
+
 .bottom-right {
+
     bottom: 8px;
+
     right: 12px;
 
-    transform: rotate(180deg);
+    transform:
+        rotate(180deg);
 }
 
 
@@ -742,15 +914,22 @@
 ========================================================= */
 
 .page-inner {
+
     position: relative;
+
+    width: 100%;
 
     height: 100%;
 
     box-sizing: border-box;
 
-    padding: 28px 38px 25px;
+    padding:
+        28px
+        38px
+        25px;
 
     display: flex;
+
     flex-direction: column;
 
     z-index: 2;
@@ -762,14 +941,23 @@
 ========================================================= */
 
 .page-top {
+
     display: flex;
 
     justify-content: space-between;
+
     align-items: center;
 
     padding-bottom: 10px;
 
-    border-bottom: 1px solid rgba(115, 69, 49, 0.20);
+    border-bottom:
+        1px solid
+        rgba(
+            115,
+            69,
+            49,
+            0.20
+        );
 
     font-family: Arial, sans-serif;
 
@@ -786,11 +974,14 @@
 ========================================================= */
 
 .page-content {
+
     flex: 1;
 
     display: grid;
 
-    grid-template-columns: 1fr 0.88fr;
+    grid-template-columns:
+        1fr
+        0.88fr;
 
     gap: 28px;
 
@@ -801,7 +992,10 @@
 
 
 .page-content.reverse {
-    grid-template-columns: 0.88fr 1fr;
+
+    grid-template-columns:
+        0.88fr
+        1fr;
 }
 
 
@@ -810,24 +1004,30 @@
 ========================================================= */
 
 .story-text {
+
     position: relative;
 }
 
 
 .chapter-number {
-    font-family: "Cormorant Garamond", Georgia, serif;
+
+    margin-bottom: 3px;
+
+    font-family:
+        "Cormorant Garamond",
+        Georgia,
+        serif;
 
     font-size: 25px;
 
     font-style: italic;
 
     color: #9b6b49;
-
-    margin-bottom: 3px;
 }
 
 
 .chapter-number.large {
+
     font-size: 30px;
 
     margin-top: 12px;
@@ -837,6 +1037,7 @@
 .story-text h2,
 .center-title,
 .promise-page h2 {
+
     margin: 0;
 
     color: #641b25;
@@ -850,10 +1051,13 @@
 
 
 .small-divider {
+
     width: 50px;
+
     height: 1px;
 
-    margin: 15px 0;
+    margin:
+        15px 0;
 
     background: #a77751;
 }
@@ -861,7 +1065,9 @@
 
 .story-text p,
 .promise-page p {
-    margin: 0 0 10px;
+
+    margin:
+        0 0 10px;
 
     color: #725044;
 
@@ -872,11 +1078,14 @@
 
 
 .quote {
+
     margin-top: 12px;
 
     padding-left: 13px;
 
-    border-left: 2px solid #b68b59;
+    border-left:
+        2px solid
+        #b68b59;
 
     font-size: 11px;
 
@@ -893,51 +1102,75 @@
 ========================================================= */
 
 .story-image-wrap {
+
     text-align: center;
 }
 
 
 .image-frame {
+
     position: relative;
 
     display: inline-block;
 
     width: 190px;
+
     height: 230px;
 
     padding: 7px;
 
+    box-sizing: border-box;
+
     background: #f9f1df;
 
     box-shadow:
-        0 12px 22px rgba(65, 35, 23, 0.17);
+        0 12px 22px
+        rgba(
+            65,
+            35,
+            23,
+            0.17
+        );
 
-    transform: rotate(-2deg);
+    transform:
+        rotate(-2deg);
 }
 
 
 .image-frame.tilted {
-    transform: rotate(2.5deg);
+
+    transform:
+        rotate(2.5deg);
 }
 
 
 .image-frame::before {
+
     content: "";
 
     position: absolute;
 
     inset: 4px;
 
-    border: 1px solid rgba(120, 77, 53, 0.25);
+    border:
+        1px solid
+        rgba(
+            120,
+            77,
+            53,
+            0.25
+        );
 
     pointer-events: none;
 }
 
 
 .image-frame img {
+
     display: block;
 
     width: 100%;
+
     height: 100%;
 
     object-fit: cover;
@@ -945,6 +1178,7 @@
 
 
 .image-caption {
+
     display: block;
 
     margin-top: 10px;
@@ -964,7 +1198,9 @@
 ========================================================= */
 
 .memory-list {
+
     display: flex;
+
     flex-direction: column;
 
     gap: 5px;
@@ -978,10 +1214,11 @@
 
 
 /* =========================================================
-   PAGE FOOTER
+   FOOTER
 ========================================================= */
 
 .page-footer {
+
     display: flex;
 
     justify-content: space-between;
@@ -990,7 +1227,14 @@
 
     padding-top: 9px;
 
-    border-top: 1px solid rgba(115, 69, 49, 0.15);
+    border-top:
+        1px solid
+        rgba(
+            115,
+            69,
+            49,
+            0.15
+        );
 
     font-family: Arial, sans-serif;
 
@@ -1003,6 +1247,7 @@
 
 
 .page-footer span:last-child {
+
     color: #9b6b49;
 }
 
@@ -1012,6 +1257,7 @@
 ========================================================= */
 
 .centered-page {
+
     text-align: center;
 
     align-items: center;
@@ -1019,14 +1265,17 @@
 
 
 .centered-page .page-top {
+
     width: 100%;
 }
 
 
 .ornament {
+
     display: flex;
 
     align-items: center;
+
     justify-content: center;
 
     gap: 12px;
@@ -1036,7 +1285,9 @@
 
 
 .ornament span {
+
     width: 55px;
+
     height: 1px;
 
     background: #ae8059;
@@ -1044,6 +1295,7 @@
 
 
 .ornament b {
+
     color: #8b5360;
 
     font-size: 14px;
@@ -1051,9 +1303,11 @@
 
 
 .center-text {
+
     max-width: 360px;
 
-    margin: 0 auto 10px;
+    margin:
+        0 auto 10px;
 
     color: #765248;
 
@@ -1064,6 +1318,7 @@
 
 
 .center-text.emphasis {
+
     color: #681f2a;
 
     font-style: italic;
@@ -1077,6 +1332,7 @@
 ========================================================= */
 
 .memory-card {
+
     display: flex;
 
     justify-content: center;
@@ -1088,17 +1344,33 @@
 
 
 .memory-card div {
+
     width: 95px;
 
-    padding: 11px 5px;
+    padding:
+        11px 5px;
 
-    border: 1px solid rgba(137, 92, 65, 0.25);
+    border:
+        1px solid
+        rgba(
+            137,
+            92,
+            65,
+            0.25
+        );
 
-    background: rgba(255, 248, 233, 0.7);
+    background:
+        rgba(
+            255,
+            248,
+            233,
+            0.7
+        );
 }
 
 
 .memory-card strong {
+
     display: block;
 
     font-family: Arial, sans-serif;
@@ -1112,6 +1384,7 @@
 
 
 .memory-card span {
+
     display: block;
 
     margin-top: 3px;
@@ -1127,12 +1400,15 @@
 ========================================================= */
 
 .promise-page {
+
     flex: 1;
 
     display: flex;
+
     flex-direction: column;
 
     align-items: center;
+
     justify-content: center;
 
     text-align: center;
@@ -1140,23 +1416,31 @@
 
 
 .promise-page h2 {
+
     font-size: 39px;
 }
 
 
 .promise-page .small-divider {
-    margin: 16px auto;
+
+    margin:
+        16px auto;
 }
 
 
 .big-heart {
+
     margin: 6px 0;
 
     font-size: 34px;
 
     color: #8a3040;
 
-    animation: heartPulse 2s ease-in-out infinite;
+    animation:
+        heartPulse
+        2s
+        ease-in-out
+        infinite;
 }
 
 
@@ -1174,6 +1458,7 @@
 
 
 .promise-text {
+
     max-width: 280px;
 
     font-size: 14px;
@@ -1191,20 +1476,23 @@
 ========================================================= */
 
 .final-story-page {
+
     justify-content: center;
 }
 
 
 .final-ornament {
+
+    margin-top: 10px;
+
     color: #9d714c;
 
     font-size: 29px;
-
-    margin-top: 10px;
 }
 
 
 .names-final {
+
     margin-top: 15px;
 
     font-size: 20px;
@@ -1214,6 +1502,7 @@
 
 
 .names-final span {
+
     margin: 0 7px;
 
     color: #a9784d;
@@ -1227,9 +1516,11 @@
 ========================================================= */
 
 .diary-back-page {
+
     display: flex;
 
     align-items: center;
+
     justify-content: center;
 
     color: #ead09a;
@@ -1245,49 +1536,69 @@
 
 
 .back-cover-border {
+
     position: absolute;
 
     inset: 22px;
 
-    border: 1px solid rgba(225, 191, 123, 0.65);
+    border:
+        1px solid
+        rgba(
+            225,
+            191,
+            123,
+            0.65
+        );
 
     display: flex;
 
     align-items: center;
+
     justify-content: center;
 }
 
 
 .back-cover-border::before {
+
     content: "";
 
     position: absolute;
 
     inset: 9px;
 
-    border: 1px solid rgba(225, 191, 123, 0.25);
+    border:
+        1px solid
+        rgba(
+            225,
+            191,
+            123,
+            0.25
+        );
 }
 
 
 .back-cover-content {
-    text-align: center;
 
     position: relative;
 
     z-index: 2;
+
+    text-align: center;
 }
 
 
 .back-heart {
+
+    margin-bottom: 9px;
+
     font-size: 27px;
 
     color: #e0bb76;
-
-    margin-bottom: 9px;
 }
 
 
 .back-small {
+
     font-family: Arial, sans-serif;
 
     font-size: 8px;
@@ -1299,6 +1610,7 @@
 
 
 .back-cover-content h2 {
+
     margin: 10px 0;
 
     font-size: 39px;
@@ -1312,15 +1624,17 @@
 
 
 .back-divider {
-    color: #d6ad68;
 
     margin: 12px 0;
+
+    color: #d6ad68;
 
     font-size: 17px;
 }
 
 
 .back-cover-content p {
+
     margin: 0;
 
     font-size: 12px;
@@ -1332,6 +1646,7 @@
 
 
 .back-names {
+
     margin-top: 20px;
 
     font-size: 14px;
@@ -1345,49 +1660,73 @@
 ========================================================= */
 
 .diary-controls {
+
+    position: relative;
+
+    z-index: 100;
+
     width: 100%;
 
     display: flex;
 
     align-items: center;
+
     justify-content: center;
 
     gap: 18px;
 
-    margin-top: 26px;
-
-    position: relative;
-
-    z-index: 50;
+    margin-top: 28px;
 
     opacity: 0;
 
-    transform: translateY(12px);
+    transform:
+        translateY(12px);
 
     transition:
-        opacity 0.7s ease,
-        transform 0.7s ease;
+        opacity .7s ease,
+        transform .7s ease;
 }
 
 
 .diary-entrance.is-settled .diary-controls {
+
     opacity: 1;
 
-    transform: translateY(0);
+    transform:
+        translateY(0);
 }
 
 
 .diary-controls button {
+
     width: 40px;
+
     height: 40px;
+
+    min-width: 40px;
+
+    min-height: 40px;
 
     padding: 0;
 
     border-radius: 50%;
 
-    border: 1px solid rgba(105, 40, 48, 0.28);
+    border:
+        1px solid
+        rgba(
+            105,
+            40,
+            48,
+            0.28
+        );
 
-    background: rgba(255, 248, 235, 0.9);
+    background:
+        rgba(
+            255,
+            248,
+            235,
+            0.9
+        );
 
     color: #6d2530;
 
@@ -1395,34 +1734,47 @@
 
     font-size: 25px;
 
-    line-height: 36px;
+    line-height: 1;
 
     cursor: pointer;
 
     display: flex;
 
     align-items: center;
+
     justify-content: center;
 
     transition:
-        transform 0.25s ease,
-        background 0.25s ease,
-        box-shadow 0.25s ease;
+        transform .25s ease,
+        background .25s ease,
+        box-shadow .25s ease;
 }
 
 
 .diary-controls button:hover {
-    transform: scale(1.1);
+
+    transform:
+        scale(1.1);
 
     background: #fffaf0;
 
     box-shadow:
-        0 8px 20px rgba(78, 33, 27, 0.15);
+        0 8px 20px
+        rgba(
+            78,
+            33,
+            27,
+            0.15
+        );
 }
 
 
 .control-hint {
-    font-family: "Cormorant Garamond", Georgia, serif;
+
+    font-family:
+        "Cormorant Garamond",
+        Georgia,
+        serif;
 
     font-size: 13px;
 
@@ -1438,287 +1790,1005 @@
 }
 
 
-.diary-entrance.is-settled .diary-controls {
-    opacity: 1;
+/* =========================================================
+   TABLET
+========================================================= */
 
-    transform: translateY(0);
-}
+@media (max-width: 1100px) and (min-width: 769px) {
 
+    .diary-book {
 
-.diary-controls button {
-    width: 40px;
-    height: 40px;
+        transform:
+            scale(0.82);
 
-    border-radius: 50%;
+        transform-origin:
+            top center;
 
-    border: 1px solid rgba(105, 40, 48, 0.28);
-
-    background: rgba(255, 248, 235, 0.7);
-
-    color: #6d2530;
-
-    font-family: Georgia, serif;
-
-    font-size: 25px;
-
-    line-height: 1;
-
-    cursor: pointer;
-
-    transition:
-        transform 0.25s ease,
-        background 0.25s ease,
-        box-shadow 0.25s ease;
-}
+        margin-bottom:
+            -78px;
+    }
 
 
-.diary-controls button:hover {
-    transform: scale(1.1);
+    .diary-area {
 
-    background: #fffaf0;
-
-    box-shadow:
-        0 8px 20px rgba(78, 33, 27, 0.13);
-}
-
-
-.control-hint {
-    font-family: Arial, sans-serif;
-
-    font-size: 8px;
-
-    letter-spacing: 2px;
-
-    text-transform: uppercase;
-
-    color: #9a7565;
+        min-height: 540px;
+    }
 }
 
 
 /* =========================================================
-   RESPONSIVE
+   MOBILE
 ========================================================= */
-@media (max-width: 1200px) {
 
-    .diary-book {
-        transform: scale(0.9);
-        transform-origin: top center;
-
-        margin-bottom: -44px;
-    }
-
-}
-@media (max-width: 1050px) {
-
-    .diary-book {
-        transform: scale(0.78);
-
-        margin-bottom: -96px;
-    }
-
-}
-@media (max-width: 900px) {
+@media (max-width: 768px) {
 
     .our-story-section {
-        padding-top: 80px;
+
+        width: 100%;
+
+        min-height: 100vh;
+
+        padding:
+            65px
+            8px
+            80px;
+
+        box-sizing: border-box;
+
+        overflow-x: hidden;
+
+        overflow-y: visible;
     }
 
-    .diary-area {
-        min-height: 550px;
-    }
 
-    .diary-book {
-        width: 90vw;
-        height: 420px;
-    }
-
-
-    .diary-page {
-        width: 45vw;
-        height: 420px;
-    }
-
-    .page-inner {
-        padding: 22px 25px 20px;
-    }
-
-    .story-text h2,
-    .center-title,
-    .promise-page h2 {
-        font-size: 29px;
-    }
-
-    .image-frame {
-        width: 145px;
-        height: 185px;
-    }
-
-    .story-text p {
-        font-size: 10px;
-    }
-
-    .quote {
-        font-size: 9px;
-    }
-
-    .memory-card {
-        gap: 4px;
-    }
-
-    .memory-card div {
-        width: 75px;
-    }
-}
-@media (max-width: 800px) {
-
-    .diary-book {
-        transform: scale(0.62);
-
-        margin-bottom: -167px;
-    }
-
-    .diary-controls {
-        margin-top: 10px;
-    }
-
-}
-
-@media (max-width: 600px) {
-
-    .our-story-section {
-        padding: 70px 10px 90px;
-    }
+    /* -----------------------------------------------------
+       HEADING
+    ----------------------------------------------------- */
 
     .journey-heading {
-    position: relative;
-    z-index: 10;
-}
+
+        width: 100%;
+
+        margin-bottom: 28px;
+    }
+
+
+    .journey-heading > span {
+
+        font-size: 8px;
+
+        letter-spacing: 3px;
+    }
+
 
     .journey-heading h1 {
-        font-size: 46px;
+
+        font-size:
+            clamp(
+                38px,
+                11vw,
+                48px
+            );
     }
+
+
+    .heading-line {
+
+        gap: 8px;
+
+        margin-top: 12px;
+    }
+
+
+    .heading-line i {
+
+        width: 42px;
+    }
+
+
+    /* -----------------------------------------------------
+       DIARY AREA
+    ----------------------------------------------------- */
 
     .diary-area {
-        min-height: 500px;
+
+        width: 100%;
+
+        min-height: auto;
+
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: center;
+
+        justify-content: flex-start;
+
+        overflow: visible;
     }
+
+
+    /* -----------------------------------------------------
+       MOBILE ENTRANCE
+    ----------------------------------------------------- */
 
     .diary-entrance {
-        width: 94vw;
+
+        width: 100%;
+
+        max-width: 100%;
+
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: center;
+
+        justify-content: flex-start;
+
+        opacity: 0;
+
+        transform:
+            translate3d(
+                55vw,
+                32vh,
+                0
+            )
+            rotateZ(22deg)
+            scale(0.55);
+
+        transform-origin:
+            center center;
+
+        transition:
+            transform 2.3s
+            cubic-bezier(
+                .16,
+                1,
+                .3,
+                1
+            ),
+            opacity .7s ease;
+
+        will-change:
+            transform,
+            opacity;
     }
+
+
+    .diary-entrance.is-arrived {
+
+        opacity: 1;
+
+        transform:
+            translate3d(
+                0,
+                0,
+                0
+            )
+            rotateZ(-1deg)
+            scale(1);
+    }
+
+
+    .diary-entrance.is-settled {
+
+        transform:
+            translate3d(
+                0,
+                0,
+                0
+            )
+            rotateZ(0deg)
+            scale(1);
+    }
+
+
+    /* -----------------------------------------------------
+       MOBILE BOOK
+    ----------------------------------------------------- */
 
     .diary-book {
-        width: 92vw;
-        height: 360px;
+
+        /*
+         * ONE COMPLETE PAGE fits inside phone.
+         */
+        width: 88vw;
+
+        height:
+            calc(
+                88vw * 1.36
+            );
+
+        max-width: 390px;
+
+        max-height: 530px;
+
+        min-width: 270px;
+
+        min-height: 370px;
+
+        margin: 0 auto;
+
+        transform: none !important;
+
+        overflow: visible;
+
+        filter:
+            drop-shadow(
+                0 18px 25px
+                rgba(
+                    67,
+                    28,
+                    19,
+                    .22
+                )
+            );
     }
+
+
+    /* -----------------------------------------------------
+       MOBILE PAGE
+    ----------------------------------------------------- */
 
     .diary-page {
-        width: 46vw;
-        height: 360px;
+
+        width: 100%;
+
+        height: 100%;
+
+        overflow: hidden;
     }
+
+
+    /* -----------------------------------------------------
+       INNER CONTENT
+    ----------------------------------------------------- */
 
     .page-inner {
-        padding: 17px 17px 14px;
+
+        width: 100%;
+
+        height: 100%;
+
+        padding:
+            18px
+            17px
+            14px;
+
+        box-sizing: border-box;
     }
+
+
+    /* -----------------------------------------------------
+       TOP
+    ----------------------------------------------------- */
 
     .page-top {
-        font-size: 5px;
-        letter-spacing: 1px;
+
+        width: 100%;
+
+        padding-bottom: 7px;
+
+        font-size: 5.5px;
+
+        letter-spacing: 1.3px;
     }
 
-    .page-content {
-        gap: 10px;
+
+    /* -----------------------------------------------------
+       STORY CONTENT
+    ----------------------------------------------------- */
+
+    .page-content,
+    .page-content.reverse {
+
+        width: 100%;
+
+        height: auto;
+
+        flex: 1;
+
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: center;
+
+        justify-content: center;
+
+        gap: 7px;
+
+        padding: 7px 0;
     }
+
+
+    .story-text {
+
+        width: 100%;
+
+        text-align: center;
+    }
+
+
+    .chapter-number {
+
+        font-size: 18px;
+
+        line-height: 1;
+
+        margin-bottom: 2px;
+    }
+
+
+    .chapter-number.large {
+
+        font-size: 23px;
+
+        margin-top: 5px;
+    }
+
 
     .story-text h2,
     .center-title,
     .promise-page h2 {
-        font-size: 21px;
+
+        font-size:
+            clamp(
+                22px,
+                7vw,
+                30px
+            );
+
+        line-height: .92;
     }
 
-    .chapter-number {
-        font-size: 18px;
+
+    .small-divider {
+
+        width: 35px;
+
+        margin:
+            7px
+            auto;
     }
 
-    .story-text p {
-        font-size: 8px;
-        line-height: 1.4;
+
+    .story-text p,
+    .promise-page p {
+
+        max-width: 280px;
+
+        margin:
+            0
+            auto
+            6px;
+
+        font-size: 9px;
+
+        line-height: 1.35;
     }
+
 
     .quote {
-        font-size: 7px;
+
+        max-width: 235px;
+
+        margin:
+            6px
+            auto
+            0;
+
         padding-left: 7px;
+
+        font-size: 8px;
+
+        line-height: 1.3;
     }
+
+
+    /* -----------------------------------------------------
+       IMAGE
+    ----------------------------------------------------- */
+
+    .story-image-wrap {
+
+        width: 100%;
+
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: center;
+
+        justify-content: center;
+    }
+
 
     .image-frame {
-        width: 100px;
-        height: 135px;
-        padding: 4px;
+
+        width: 125px;
+
+        height: 150px;
+
+        padding: 5px;
     }
 
+
     .image-caption {
+
+        margin-top: 5px;
+
         font-size: 5px;
+
         letter-spacing: 1px;
     }
 
+
+    /* -----------------------------------------------------
+       MEMORY LIST
+    ----------------------------------------------------- */
+
     .memory-list {
+
+        align-items: center;
+
+        justify-content: center;
+
+        gap: 2px;
+
+        margin-top: 5px;
+
         font-size: 7px;
     }
 
-    .cover-title {
-        font-size: 42px;
+
+    /* -----------------------------------------------------
+       FOOTER
+    ----------------------------------------------------- */
+
+    .page-footer {
+
+        padding-top: 6px;
+
+        font-size: 5px;
+
+        letter-spacing: 1.3px;
     }
+
+
+    /* -----------------------------------------------------
+       COVER
+    ----------------------------------------------------- */
+
+    .cover-border {
+
+        inset: 13px;
+    }
+
+
+    .cover-border::before {
+
+        inset: 7px;
+    }
+
+
+    .cover-content {
+
+        padding: 10px;
+    }
+
+
+    .cover-small {
+
+        font-size: 7px;
+
+        letter-spacing: 4px;
+
+        margin-bottom: 9px;
+    }
+
+
+    .cover-title {
+
+        font-size:
+            clamp(
+                40px,
+                13vw,
+                52px
+            );
+
+        line-height: .78;
+    }
+
+
+    .cover-divider {
+
+        gap: 7px;
+
+        margin:
+            17px
+            auto
+            12px;
+    }
+
+
+    .cover-divider span {
+
+        width: 38px;
+    }
+
+
+    .cover-divider b {
+
+        font-size: 11px;
+    }
+
 
     .cover-names {
-        font-size: 17px;
+
+        font-size:
+            clamp(
+                15px,
+                5vw,
+                20px
+            );
+
+        letter-spacing: .5px;
     }
 
+
+    .cover-names span {
+
+        margin: 0 4px;
+    }
+
+
     .cover-subtitle {
-        font-size: 6px;
+
+        margin-top: 7px;
+
+        font-size: 5px;
+
         letter-spacing: 2px;
     }
 
+
     .cover-date {
+
         margin-top: 20px;
-        font-size: 6px;
+
+        font-size: 5px;
+
+        letter-spacing: 2px;
     }
+
+
+    .cover-decoration {
+
+        font-size: 20px;
+    }
+
+
+    /* -----------------------------------------------------
+       MEMORY CARDS
+    ----------------------------------------------------- */
 
     .memory-card {
-        flex-direction: column;
+
+        display: flex;
+
+        flex-direction: row;
+
+        align-items: stretch;
+
+        justify-content: center;
+
+        gap: 4px;
+
+        margin-top: 6px;
     }
+
 
     .memory-card div {
-        width: 100px;
-        padding: 6px;
+
+        width: 65px;
+
+        padding:
+            6px
+            3px;
     }
 
+
     .memory-card strong {
+
+        font-size: 5px;
+
+        letter-spacing: .7px;
+    }
+
+
+    .memory-card span {
+
+        margin-top: 2px;
+
         font-size: 6px;
     }
 
-    .memory-card span {
-        font-size: 7px;
+
+    /* -----------------------------------------------------
+       PROMISE PAGE
+    ----------------------------------------------------- */
+
+    .promise-page {
+
+        justify-content: center;
+
+        padding:
+            5px 0;
     }
+
+
+    .promise-page h2 {
+
+        font-size: 27px;
+    }
+
+
+    .big-heart {
+
+        margin: 4px 0;
+
+        font-size: 28px;
+    }
+
+
+    .promise-text {
+
+        max-width: 230px;
+
+        font-size: 10px;
+
+        line-height: 1.35;
+    }
+
+
+    /* -----------------------------------------------------
+       FINAL PAGE
+    ----------------------------------------------------- */
+
+    .final-ornament {
+
+        font-size: 23px;
+
+        margin-top: 5px;
+    }
+
+
+    .names-final {
+
+        margin-top: 8px;
+
+        font-size: 17px;
+    }
+
+
+    /* -----------------------------------------------------
+       BACK COVER
+    ----------------------------------------------------- */
+
+    .back-cover-border {
+
+        inset: 13px;
+    }
+
+
+    .back-cover-border::before {
+
+        inset: 7px;
+    }
+
+
+    .back-heart {
+
+        font-size: 23px;
+
+        margin-bottom: 6px;
+    }
+
+
+    .back-small {
+
+        font-size: 6px;
+
+        letter-spacing: 3px;
+    }
+
+
+    .back-cover-content h2 {
+
+        margin: 8px 0;
+
+        font-size: 31px;
+    }
+
+
+    .back-divider {
+
+        margin: 8px 0;
+
+        font-size: 14px;
+    }
+
+
+    .back-cover-content p {
+
+        font-size: 9px;
+    }
+
+
+    .back-names {
+
+        margin-top: 13px;
+
+        font-size: 11px;
+    }
+
+
+    /* -----------------------------------------------------
+       CONTROLS
+    ----------------------------------------------------- */
+
+    .diary-controls {
+
+        width: 100%;
+
+        display: flex;
+
+        flex-direction: row;
+
+        align-items: center;
+
+        justify-content: center;
+
+        gap: 11px;
+
+        margin-top: 22px;
+
+        position: relative;
+
+        z-index: 100;
+    }
+
+
+    .diary-controls button {
+
+        width: 34px;
+
+        height: 34px;
+
+        min-width: 34px;
+
+        min-height: 34px;
+
+        font-size: 21px;
+    }
+
 
     .control-hint {
-        font-size: 7px;
+
+        font-size: 8px;
+
+        letter-spacing: 1.4px;
+
+        white-space: nowrap;
+    }
+
+
+    /* -----------------------------------------------------
+       MOBILE DECORATIONS
+    ----------------------------------------------------- */
+
+    .diary-glow {
+
+        width: 100vw;
+
+        height: 500px;
+
+        opacity: .65;
+    }
+
+
+    .our-story-section .diary-area::before {
+
+        left: -15px;
+
+        top: 2%;
+
+        font-size: 50px;
+    }
+
+
+    .our-story-section .diary-area::after {
+
+        right: -15px;
+
+        bottom: 5%;
+
+        font-size: 50px;
     }
 }
-.diary-book,
-.diary-book * {
-    box-sizing: border-box;
+
+
+/* =========================================================
+   SMALL PHONES
+========================================================= */
+
+@media (max-width: 420px) {
+
+    .our-story-section {
+
+        padding-left: 5px;
+
+        padding-right: 5px;
+    }
+
+
+    .diary-book {
+
+        width: 91vw;
+
+        height:
+            calc(
+                91vw * 1.34
+            );
+
+        max-height: 500px;
+
+        min-width: 0;
+
+        min-height: 0;
+    }
+
+
+    .page-inner {
+
+        padding:
+            15px
+            13px
+            12px;
+    }
+
+
+    .story-text h2,
+    .center-title,
+    .promise-page h2 {
+
+        font-size: 21px;
+    }
+
+
+    .story-text p,
+    .promise-page p {
+
+        font-size: 8px;
+
+        max-width: 235px;
+    }
+
+
+    .image-frame {
+
+        width: 108px;
+
+        height: 132px;
+    }
+
+
+    .control-hint {
+
+        font-size: 7px;
+
+        letter-spacing: 1px;
+    }
 }
 
-.diary-book {
-    overflow: visible;
-}
 
-/*
- * StPageFlip's generated HTML elements.
- * Keep the book itself as the clipping boundary.
- */
-.diary-book .stf__item {
-    overflow: hidden;
-}
-.diary-book .stf__block {
-    overflow: visible;
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
+
+@media (max-width: 340px) {
+
+    .journey-heading h1 {
+
+        font-size: 36px;
+    }
+
+
+    .diary-book {
+
+        width: 92vw;
+
+        height:
+            calc(
+                92vw * 1.32
+            );
+    }
+
+
+    .page-inner {
+
+        padding:
+            13px
+            11px
+            10px;
+    }
+
+
+    .story-text h2,
+    .center-title,
+    .promise-page h2 {
+
+        font-size: 19px;
+    }
+
+
+    .story-text p,
+    .promise-page p {
+
+        font-size: 7.5px;
+
+        line-height: 1.3;
+    }
+
+
+    .image-frame {
+
+        width: 95px;
+
+        height: 118px;
+    }
+
+
+    .cover-title {
+
+        font-size: 38px;
+    }
+
+
+    .cover-names {
+
+        font-size: 14px;
+    }
+
+
+    .diary-controls {
+
+        gap: 7px;
+
+        margin-top: 17px;
+    }
+
+
+    .diary-controls button {
+
+        width: 31px;
+
+        height: 31px;
+
+        min-width: 31px;
+
+        min-height: 31px;
+
+        font-size: 19px;
+    }
+
+
+    .control-hint {
+
+        font-size: 6.5px;
+
+        letter-spacing: .8px;
+    }
 }
