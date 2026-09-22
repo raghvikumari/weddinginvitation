@@ -1,32 +1,66 @@
-emailjs.init("YOUR_PUBLIC_KEY");
+function initializeContactForm() {
+    const contactForm = document.getElementById('contactForm');
+    const whatsappBtn = document.getElementById('whatsappBtn');
+    const statusText = document.getElementById('status');
 
-const form = document.getElementById("contactForm");
+    const RECIPIENT_EMAIL = 'kumarraghu1357@gmail.com';
+    const WHATSAPP_NUMBER = '917003038143';
 
-form.addEventListener("submit", async function(e){
-
-    e.preventDefault();
-
-    const status = document.getElementById("status");
-
-    try{
-
-        await emailjs.send(
-            "YOUR_SERVICE_ID",
-            "YOUR_TEMPLATE_ID",
-            {
-                name:document.getElementById("name").value,
-                email:document.getElementById("email").value,
-                message:document.getElementById("message").value
-            }
-        );
-
-        status.innerHTML="❤️ Thank you for your wishes!";
-
-        form.reset();
-
-    }catch(err){
-
-        status.innerHTML="Something went wrong.";
+    // Helper to get form input values
+    function getFormData() {
+        return {
+            name: document.getElementById('name').value.trim(),
+            email: document.getElementById('email').value.trim(),
+            attendance: document.getElementById('attendance').value,
+            guestCount: document.getElementById('guestCount').value,
+            message: document.getElementById('message').value.trim()
+        };
     }
 
-});
+    // 1. Handle Email Submission (Form Submit Event)
+    contactForm.addEventListener('submit', (e) => {
+        // PREVENT PAGE RELOAD
+        e.preventDefault();
+
+        const data = getFormData();
+
+        const subject = encodeURIComponent(`RSVP Response from ${data.name}`);
+        const body = encodeURIComponent(
+            `Name: ${data.name}\n` +
+            `Email: ${data.email}\n` +
+            `Attending: ${data.attendance}\n` +
+            `Guest Count: ${data.guestCount}\n` +
+            `Message: ${data.message || 'N/A'}`
+        );
+
+        if (statusText) statusText.textContent = 'Opening your email app...';
+
+        // Triggers the user's email client
+        window.location.href = `mailto:${RECIPIENT_EMAIL}?subject=${subject}&body=${body}`;
+    });
+
+    // 2. Handle WhatsApp Button Click
+    whatsappBtn.addEventListener('click', () => {
+        // Check standard HTML5 form validity manually for WhatsApp button
+        if (!contactForm.checkValidity()) {
+            contactForm.reportValidity();
+            return;
+        }
+
+        const data = getFormData();
+
+        const text = encodeURIComponent(
+            `*RSVP Confirmation*\n\n` +
+            `*Name:* ${data.name}\n` +
+            `*Email:* ${data.email}\n` +
+            `*Attending:* ${data.attendance}\n` +
+            `*Guest Count:* ${data.guestCount}\n` +
+            `*Message:* ${data.message || 'N/A'}`
+        );
+
+        if (statusText) statusText.textContent = 'Opening WhatsApp...';
+
+        // Open WhatsApp in new tab
+        window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${text}`, '_blank');
+    });
+}
