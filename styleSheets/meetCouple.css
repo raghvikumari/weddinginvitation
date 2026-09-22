@@ -945,30 +945,441 @@
    MOBILE
 ===================================================== */
 
+/* =========================================================
+   MOBILE — VERTICAL WEDDING STORY
+========================================================= */
+
+/* =========================================================
+   VIBRANT MOBILE WEDDING DESIGN
+========================================================= */
+
 @media (max-width: 800px) {
 
     .meet-couple {
+        position: relative;
 
-        min-height: 750px;
+        width: 100%;
+        height: 100svh;
+        min-height: 680px;
 
+        overflow: hidden;
+
+        background:
+            radial-gradient(
+                circle at 50% 18%,
+                rgba(255, 214, 174, 0.95) 0%,
+                rgba(255, 190, 166, 0.75) 22%,
+                transparent 48%
+            ),
+            radial-gradient(
+                circle at 15% 70%,
+                rgba(236, 143, 160, 0.35),
+                transparent 42%
+            ),
+            radial-gradient(
+                circle at 85% 65%,
+                rgba(217, 157, 92, 0.32),
+                transparent 42%
+            ),
+            linear-gradient(
+                145deg,
+                #fff0e6 0%,
+                #f9d6c8 45%,
+                #f3c1b6 72%,
+                #ead0b0 100%
+            );
     }
 
+
+    /* -----------------------------------------
+       VIBRANT CENTRAL LIGHT
+    ----------------------------------------- */
+
+    .wedding-glow {
+
+        width: 500px;
+        height: 500px;
+
+        left: 50%;
+        top: 45%;
+
+        transform: translate(-50%, -50%);
+
+        background:
+            radial-gradient(
+                circle,
+                rgba(255, 235, 190, 0.85) 0%,
+                rgba(255, 178, 155, 0.40) 35%,
+                rgba(222, 118, 137, 0.18) 55%,
+                transparent 72%
+            );
+
+        filter: blur(35px);
+
+        opacity: .9;
+    }
+
+
+    /* -----------------------------------------
+       SUBTLE WEDDING LIGHT RINGS
+    ----------------------------------------- */
+
+    .meet-couple::before {
+
+        content: "";
+
+        position: absolute;
+
+        width: 380px;
+        height: 380px;
+
+        left: 50%;
+        top: 42%;
+
+        transform: translate(-50%, -50%);
+
+        border-radius: 50%;
+
+        border: 1px solid rgba(181, 138, 101, .22);
+
+        box-shadow:
+            0 0 0 35px rgba(181,138,101,.06),
+            0 0 0 70px rgba(181,138,101,.04);
+
+        pointer-events: none;
+
+        z-index: 1;
+    }
+
+
+    /* -----------------------------------------
+       INTRO
+    ----------------------------------------- */
+
+    .couple-intro {
+
+        width: 90%;
+
+        z-index: 30;
+    }
+
+    .couple-intro p {
+
+        font-size: 8px;
+
+        letter-spacing: 4px;
+
+        color: #8e5748;
+    }
+
+    .couple-intro h1 {
+
+        font-size: clamp(38px, 11vw, 58px);
+
+        color: #61372f;
+
+        text-shadow:
+            0 3px 15px rgba(120,60,40,.12);
+    }
+
+
+    /* -----------------------------------------
+       PHOTO BURST
+    ----------------------------------------- */
+
+    .burst-container {
+
+        position: absolute;
+
+        inset: 0;
+
+        z-index: 10;
+
+        overflow: hidden;
+
+        pointer-events: none;
+    }
+
+    .small-photo {
+
+        width: 68px;
+        height: 88px;
+
+        padding: 3px;
+
+        border-radius: 5px;
+
+        border: 1px solid rgba(181,138,101,.65);
+
+        background: #fffaf4;
+
+        box-shadow:
+            0 12px 28px rgba(85,40,30,.20);
+
+        will-change:
+            transform,
+            opacity;
+    }
+
+    .small-photo:nth-child(3n) {
+
+        width: 78px;
+        height: 98px;
+    }
+
+    .small-photo:nth-child(4n) {
+
+        width: 60px;
+        height: 78px;
+    }
+
+
+    /* -----------------------------------------
+       FINAL COUPLE
+    ----------------------------------------- */
 
     .couple-final {
 
-        width: 95vw;
+        position: absolute;
 
-        gap: 10px;
+        left: 50%;
+        top: 50%;
 
+        transform: translate(-50%, -50%);
+
+        width: 100%;
+
+        height: 96svh;
+
+        padding:
+            18px
+            15px
+            22px;
+
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: center;
+
+        justify-content: center;
+
+        gap: 0;
+
+        z-index: 20;
+
+        opacity: 0;
+
+        box-sizing: border-box;
     }
 
+
+    /* -----------------------------------------
+       PERSON
+    ----------------------------------------- */
 
     .person {
 
-        width: 29%;
+        width: 100%;
 
+        max-width: 230px;
+
+        text-align: center;
+
+        opacity: 0;
+
+        flex-shrink: 0;
     }
 
+
+    /* -----------------------------------------
+       PORTRAIT
+    ----------------------------------------- */
+
+    .portrait-frame {
+
+        width: 170px;
+
+        aspect-ratio: 4 / 5;
+
+        padding: 5px;
+
+        margin: 0 auto;
+
+        background: rgba(255,255,255,.94);
+
+        box-shadow:
+            0 18px 45px rgba(80,40,30,.22);
+
+        box-sizing: border-box;
+    }
+
+
+    .portrait-frame img {
+
+        width: 100%;
+        height: 100%;
+
+        object-fit: cover;
+
+        display: block;
+    }
+
+
+    /* -----------------------------------------
+       GOLD FRAME
+    ----------------------------------------- */
+
+    .gold-frame {
+
+        inset: -5px;
+
+        border-color:
+            rgba(169,120,66,.9);
+    }
+
+    .gold-frame::after {
+
+        inset: 4px;
+
+        border-color:
+            rgba(169,120,66,.45);
+    }
+
+
+    /* -----------------------------------------
+       FLOWER
+    ----------------------------------------- */
+
+    .flower-decoration {
+
+        top: -17px;
+
+        font-size: 20px;
+
+        color: #b47a50;
+
+        text-shadow:
+            0 3px 10px rgba(160,80,60,.18);
+    }
+
+    .flower-left {
+        left: -12px;
+    }
+
+    .flower-right {
+        right: -12px;
+    }
+
+
+    /* -----------------------------------------
+       PERSON INFO
+    ----------------------------------------- */
+
+    .person-info {
+
+        position: relative;
+
+        margin-top: 8px;
+
+        z-index: 10;
+
+        min-height: 58px;
+    }
+
+    .person-label {
+
+        display: block;
+
+        font-size: 7px;
+
+        line-height: 1.2;
+
+        letter-spacing: 3px;
+
+        color: #8f5d4c;
+
+        margin-bottom: 5px;
+    }
+
+
+    /* IMPORTANT:
+       Prevent name from getting cut
+    */
+
+    .person h2 {
+
+        display: block;
+
+        position: relative;
+
+        margin: 0;
+
+        padding: 0;
+
+        width: 100%;
+
+        white-space: nowrap;
+
+        overflow: visible;
+
+        line-height: 1.15;
+
+        font-size: 27px;
+
+        font-weight: 400;
+
+        font-family:
+            Georgia,
+            "Times New Roman",
+            serif;
+
+        font-style: italic;
+
+        color: #59352d;
+
+        text-shadow:
+            0 2px 8px rgba(90,50,40,.10);
+
+        z-index: 15;
+    }
+
+
+    /* -----------------------------------------
+       NAME DECORATION
+    ----------------------------------------- */
+
+    .name-decoration {
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        gap: 7px;
+
+        margin-top: 5px;
+
+        font-size: 10px;
+
+        color: #a36d50;
+    }
+
+    .name-decoration span {
+
+        width: 22px;
+
+        height: 1px;
+
+        background:
+            rgba(163,109,80,.65);
+    }
+
+
+    /* -----------------------------------------
+       HEART
+    ----------------------------------------- */
 
     .heart-area {
 
@@ -976,24 +1387,52 @@
 
         min-width: 130px;
 
-        height: 300px;
+        height: 125px;
 
+        flex-shrink: 0;
+
+        position: relative;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        margin: 0;
     }
 
 
     .heart-3d {
 
-        transform: scale(.65);
+        width: 120px;
 
+        height: 120px;
+
+        transform: scale(.47);
+
+        transform-origin: center;
     }
 
 
     .heart-caption {
 
-        margin-top: 0;
+        position: absolute;
 
+        left: 50%;
+
+        top: 82px;
+
+        transform: translateX(-50%);
+
+        width: 130px;
+
+        margin: 0;
+
+        gap: 3px;
+
+        z-index: 20;
     }
-
 
     .heart-caption span {
 
@@ -1001,116 +1440,188 @@
 
         letter-spacing: 2px;
 
+        color: #8f5d4c;
     }
-
 
     .heart-caption strong {
 
+        font-size: 10px;
+
+        letter-spacing: 1px;
+
+        color: #704235;
+    }
+
+
+    /* -----------------------------------------
+       SPARKLES
+    ----------------------------------------- */
+
+    .sparkle {
+
+        color: #b88752;
+
+        text-shadow:
+            0 0 8px rgba(255,210,150,.7);
+    }
+
+    .sparkle-1 {
+        top: 2px;
+        left: 10px;
+        font-size: 14px;
+    }
+
+    .sparkle-2 {
+        top: 20px;
+        right: 3px;
         font-size: 11px;
+    }
 
+    .sparkle-3 {
+        bottom: 10px;
+        left: 3px;
+        font-size: 12px;
+    }
+
+    .sparkle-4 {
+        top: 35px;
+        left: 4px;
+        font-size: 15px;
+    }
+
+    .sparkle-5 {
+        bottom: 8px;
+        right: 5px;
+        font-size: 13px;
     }
 
 
-    .person-label {
+    /* -----------------------------------------
+       PETALS
+    ----------------------------------------- */
 
-        font-size: 7px;
+    .petals-container {
 
-        letter-spacing: 2px;
+        z-index: 25;
 
+        pointer-events: none;
+    }
+}
+
+
+/* =========================================================
+   SMALL PHONE
+========================================================= */
+
+@media (max-width: 500px) {
+
+    .meet-couple {
+        min-height: 100svh;
+        height: 100svh;
     }
 
+    .couple-final {
+
+        height: 95svh;
+
+        padding:
+            10px
+            10px
+            18px;
+    }
+
+    .portrait-frame {
+
+        width: 155px;
+    }
+
+    .person h2 {
+
+        font-size: 24px;
+
+        white-space: nowrap;
+    }
+
+    .person-info {
+
+        min-height: 55px;
+
+        margin-top: 6px;
+    }
+
+    .heart-area {
+
+        height: 105px;
+
+        width: 115px;
+
+        min-width: 115px;
+    }
+
+    .heart-3d {
+
+        transform: scale(.40);
+    }
+
+    .heart-caption {
+
+        top: 70px;
+
+        width: 115px;
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL PHONE
+========================================================= */
+
+@media (max-width: 360px) {
+
+    .couple-final {
+
+        padding-top: 5px;
+        padding-bottom: 10px;
+    }
+
+    .portrait-frame {
+
+        width: 140px;
+    }
 
     .person h2 {
 
         font-size: 22px;
-
     }
 
+    .person-info {
 
-    .name-decoration {
-
-        font-size: 9px;
-
+        min-height: 50px;
     }
-
-
-    .name-decoration span {
-
-        width: 20px;
-
-    }
-
-
-    .flower-decoration {
-
-        font-size: 20px;
-
-    }
-
-
-    .flower-left {
-
-        left: -12px;
-
-    }
-
-
-    .flower-right {
-
-        right: -12px;
-
-    }
-
-}
-
-
-/* =====================================================
-   VERY SMALL MOBILE
-===================================================== */
-
-@media (max-width: 500px) {
-
-    .couple-final {
-
-        gap: 2px;
-
-    }
-
 
     .heart-area {
 
-        width: 90px;
+        height: 90px;
 
-        min-width: 90px;
+        width: 105px;
 
+        min-width: 105px;
     }
-
 
     .heart-3d {
 
-        transform: scale(.48);
-
+        transform: scale(.34);
     }
-
 
     .heart-caption {
 
-        display: none;
+        top: 61px;
 
+        width: 105px;
     }
 
+    .heart-caption strong {
 
-    .person h2 {
-
-        font-size: 18px;
-
+        font-size: 8px;
     }
-
-
-    .portrait-frame {
-
-        padding: 4px;
-
-    }
-
 }

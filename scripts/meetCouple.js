@@ -44,6 +44,7 @@ function initializeMeetCouple() {
             scale: 0.25,
             x: gsap.utils.random(-60, 60),
             y: gsap.utils.random(-60, 60),
+            rotation: gsap.utils.random(-35, 35),
             force3D: true
         });
 
@@ -61,16 +62,22 @@ function initializeMeetCouple() {
             start: "top top",
             end: "+=2000",
             pin: true,
-            scrub: 2,
+            scrub: 1.5,
             anticipatePin: 1,
             invalidateOnRefresh: true
         }
     });
-
+ tl.to(".couple-intro", {
+    opacity: 0,
+    scale: 0.96,
+    y: -25,
+    duration: 0.8,
+    ease: "power2.inOut"
+}, 0);
     photos.forEach((photo) => {
 
-        const x = gsap.utils.random(-1800, 1800);
-        const y = gsap.utils.random(-1200, 1200);
+        const x = gsap.utils.random(-900, 900);
+        const y = gsap.utils.random(-600, 600);
 
         const start = gsap.utils.random(0, 0.15);
 
@@ -86,7 +93,8 @@ function initializeMeetCouple() {
         tl.to(photo, {
             x,
             y,
-            scale: gsap.utils.random(2.5, 3.2),
+            scale: gsap.utils.random(0.9, 1.4),
+            rotation: gsap.utils.random(-25, 25),
             duration: 3,
             ease: "none"
         }, start + 0.05);
