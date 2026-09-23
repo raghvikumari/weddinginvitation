@@ -1,7 +1,7 @@
 const petals = [
-    "./public/images/petals/petal1.png",
-    "./public/images/petals/petal2.png",
-    "./public/images/petals/petal3.png"
+    "./public/images/petals/petal1.webp",
+    "./public/images/petals/petal2.webp",
+    "./public/images/petals/petal3.webp"
 ];
 
 function initializePetals(){
