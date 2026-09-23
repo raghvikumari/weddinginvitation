@@ -34,6 +34,7 @@ async function loadHome() {
     const ourVenues = await fetch("./pages/our-venues.html").then(res => res.text());
     const family = await fetch("./pages/family.html").then(res => res.text());
     const contact = await fetch("./pages/contact.html").then(res => res.text());
+    const footer = await fetch("./pages/footer.html").then(res => res.text());
 
     document.getElementById("app").innerHTML =
         welcome +
@@ -44,7 +45,8 @@ async function loadHome() {
         eventSchedule +
         ourVenues +
         family +
-        contact;
+        contact +
+        footer;
 
         // initializeLenis();
         initializePetals();

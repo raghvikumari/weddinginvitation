@@ -8,7 +8,7 @@ function initializePetals(){
 
     const container = document.getElementById("petals-container");
 
-    setInterval(createPetal,1000);
+    setInterval(createPetal,1500);
 
     function createPetal(){
 
