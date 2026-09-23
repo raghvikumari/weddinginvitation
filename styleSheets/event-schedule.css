@@ -375,17 +375,17 @@
 
 }
 
-.event-card {
+/* .event-card {
     flex: 0 0 760px;
     width: 760px;
-}
+} */
 
-@media(max-width: 992px) {
+/* @media(max-width: 992px) {
     .event-card {
         flex: 0 0 85vw;
         width: 85vw;
     }
-}
+} */
 
 /* Content Body */
 .event-content {
@@ -515,3 +515,288 @@
 }
 
 
+/* ==========================================
+   TABLETS (992px)
+========================================== */
+
+@media (max-width: 992px) {
+
+    .events-heading {
+        padding: 90px 20px 70px;
+    }
+
+    .heading {
+        font-size: 70px;
+    }
+
+    .description {
+        font-size: 18px;
+        line-height: 1.8;
+        margin-bottom: 45px;
+    }
+
+    .event-card {
+        max-width: 90%;
+        min-height: 420px;
+    }
+
+    .event-image {
+        height: 260px;
+    }
+
+    .event-content {
+        padding: 30px;
+    }
+
+    .event-title {
+        font-size: 28px;
+    }
+
+    .event-date {
+        font-size: 24px;
+    }
+
+    .event-slider {
+        padding: 0 5vw;
+        gap: 25px;
+    }
+}
+
+/* ==========================================
+   LARGE MOBILE (768px)
+========================================== */
+
+@media (max-width: 768px) {
+
+    .events-heading {
+        padding: 70px 18px 55px;
+    }
+
+    .line {
+        width: 60px;
+    }
+
+    .sub-heading {
+        font-size: 11px;
+        letter-spacing: 4px;
+    }
+
+    .heading {
+        font-size: 52px;
+        line-height: 1.05;
+    }
+
+    .description {
+        font-size: 16px;
+        line-height: 1.7;
+        margin: 22px auto 40px;
+    }
+
+    .event-card {
+        width: 92vw;
+        max-width: none;
+        border-radius: 18px;
+    }
+
+    .event-card-section {
+        padding: 30px 0;
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .event-image {
+        height: 220px;
+    }
+
+    .event-number {
+        width: 60px;
+        height: 60px;
+        font-size: 22px;
+        bottom: -30px;
+    }
+
+    .event-content {
+        padding: 40px 22px 24px;
+    }
+
+    .event-subtitle {
+        font-size: 11px;
+        letter-spacing: 2px;
+    }
+
+    .event-title {
+        font-size: 26px;
+        margin-bottom: 18px;
+    }
+
+    .event-date {
+        font-size: 22px;
+    }
+
+    .event-time {
+        font-size: 12px;
+    }
+
+    .detail-row {
+        grid-template-columns: 85px 1fr;
+        gap: 10px;
+    }
+
+    .detail-label,
+    .detail-value {
+        font-size: 13px;
+    }
+
+    .event-buttons {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    .event-slider {
+        gap: 18px;
+        padding: 0 4vw;
+    }
+}
+
+/* ==========================================
+   MOBILE (576px)
+========================================== */
+
+@media (max-width: 576px) {
+
+    .events-heading {
+        padding: 60px 15px 45px;
+    }
+
+    .top-divider,
+    .bottom-divider {
+        gap: 10px;
+    }
+
+    .line {
+        width: 40px;
+    }
+
+    .diamond,
+    .heart {
+        font-size: 13px;
+    }
+
+    .sub-heading {
+        font-size: 10px;
+        letter-spacing: 3px;
+    }
+
+    .heading {
+        font-size: 42px;
+    }
+
+    .description {
+        font-size: 15px;
+        line-height: 1.6;
+    }
+
+    .event-card {
+        width: 95vw;
+        border-radius: 15px;
+    }
+
+    .event-image {
+        height: 300px;
+    }
+
+    .event-number {
+        width: 55px;
+        height: 55px;
+        font-size: 20px;
+        border-width: 4px;
+    }
+
+    .event-content {
+        padding: 8px 18px 20px;
+    }
+
+    .event-title {
+        font-size: 22px;
+    }
+
+    .event-date {
+        font-size: 20px;
+    }
+
+    .event-time {
+        font-size: 11px;
+    }
+
+    .event-details-grid {
+        gap: 4px;
+        margin-bottom: -20px;
+    }
+
+    .detail-row {
+        grid-template-columns: 1fr;
+        gap: 4px;
+    }
+
+    .detail-label {
+        font-size: 13px;
+    }
+
+    .detail-value {
+        font-size: 13px;
+    }
+
+    .btn {
+        padding-left: 11px;
+        font-size: 12px;
+    }
+
+    .event-slider {
+        padding: 0 3vw;
+        gap: 15px;
+    }
+}
+
+/* ==========================================
+   SMALL MOBILE (400px)
+========================================== */
+
+@media (max-width: 400px) {
+
+    .heading {
+        font-size: 34px;
+    }
+
+    .description {
+        font-size: 14px;
+    }
+
+    .event-image {
+        height: 170px;
+    }
+
+    .event-content {
+        padding: 35px 15px 18px;
+    }
+
+    .event-title {
+        font-size: 20px;
+    }
+
+    .event-date {
+        font-size: 18px;
+    }
+
+    .detail-label,
+    .detail-value {
+        font-size: 12px;
+    }
+
+    .btn {
+        font-size: 11px;
+        padding: 10px;
+    }
+}
