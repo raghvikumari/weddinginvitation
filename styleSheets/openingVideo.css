@@ -10,11 +10,19 @@
     overflow: hidden;
 }
 
+.cover {
+    width: 340px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .opening-video {
     height: 100vh;
     width: auto;
 
-    transform: scale(1.1);
+    transform: scale(1);
     /* Slight zoom from all sides */
     transform-origin: center center;
 
@@ -24,7 +32,7 @@
 @media (max-width: 768px) {
 
     .opening-video {
-        transform: translate(-50%, -50%) scale(-1.2);
+        transform: translate(-50%, -50%) scale(1);
     }
 
     .tap-button {
@@ -42,8 +50,12 @@
 
 @media (max-width: 480px) {
 
+    .cover{
+        width: 100%;
+    }
+
     .opening-video {
-        transform: translate(-50%, -50%) scale(4);
+        transform: translate(-50%, -50%) scale(1);
     }
 
     .tap-button {
@@ -59,8 +71,12 @@
 
 @media (max-width: 360px) {
 
+    .cover{
+        width: 100%;
+    }
+
     .opening-video {
-        transform: translate(-50%, -50%) scale(4);
+        transform: translate(-50%, -50%) scale(1);
     }
 
     .tap-button {
