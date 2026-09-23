@@ -1,17 +1,17 @@
-// let lenis;
+let lenis;
 
-// function initializeLenis() {
-//     if (lenis) return; // Prevent creating multiple instances
+function initializeLenis() {
+    if (lenis) return; // Prevent creating multiple instances
 
-//     lenis = new Lenis({
-//         autoRaf: true,
-//         duration: 1.2,
-//         smoothWheel: true,
-//         wheelMultiplier: 1,
-//         touchMultiplier: 1,
-//         infinite: false,
-//     });
-// }
+    lenis = new Lenis({
+        autoRaf: true,
+        duration: 1.2,
+        smoothWheel: true,
+        wheelMultiplier: 1,
+        touchMultiplier: 1,
+        infinite: false,
+    });
+}
 
 async function loadPage(page) {
     const response = await fetch(`./pages/${page}.html`);
@@ -48,8 +48,7 @@ async function loadHome() {
         contact +
         footer;
 
-        // initializeLenis();
-        initializePetals();
+    initializePetals();
     initializeMeetCouple();
     initializeScratchCard();
     initializeCapturedMoments();
@@ -59,6 +58,7 @@ async function loadHome() {
     initializeLoveButton();
     initializeHorizontalScroll();
     initializeContactForm()
+    initializeLenis();
 }
 
 function initializePage(page) {
