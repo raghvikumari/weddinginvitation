@@ -1,3 +1,17 @@
+let lenis;
+
+function initializeLenis() {
+    if (lenis) return; // Prevent creating multiple instances
+
+    lenis = new Lenis({
+        autoRaf: true,
+        duration: 1.2,
+        smoothWheel: true,
+        wheelMultiplier: 1,
+        touchMultiplier: 1,
+        infinite: false,
+    });
+}
 
 async function loadPage(page) {
     const response = await fetch(`./pages/${page}.html`);
@@ -20,7 +34,6 @@ async function loadHome() {
     const ourVenues = await fetch("./pages/our-venues.html").then(res => res.text());
     const family = await fetch("./pages/family.html").then(res => res.text());
     const contact = await fetch("./pages/contact.html").then(res => res.text());
-    const test = await fetch("./pages/test.html").then(res => res.text());
 
     document.getElementById("app").innerHTML =
         welcome +
@@ -32,20 +45,18 @@ async function loadHome() {
         ourVenues +
         family +
         contact +
-        // test;
 
-    initializePetals();
+        initializePetals();
     initializeMeetCouple();
     initializeScratchCard();
     initializeCapturedMoments();
-    // initializeEventSchedule();
     initializeOurVenues();
     initializeOurJourney();
-    initializeCalendarButton();
     initializeCalendarButton();
     initializeLoveButton();
     initializeHorizontalScroll();
     initializeContactForm()
+    initializeLenis();
 }
 
 function initializePage(page) {

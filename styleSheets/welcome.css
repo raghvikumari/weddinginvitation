@@ -1,9 +1,3 @@
-
-/* =========================================================
-   WELCOME SECTION
-   Completely scoped to .welcome-section
-   ========================================================= */
-
 .welcome-section {
     --gold: #d8ad55;
     --gold-light: #f5d98b;
@@ -26,31 +20,32 @@
     isolation: isolate;
 
     background:
-        radial-gradient(
-            circle at 50% 45%,
+        radial-gradient(circle at 50% 45%,
             rgba(151, 22, 39, 0.55),
-            transparent 38%
-        ),
-        radial-gradient(
-            circle at 20% 20%,
+            transparent 38%),
+        radial-gradient(circle at 20% 20%,
             rgba(217, 173, 85, 0.12),
-            transparent 25%
-        ),
-        linear-gradient(
-            135deg,
-            #260207 0%,
-            #4a050d 40%,
-            #680b17 70%,
-            #2b0207 100%
-        );
+            transparent 25%),
+        linear-gradient(135deg, #260207 0%, #4a050d 40%, #680b17 70%, #2b0207 100%);
 
     color: #f8e7b2;
+
+    animation: welcomeFade 1.3s ease forwards;
 }
 
+@keyframes welcomeFade {
+    0% {
+        opacity: 0;
+        transform: translateY(40px) scale(0.98);
+        filter: blur(8px);
+    }
 
-/* =========================================================
-   BACKGROUND
-   ========================================================= */
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+    }
+}
 
 .welcome-section .welcome-bg {
     position: absolute;
@@ -102,11 +97,6 @@
     }
 }
 
-
-/* =========================================================
-   MANDALA
-   ========================================================= */
-
 .welcome-section .welcome-mandala {
     position: absolute;
 
@@ -122,22 +112,16 @@
 
     opacity: 0.11;
 
-    background:
-        repeating-conic-gradient(
-            from 0deg,
+    background: repeating-conic-gradient(from 0deg,
             transparent 0deg 7deg,
-            rgba(239, 196, 103, 0.8) 7deg 8deg
-        );
+            rgba(239, 196, 103, 0.8) 7deg 8deg);
 
-    mask-image:
-        radial-gradient(
-            circle,
+    mask-image: radial-gradient(circle,
             transparent 0 42%,
             #000 43% 44%,
             transparent 45% 58%,
             #000 59% 60%,
-            transparent 61%
-        );
+            transparent 61%);
 
     animation: mandalaRotate 70s linear infinite;
 }
@@ -147,11 +131,6 @@
         transform: translate(-50%, -50%) rotate(360deg);
     }
 }
-
-
-/* =========================================================
-   STAGE
-   ========================================================= */
 
 .welcome-section .welcome-stage {
     position: relative;
@@ -166,11 +145,6 @@
     padding: 80px 25px;
 }
 
-
-/* =========================================================
-   CARD
-   ========================================================= */
-
 .welcome-section .welcome-card {
     position: relative;
 
@@ -184,12 +158,9 @@
     align-items: center;
     justify-content: center;
 
-    background:
-        linear-gradient(
-            145deg,
+    background: linear-gradient(145deg,
             rgba(122, 14, 28, 0.97),
-            rgba(65, 4, 12, 0.98)
-        );
+            rgba(65, 4, 12, 0.98));
 
     border-radius: 6px;
 
@@ -198,10 +169,7 @@
         0 0 0 1px rgba(241, 199, 107, 0.18),
         inset 0 0 80px rgba(0, 0, 0, 0.25);
 
-    transform:
-        perspective(1400px)
-        rotateX(0deg)
-        rotateY(0deg);
+    transform: perspective(1400px) rotateX(0deg) rotateY(0deg);
 
     transform-style: preserve-3d;
 
@@ -211,6 +179,7 @@
 }
 
 @keyframes cardFloat {
+
     0%,
     100% {
         margin-top: 0;
@@ -220,11 +189,6 @@
         margin-top: -8px;
     }
 }
-
-
-/* =========================================================
-   CARD BORDERS
-   ========================================================= */
 
 .welcome-section .card-border {
     position: absolute;
@@ -240,11 +204,6 @@
 
     border: 1px solid rgba(225, 181, 82, 0.25);
 }
-
-
-/* =========================================================
-   CORNERS
-   ========================================================= */
 
 .welcome-section .card-corner {
     position: absolute;
@@ -278,11 +237,6 @@
     right: 19px;
 }
 
-
-/* =========================================================
-   CONTENT
-   ========================================================= */
-
 .welcome-section .welcome-content {
     position: relative;
 
@@ -293,11 +247,6 @@
     z-index: 3;
 }
 
-
-/* =========================================================
-   OM
-   ========================================================= */
-
 .welcome-section .welcome-om {
     font-family: "Noto Serif Devanagari", serif;
 
@@ -307,8 +256,7 @@
 
     color: var(--gold-light);
 
-    text-shadow:
-        0 0 15px rgba(238, 194, 91, 0.5);
+    text-shadow: 0 0 15px rgba(238, 194, 91, 0.5);
 
     margin-bottom: 16px;
 
@@ -317,20 +265,13 @@
 
 @keyframes omGlow {
     from {
-        text-shadow:
-            0 0 8px rgba(238, 194, 91, 0.3);
+        text-shadow: 0 0 8px rgba(238, 194, 91, 0.3);
     }
 
     to {
-        text-shadow:
-            0 0 25px rgba(238, 194, 91, 0.8);
+        text-shadow: 0 0 25px rgba(238, 194, 91, 0.8);
     }
 }
-
-
-/* =========================================================
-   MANTRA
-   ========================================================= */
 
 .welcome-section .welcome-mantra {
     font-family: "Noto Serif Devanagari", serif;
@@ -356,11 +297,6 @@
     color: rgba(255, 231, 176, 0.68);
 }
 
-
-/* =========================================================
-   TITLE
-   ========================================================= */
-
 .welcome-section .welcome-title-wrapper {
     display: flex;
 
@@ -376,21 +312,11 @@
     width: 50px;
     height: 1px;
 
-    background:
-        linear-gradient(
-            to right,
-            transparent,
-            var(--gold)
-        );
+    background: linear-gradient(to right, transparent, var(--gold));
 }
 
 .welcome-section .title-line:last-child {
-    background:
-        linear-gradient(
-            to left,
-            transparent,
-            var(--gold)
-        );
+    background: linear-gradient(to left, transparent, var(--gold));
 }
 
 .welcome-section .welcome-title {
@@ -406,8 +332,7 @@
 
     line-height: 1.2;
 
-    text-shadow:
-        0 4px 20px rgba(0, 0, 0, 0.4);
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
 .welcome-section .welcome-subtitle {
@@ -424,11 +349,6 @@
     color: rgba(255, 231, 176, 0.72);
 }
 
-
-/* =========================================================
-   LOTUS
-   ========================================================= */
-
 .welcome-section .welcome-lotus {
     margin: 17px 0 10px;
 
@@ -442,6 +362,7 @@
 }
 
 @keyframes lotusPulse {
+
     0%,
     100% {
         transform: scale(1);
@@ -453,11 +374,6 @@
         opacity: 1;
     }
 }
-
-
-/* =========================================================
-   NAMES
-   ========================================================= */
 
 .welcome-section .welcome-names {
     display: flex;
@@ -488,11 +404,6 @@
     color: var(--gold-light);
 }
 
-
-/* =========================================================
-   DIVIDER
-   ========================================================= */
-
 .welcome-section .welcome-divider {
     display: flex;
 
@@ -511,21 +422,11 @@
 
     height: 1px;
 
-    background:
-        linear-gradient(
-            to right,
-            transparent,
-            rgba(226, 183, 83, 0.7)
-        );
+    background: linear-gradient(to right, transparent, rgba(226, 183, 83, 0.7));
 }
 
 .welcome-section .welcome-divider span:last-child {
-    background:
-        linear-gradient(
-            to left,
-            transparent,
-            rgba(226, 183, 83, 0.7)
-        );
+    background: linear-gradient(to left, transparent, rgba(226, 183, 83, 0.7));
 }
 
 .welcome-section .welcome-divider i {
@@ -535,7 +436,6 @@
 
     font-size: 12px;
 }
-
 
 /* =========================================================
    MESSAGE
@@ -554,7 +454,6 @@
 
     color: rgba(255, 239, 199, 0.82);
 }
-
 
 /* =========================================================
    DETAILS
@@ -605,14 +504,10 @@
     width: 1px;
     height: 38px;
 
-    background:
-        linear-gradient(
-            transparent,
+    background: linear-gradient(transparent,
             rgba(221, 180, 83, 0.6),
-            transparent
-        );
+            transparent);
 }
-
 
 /* =========================================================
    BOTTOM ORNAMENT
@@ -632,7 +527,6 @@
 
     font-size: 11px;
 }
-
 
 /* =========================================================
    DIYAS
@@ -674,12 +568,7 @@
 
     border-radius: 0 0 50% 50%;
 
-    background:
-        linear-gradient(
-            to bottom,
-            #e7b95e,
-            #8b571b
-        );
+    background: linear-gradient(to bottom, #e7b95e, #8b571b);
 
     box-shadow:
         0 8px 18px rgba(0, 0, 0, 0.4),
@@ -715,40 +604,29 @@
 
     border-radius: 50% 50% 45% 45%;
 
-    background:
-        radial-gradient(
-            ellipse at center bottom,
+    background: radial-gradient(ellipse at center bottom,
             #fff7c4 0 22%,
             #ffd45d 35%,
             #e88d1d 65%,
-            transparent 70%
-        );
+            transparent 70%);
 
-    filter:
-        drop-shadow(
-            0 0 9px rgba(255, 191, 52, 0.9)
-        );
+    filter: drop-shadow(0 0 9px rgba(255, 191, 52, 0.9));
 
     animation: flame 0.8s ease-in-out infinite alternate;
 }
 
 @keyframes flame {
     from {
-        transform:
-            translateX(-50%)
-            scale(0.9)
-            rotate(-4deg);
+        transform: translateX(-50%) scale(0.9) rotate(-4deg);
     }
 
     to {
-        transform:
-            translateX(-50%)
-            scale(1.08)
-            rotate(4deg);
+        transform: translateX(-50%) scale(1.08) rotate(4deg);
     }
 }
 
 @keyframes diyaFloat {
+
     0%,
     100% {
         transform: translateY(0);
@@ -758,7 +636,6 @@
         transform: translateY(-7px);
     }
 }
-
 
 /* =========================================================
    PEACOCK FEATHERS
@@ -804,12 +681,7 @@
 
     border-radius: 5px;
 
-    background:
-        linear-gradient(
-            to top,
-            #80601e,
-            #e0ba63
-        );
+    background: linear-gradient(to top, #80601e, #e0ba63);
 }
 
 .welcome-section .feather-eye {
@@ -825,20 +697,14 @@
 
     border-radius: 50% 50% 45% 45%;
 
-    background:
-        radial-gradient(
-            ellipse at center,
+    background: radial-gradient(ellipse at center,
             #e9c75d 0 8%,
             #0d6870 9% 20%,
             #154c91 21% 35%,
             #168b69 36% 48%,
-            transparent 49%
-        );
+            transparent 49%);
 
-    filter:
-        drop-shadow(
-            0 5px 12px rgba(0, 0, 0, 0.3)
-        );
+    filter: drop-shadow(0 5px 12px rgba(0, 0, 0, 0.3));
 }
 
 .welcome-section .feather-eye::after {
@@ -854,17 +720,13 @@
 
     transform: translateX(-50%);
 
-    background:
-        linear-gradient(
-            90deg,
+    background: linear-gradient(90deg,
             transparent,
             rgba(30, 110, 80, 0.6),
-            transparent
-        );
+            transparent);
 
     border-radius: 50%;
 }
-
 
 /* =========================================================
    KALASH
@@ -912,13 +774,7 @@
 
     margin: auto;
 
-    background:
-        linear-gradient(
-            90deg,
-            #8a581d,
-            #f0c75f,
-            #9c681e
-        );
+    background: linear-gradient(90deg, #8a581d, #f0c75f, #9c681e);
 
     border-radius: 3px 3px 5px 5px;
 }
@@ -929,17 +785,12 @@
 
     margin-top: -2px;
 
-    border-radius:
-        12px 12px
-        42% 42%;
+    border-radius: 12px 12px 42% 42%;
 
-    background:
-        radial-gradient(
-            ellipse at 35% 25%,
+    background: radial-gradient(ellipse at 35% 25%,
             #ffe292,
             #d29a37 45%,
-            #80501a 100%
-        );
+            #80501a 100%);
 
     border: 2px solid #e6b94f;
 
@@ -968,12 +819,7 @@
 
     border-radius: 100% 0;
 
-    background:
-        linear-gradient(
-            135deg,
-            #6b9d45,
-            #b5bf54
-        );
+    background: linear-gradient(135deg, #6b9d45, #b5bf54);
 
     transform-origin: bottom center;
 }
@@ -994,6 +840,7 @@
 }
 
 @keyframes kalashFloat {
+
     0%,
     100% {
         transform: translateY(0) rotate(-1deg);
@@ -1003,7 +850,6 @@
         transform: translateY(-10px) rotate(2deg);
     }
 }
-
 
 /* =========================================================
    PARTICLES
@@ -1019,15 +865,9 @@
 
     background: #f0c969;
 
-    box-shadow:
-        0 0 8px rgba(240, 201, 105, 0.8);
+    box-shadow: 0 0 8px rgba(240, 201, 105, 0.8);
 
-    animation:
-        particleFloat
-        var(--particle-duration)
-        ease-in-out
-        infinite
-        alternate;
+    animation: particleFloat var(--particle-duration) ease-in-out infinite alternate;
 }
 
 @keyframes particleFloat {
@@ -1042,7 +882,6 @@
     }
 }
 
-
 /* =========================================================
    PETALS
    ========================================================= */
@@ -1056,20 +895,14 @@
 
     opacity: 0;
 
-    animation:
-        petalFall
-        var(--petal-duration)
-        linear
-        infinite;
+    animation: petalFall var(--petal-duration) linear infinite;
 
     pointer-events: none;
 }
 
 @keyframes petalFall {
     0% {
-        transform:
-            translate3d(0, -30px, 0)
-            rotate(0deg);
+        transform: translate3d(0, -30px, 0) rotate(0deg);
 
         opacity: 0;
     }
@@ -1079,20 +912,15 @@
     }
 
     50% {
-        transform:
-            translate3d(var(--petal-x), 50vh, 0)
-            rotate(180deg);
+        transform: translate3d(var(--petal-x), 50vh, 0) rotate(180deg);
     }
 
     100% {
-        transform:
-            translate3d(calc(var(--petal-x) * -0.6), 110vh, 0)
-            rotate(360deg);
+        transform: translate3d(calc(var(--petal-x) * -0.6), 110vh, 0) rotate(360deg);
 
         opacity: 0;
     }
 }
-
 
 /* =========================================================
    SCROLL
@@ -1138,14 +966,11 @@
 
     color: #efd18a;
 
-    animation:
-        scrollArrow
-        1.6s
-        ease-in-out
-        infinite;
+    animation: scrollArrow 1.6s ease-in-out infinite;
 }
 
 @keyframes scrollArrow {
+
     0%,
     100% {
         transform: translateY(0);
@@ -1156,13 +981,11 @@
     }
 }
 
-
 /* =========================================================
    TABLET
    ========================================================= */
 
 @media (max-width: 900px) {
-
     .welcome-section .welcome-feather {
         opacity: 0.45;
         transform: scale(0.75) rotate(-27deg);
@@ -1193,13 +1016,11 @@
     }
 }
 
-
 /* =========================================================
    MOBILE
    ========================================================= */
 
 @media (max-width: 600px) {
-
     .welcome-section .welcome-stage {
         padding: 45px 12px 70px;
     }
@@ -1209,9 +1030,7 @@
 
         min-height: 620px;
 
-        padding:
-            40px
-            25px;
+        padding: 40px 25px;
     }
 
     .welcome-section .card-border {
@@ -1321,7 +1140,6 @@
         letter-spacing: 1.8px;
     }
 }
-
 
 /* =========================================================
    REDUCED MOTION
