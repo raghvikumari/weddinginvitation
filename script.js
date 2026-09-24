@@ -92,6 +92,7 @@ let lenis;
 
 // Fragments that make up the home page, in the order they're stitched together.
 const HOME_PAGES = [
+    // "test",
     "welcome",
     "saveTheDate",
     "meetCouple",
@@ -101,7 +102,7 @@ const HOME_PAGES = [
     "our-venues",
     "family",
     "contact",
-    "footer",
+    "footer"
 ];
 
 // Kicks off all the fetches for the home page in parallel (instead of one
@@ -154,6 +155,7 @@ async function loadHome() {
     document.getElementById("app").innerHTML = htmlParts.join("");
 
     initializePetals();
+    // initializeWelcome();
     initializeMeetCouple();
     initializeScratchCard();
     initializeCapturedMoments();

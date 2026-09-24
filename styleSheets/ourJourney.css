@@ -551,6 +551,12 @@
     color: #4e2523;
 }
 
+.diary-page,
+.stf__item {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+}
 
 /* =========================================================
    PAPER TEXTURE

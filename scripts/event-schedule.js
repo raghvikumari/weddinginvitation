@@ -77,7 +77,7 @@ function initializeHorizontalScroll() {
             invalidateOnRefresh: true, // Recalculates dynamically on window resize
             snap: {
                 snapTo: (value) => getSnapProgress(value),
-                duration: { min: 0.2, max: 0.6 },
+                duration: { min: 0.001, max: 0.001 },
                 ease: "power1.inOut",
             },
         }
