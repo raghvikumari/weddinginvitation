@@ -550,12 +550,77 @@ async function loadPage(page) {
 
 let homeLoaded = false;
 
+/* =====================================================
+   BACKGROUND MUSIC
+
+   playBackgroundMusic() is called synchronously, before any
+   `await`, from inside the "Enter Our Story" click handler — so
+   it still runs within the user-gesture window and browsers won't
+   block it. If a browser blocks it anyway, the floating toggle
+   button lets the user start it with one tap.
+   ===================================================== */
+
+let musicInitialized = false;
+
+function playBackgroundMusic() {
+
+    const audio = document.getElementById("bgMusic");
+    const toggle = document.getElementById("musicToggle");
+
+    if (!audio || !toggle) {
+        return;
+    }
+
+    if (!musicInitialized) {
+
+        musicInitialized = true;
+
+        toggle.classList.add("is-visible");
+
+        toggle.addEventListener("click", function () {
+
+            if (audio.paused) {
+
+                audio.play().catch(function () {
+                    // Still blocked (rare) — leave the button in its
+                    // "not playing" state so the user can try again.
+                });
+
+            } else {
+
+                audio.pause();
+            }
+        });
+
+        audio.addEventListener("play", function () {
+            toggle.classList.add("is-playing");
+            toggle.setAttribute("aria-label", "Pause background music");
+            toggle.title = "Pause music";
+        });
+
+        audio.addEventListener("pause", function () {
+            toggle.classList.remove("is-playing");
+            toggle.setAttribute("aria-label", "Play background music");
+            toggle.title = "Play music";
+        });
+    }
+
+    audio.play().catch(function () {
+        // Autoplay blocked — toggle button stays available so the
+        // user can start it manually.
+    });
+}
+
 async function loadHome() {
 
     // Guard against loadHome() being triggered more than once (e.g. the
     // user double-tapping "Enter Our Story").
     if (homeLoaded) return;
     homeLoaded = true;
+
+    // Kick off the music immediately, still inside the click's
+    // user-gesture context, before the first `await` below.
+    playBackgroundMusic();
 
     // If prefetchHomePages() was already triggered while the opening
     // animation was playing, this resolves instantly (or much sooner)

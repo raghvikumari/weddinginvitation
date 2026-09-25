@@ -538,8 +538,10 @@
 
 .diya-opening.is-lit .diya-click-hint,
 .diya-opening.is-revealed .diya-click-hint {
-    opacity: 0;
+    opacity: 0 !important;
+    visibility: hidden;
     transform: translate(-50%, 10px);
+    transition: opacity .5s ease, transform .5s ease, visibility 0s linear .5s;
 }
 
 .diya-click-hint-main {
