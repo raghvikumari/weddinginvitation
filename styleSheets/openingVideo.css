@@ -491,17 +491,28 @@
 
 .diya-plate {
     position: absolute;
+    width: 150px;
+    height: 20px;
+
     left: 50%;
-    top: 156px;
-    width: 196px;
-    height: 34px;
+    bottom: -12px;
+
     transform: translateX(-50%);
+
     border-radius: 50%;
-    border: 2px solid rgba(232, 188, 99, .8);
-    background: radial-gradient(ellipse, rgba(224, 173, 79, .4), rgba(110, 40, 20, .32));
+
+    background: transparent;
+
     box-shadow:
-        0 0 0 5px rgba(232, 188, 99, .12),
-        0 14px 26px rgba(0, 0, 0, .5);
+        0 8px 18px rgba(255, 184, 65, 0.28);
+
+    opacity: 0.7;
+}
+
+
+/* Remove the visible oval lines */
+.diya-plate span {
+    display: none !important;
 }
 
 .diya-plate span {
@@ -1011,4 +1022,549 @@
     .grand-scene-content span { font-size: 16px; }
     .grand-scroll-indicator { bottom: 25px; }
     .grand-scroll-indicator span { font-size: 7px; letter-spacing: 2.5px; }
+}
+/* =========================================================
+   VIBRANT LIGHT EFFECT AFTER DIYA IS LIT
+   ========================================================= */
+
+/* =========================================================
+   DIYA OPENING — BASE BACKGROUND
+   ========================================================= */
+
+.diya-opening {
+    position: relative;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 55%,
+            rgba(255, 151, 53, 0.12),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 50% 50%,
+            rgba(100, 15, 25, 0.8),
+            transparent 65%
+        ),
+        linear-gradient(
+            135deg,
+            #120307 0%,
+            #310912 45%,
+            #160308 100%
+        );
+
+    transition:
+        background 2s ease,
+        box-shadow 2s ease;
+}
+
+
+/* ---------------------------------------------------------
+   AFTER DIYA IS CLICKED
+   --------------------------------------------------------- */
+
+/* =========================================================
+   AFTER DIYA IS LIT
+   ========================================================= */
+
+.diya-opening.is-lit {
+    background:
+        radial-gradient(
+            circle at 50% 52%,
+            #ffe7a0 0%,
+            #ffc65c 10%,
+            #f28b38 22%,
+            #d94f3d 38%,
+            #9c2935 58%,
+            #4b101b 82%,
+            #21060c 100%
+        );
+
+    box-shadow:
+        inset 0 0 220px rgba(255, 226, 145, 0.35);
+}
+/* =========================================================
+   VIBRANT LIGHT RADIANCE
+   ========================================================= */
+
+.diya-opening::after {
+    content: "";
+    position: absolute;
+    inset: -30%;
+
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            circle at 50% 55%,
+            rgba(255, 225, 140, 0.95) 0%,
+            rgba(255, 170, 55, 0.55) 18%,
+            rgba(255, 80, 40, 0.25) 38%,
+            transparent 65%
+        );
+
+    opacity: 0;
+    transform: scale(0.65);
+
+    transition:
+        opacity 1.2s ease,
+        transform 2s cubic-bezier(.16, 1, .3, 1);
+
+    z-index: 0;
+}
+
+
+/* Light appears after clicking diya */
+
+.diya-opening.is-lit::after {
+    opacity: 1;
+    transform: scale(1.15);
+}
+.diya-opening.is-lit .diya-glow-background {
+    opacity: 1;
+    transform: scale(1.8);
+    filter: blur(20px);
+}
+
+.diya-glow-background {
+    opacity: 0.15;
+
+    transition:
+        opacity 1.2s ease,
+        transform 2s cubic-bezier(.16, 1, .3, 1),
+        filter 1.5s ease;
+
+    transform: scale(0.8);
+}
+.diya-opening.is-bursting {
+    animation: diyaLightBurst 1.4s ease-out;
+}
+
+@keyframes diyaLightBurst {
+
+    0% {
+        filter: brightness(1);
+    }
+
+    35% {
+        filter: brightness(1.8);
+    }
+
+    60% {
+        filter: brightness(1.35);
+    }
+
+    100% {
+        filter: brightness(1);
+    }
+}
+/* =========================================================
+   VIBRANT BACKGROUND + HIGH CONTRAST TEXT
+   ========================================================= */
+
+/* Main intro text */
+.diya-opening.is-lit .diya-intro-small,
+.diya-opening.is-lit .diya-instruction,
+.diya-opening.is-lit .diya-instruction-sub {
+    color: #3a0b12;
+    text-shadow:
+        0 1px 2px rgba(255, 255, 255, 0.45);
+}
+
+
+/* Sanskrit blessing */
+.diya-opening.is-lit .diya-intro-blessing,
+.diya-opening.is-lit .diya-blessing {
+    color: #5a1018;
+    text-shadow:
+        0 1px 2px rgba(255, 230, 170, 0.7);
+}
+
+
+/* Small decorative stars */
+.diya-opening.is-lit .diya-top-symbol,
+.diya-opening.is-lit .diya-reveal-symbol {
+    color: #4a0c13;
+    text-shadow:
+        0 0 8px rgba(255, 239, 180, 0.8);
+}
+
+
+/* Small divider */
+.diya-opening.is-lit .diya-small-line {
+    background: #65151d;
+    box-shadow:
+        0 0 8px rgba(255, 235, 170, 0.7);
+}
+
+
+/* =========================================================
+   REVEALED INVITATION
+   ========================================================= */
+
+.diya-opening.is-lit .diya-family {
+    color: #3d0b12;
+    font-weight: 600;
+    text-shadow:
+        0 1px 2px rgba(255, 240, 190, 0.6);
+}
+
+
+/* Names */
+.diya-opening.is-lit .diya-names {
+    color: #3b0710;
+    text-shadow:
+        0 2px 4px rgba(255, 225, 145, 0.8);
+}
+
+
+/* Ampersand */
+.diya-opening.is-lit .diya-names b {
+    color: #6d171d;
+}
+
+
+/* Tagline */
+.diya-opening.is-lit .diya-tagline {
+    color: #4c0c13;
+    font-weight: 600;
+    letter-spacing: 3px;
+}
+
+
+/* Wedding date */
+.diya-opening.is-lit .diya-date {
+    color: #3a0710;
+    font-weight: 700;
+    letter-spacing: 4px;
+}
+
+
+/* =========================================================
+   GOLD DIVIDER
+   ========================================================= */
+
+.diya-opening.is-lit .diya-gold-divider span {
+    background: #64141b;
+}
+
+.diya-opening.is-lit .diya-gold-divider b {
+    color: #5b0d15;
+}
+
+
+/* =========================================================
+   ENTER BUTTON
+   ========================================================= */
+
+.diya-opening.is-lit .diya-enter {
+    background:
+        linear-gradient(
+            135deg,
+            #4a0b14,
+            #731b25
+        );
+
+    border: 1px solid rgba(255, 224, 157, 0.9);
+
+    color: #fff4d6;
+
+    box-shadow:
+        0 8px 25px rgba(65, 5, 12, 0.35),
+        0 0 18px rgba(255, 220, 140, 0.35);
+}
+
+
+.diya-opening.is-lit .diya-enter:hover {
+    background:
+        linear-gradient(
+            135deg,
+            #65121d,
+            #8c2932
+        );
+
+    color: #ffffff;
+
+    transform: translateY(-3px);
+}
+
+
+/* Arrow */
+.diya-opening.is-lit .diya-enter b {
+    color: #f8d98e;
+}
+
+
+/* =========================================================
+   CLICK HINT BEFORE LIGHTING
+   ========================================================= */
+
+.diya-click-hint {
+    color: #fff1cf;
+
+    text-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.65);
+}
+
+
+/* =========================================================
+   BOTTOM TEXT
+   ========================================================= */
+
+.diya-opening.is-lit .diya-bottom {
+    color: #4a0b13;
+
+    text-shadow:
+        0 1px 3px rgba(255, 240, 190, 0.7);
+}
+
+
+.diya-opening.is-lit .diya-bottom i {
+    background: #5c1018;
+}
+.diya-glow-background {
+    position: absolute;
+    width: 55vw;
+    height: 55vw;
+    max-width: 750px;
+    max-height: 750px;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%)
+        scale(.35);
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 236, 166, 0.95) 0%,
+            rgba(255, 190, 72, 0.65) 18%,
+            rgba(255, 110, 45, 0.35) 38%,
+            transparent 70%
+        );
+
+    filter: blur(25px);
+
+    opacity: .12;
+
+    pointer-events: none;
+
+    transition:
+        transform 2s cubic-bezier(.16, 1, .3, 1),
+        opacity 1.5s ease,
+        filter 1.5s ease;
+}
+
+
+/* Glow expands after diya is lit */
+
+.diya-opening.is-lit .diya-glow-background {
+    transform:
+        translate(-50%, -50%)
+        scale(1.8);
+
+    opacity: 1;
+
+    filter: blur(35px);
+}
+/* =========================================================
+   MANDALA LIGHTING
+   ========================================================= */
+
+.diya-mandala {
+    transition:
+        transform 2s ease,
+        opacity 1.5s ease,
+        filter 1.5s ease;
+}
+
+
+/* Before lighting */
+
+.diya-mandala-ring {
+    transition:
+        border-color 1.5s ease,
+        box-shadow 1.5s ease,
+        opacity 1.5s ease;
+}
+
+
+/* After lighting */
+
+.diya-opening.is-lit .diya-mandala {
+    transform: scale(1.12);
+    filter:
+        drop-shadow(0 0 8px rgba(255, 224, 135, .8))
+        drop-shadow(0 0 25px rgba(255, 145, 45, .55));
+}
+
+
+.diya-opening.is-lit .diya-mandala-ring {
+    border-color: rgba(93, 16, 24, .48);
+
+    box-shadow:
+        0 0 8px rgba(255, 231, 160, .75),
+        inset 0 0 10px rgba(255, 231, 160, .25);
+}
+
+
+.diya-opening.is-lit .diya-mandala-center {
+    color: #57101a;
+
+    text-shadow:
+        0 0 8px rgba(255, 237, 173, .9),
+        0 0 20px rgba(255, 180, 70, .6);
+}
+/* =========================================================
+   MOON / AMBIENT GLOW
+   ========================================================= */
+
+.diya-moon-glow {
+    transition:
+        opacity 1.8s ease,
+        transform 2s ease,
+        background 1.8s ease;
+}
+
+
+.diya-opening.is-lit .diya-moon-glow {
+    opacity: .85;
+
+    transform: scale(1.35);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 220, 130, .55),
+            rgba(255, 120, 50, .18),
+            transparent 70%
+        );
+}
+/* =========================================================
+   GOLDEN LIGHT PARTICLES
+   ========================================================= */
+
+.diya-particle {
+    background: #fff0b5;
+
+    box-shadow:
+        0 0 5px rgba(255, 238, 175, .9),
+        0 0 12px rgba(255, 166, 55, .7);
+
+    transition:
+        background 1s ease,
+        box-shadow 1s ease;
+}
+
+
+.diya-opening.is-lit .diya-particle {
+    background: #fff3c4;
+
+    box-shadow:
+        0 0 6px #fff1b8,
+        0 0 16px rgba(255, 160, 50, .9);
+}
+/* =========================================================
+   CENTRAL LIGHT BURST
+   ========================================================= */
+
+.diya-light-burst {
+    position: absolute;
+
+    left: 50%;
+    top: 55%;
+
+    width: 20px;
+    height: 20px;
+
+    border-radius: 50%;
+
+    background: #fff4c7;
+
+    transform:
+        translate(-50%, -50%)
+        scale(0);
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    z-index: 3;
+}
+
+
+.diya-opening.is-bursting .diya-light-burst {
+    animation: diyaRadiantBurst 1.4s
+        cubic-bezier(.16, 1, .3, 1)
+        forwards;
+}
+
+
+@keyframes diyaRadiantBurst {
+
+    0% {
+        transform:
+            translate(-50%, -50%)
+            scale(0);
+
+        opacity: 1;
+
+        box-shadow:
+            0 0 20px 5px rgba(255, 238, 170, .9);
+    }
+
+    30% {
+        opacity: .9;
+    }
+
+    100% {
+        transform:
+            translate(-50%, -50%)
+            scale(90);
+
+        opacity: 0;
+
+        box-shadow:
+            0 0 80px 30px rgba(255, 175, 55, .35);
+    }
+}
+.diya-glow-background {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    border-radius: 0;
+
+    background:
+        radial-gradient(
+            circle at 50% 55%,
+            rgba(255, 210, 110, 0.35),
+            rgba(255, 130, 45, 0.12) 25%,
+            transparent 55%
+        );
+
+    opacity: 0;
+
+    transform: none;
+
+    filter: none;
+
+    pointer-events: none;
+
+    transition:
+        opacity 1.5s ease;
+}
+
+
+/* After diya is lit */
+
+.diya-opening.is-lit .diya-glow-background {
+    opacity: 1;
+    transform: none;
 }
