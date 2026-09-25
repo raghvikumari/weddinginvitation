@@ -1,11 +1,6 @@
-/* =========================================================
-   OUR JOURNEY — COMPLETE DIARY STYLESHEET
-========================================================= */
-
-
-/* =========================================================
-   ROOT SECTION
-========================================================= */
+/* ============================================================
+   OUR JOURNEY
+   ============================================================ */
 
 .our-story-section {
     position: relative;
@@ -13,159 +8,65 @@
     width: 100%;
     min-height: 100vh;
 
-    padding: 110px 20px 130px;
+    padding: 100px 20px 120px;
 
     box-sizing: border-box;
 
-    overflow-x: hidden;
-    overflow-y: visible;
+    overflow: hidden;
 
     background:
         radial-gradient(
-            ellipse at 50% 40%,
-            rgba(255, 251, 241, 0.98) 0%,
-            rgba(250, 239, 220, 0.97) 38%,
-            rgba(239, 216, 191, 0.94) 72%,
-            rgba(224, 195, 166, 0.98) 100%
-        );
-
-    font-family:
-        "Cormorant Garamond",
-        Georgia,
-        serif;
-}
-
-
-/* =========================================================
-   BACKGROUND GLOW
-========================================================= */
-
-.our-story-section::before {
-    content: "";
-
-    position: absolute;
-
-    inset: 0;
-
-    pointer-events: none;
-
-    background:
-        radial-gradient(
-            circle at 12% 20%,
-            rgba(111, 27, 42, 0.08),
-            transparent 27%
+            circle at 50% 45%,
+            rgba(205, 159, 76, 0.13),
+            transparent 45%
         ),
-        radial-gradient(
-            circle at 88% 75%,
-            rgba(111, 27, 42, 0.08),
-            transparent 29%
-        ),
-        radial-gradient(
-            circle at 50% 50%,
-            rgba(255, 255, 255, 0.60),
-            transparent 55%
+        linear-gradient(
+            135deg,
+            #210b0d 0%,
+            #4b1519 48%,
+            #1d080a 100%
         );
-
-    z-index: 0;
 }
 
 
-/* =========================================================
-   GOLD DOT PATTERN
-========================================================= */
-
-.our-story-section::after {
-    content: "";
-
-    position: absolute;
-
-    inset: 0;
-
-    pointer-events: none;
-
-    opacity: 0.13;
-
-    background-image:
-        radial-gradient(
-            circle,
-            rgba(133, 92, 43, 0.55) 1px,
-            transparent 1.5px
-        );
-
-    background-size: 32px 32px;
-
-    mask-image:
-        radial-gradient(
-            ellipse at center,
-            black 0%,
-            transparent 75%
-        );
-
-    -webkit-mask-image:
-        radial-gradient(
-            ellipse at center,
-            black 0%,
-            transparent 75%
-        );
-
-    z-index: 0;
-}
-
-
-/* =========================================================
+/* ============================================================
    HEADING
-========================================================= */
+   ============================================================ */
 
 .journey-heading {
     position: relative;
 
-    z-index: 10;
-
-    width: 100%;
-
-    margin: 0 auto 55px;
+    z-index: 5;
 
     text-align: center;
+
+    margin-bottom: 60px;
 }
 
 
 .journey-heading > span {
     display: block;
 
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 
-    font-family: Arial, sans-serif;
+    color: #d7b46c;
 
-    font-size: 11px;
+    font-size: 10px;
 
-    font-weight: 600;
-
-    letter-spacing: 5px;
-
-    color: #8a5a48;
+    letter-spacing: 6px;
 }
 
 
 .journey-heading h1 {
     margin: 0;
 
-    font-family:
-        "Cormorant Garamond",
-        Georgia,
-        serif;
+    color: #f8e6bd;
 
-    font-size:
-        clamp(
-            42px,
-            5vw,
-            68px
-        );
+    font-family: Georgia, "Times New Roman", serif;
 
-    font-weight: 500;
+    font-size: clamp(42px, 6vw, 72px);
 
-    line-height: 0.95;
-
-    color: #5b1721;
+    font-weight: 400;
 }
 
 
@@ -176,7 +77,7 @@
 
     justify-content: center;
 
-    gap: 12px;
+    gap: 15px;
 
     margin-top: 18px;
 }
@@ -185,196 +86,72 @@
 .heading-line i {
     display: block;
 
-    width: 70px;
+    width: 80px;
 
     height: 1px;
 
-    background: #b28a54;
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #c99d55
+        );
+}
+
+
+.heading-line i:last-child {
+    background:
+        linear-gradient(
+            90deg,
+            #c99d55,
+            transparent
+        );
 }
 
 
 .heading-line span {
-    color: #9b6d3e;
+    color: #d7b46c;
 
     font-size: 15px;
 }
 
 
-/* =========================================================
+/* ============================================================
    DIARY AREA
-========================================================= */
+   ============================================================ */
 
 .diary-area {
     position: relative;
 
-    z-index: 5;
-
     width: 100%;
 
-    min-height: 610px;
+    min-height: 570px;
 
     display: flex;
 
-    flex-direction: column;
-
-    align-items: center;
-
     justify-content: center;
 
-    box-sizing: border-box;
-
-    overflow: visible;
+    align-items: center;
 }
 
 
-/* =========================================================
-   DIARY SPOTLIGHT
-========================================================= */
+/* ============================================================
+   GLOW
+   ============================================================ */
 
 .diary-glow {
     position: absolute;
 
-    width: 850px;
+    width: 900px;
 
-    height: 520px;
-
-    left: 50%;
-
-    top: 47%;
-
-    transform:
-        translate(-50%, -50%);
-
-    background:
-        radial-gradient(
-            ellipse,
-            rgba(255, 255, 255, 0.96) 0%,
-            rgba(255, 247, 230, 0.78) 30%,
-            rgba(159, 76, 76, 0.12) 58%,
-            transparent 75%
-        );
-
-    filter: blur(18px);
-
-    opacity: 0.9;
-
-    pointer-events: none;
-
-    z-index: 1;
-
-    animation:
-        diarySpotlight
-        7s
-        ease-in-out
-        infinite;
-}
-
-
-@keyframes diarySpotlight {
-
-    0%,
-    100% {
-        transform:
-            translate(-50%, -50%)
-            scale(0.96);
-
-        opacity: 0.75;
-    }
-
-    50% {
-        transform:
-            translate(-50%, -50%)
-            scale(1.04);
-
-        opacity: 1;
-    }
-}
-
-
-/* =========================================================
-   DECORATIVE CORNER ORNAMENTS
-========================================================= */
-
-.our-story-section .diary-area::before,
-.our-story-section .diary-area::after {
-
-    position: absolute;
-
-    font-family:
-        "Cormorant Garamond",
-        Georgia,
-        serif;
-
-    font-size: 90px;
-
-    line-height: 1;
-
-    color:
-        rgba(
-            143,
-            96,
-            45,
-            0.20
-        );
-
-    pointer-events: none;
-
-    z-index: 2;
-}
-
-
-.our-story-section .diary-area::before {
-
-    content: "❦";
-
-    left: 3%;
-
-    top: 5%;
-
-    transform:
-        rotate(-25deg);
-}
-
-
-.our-story-section .diary-area::after {
-
-    content: "❦";
-
-    right: 3%;
-
-    bottom: 5%;
-
-    transform:
-        rotate(155deg);
-}
-
-
-/* =========================================================
-   SECONDARY LIGHT
-========================================================= */
-
-.diary-area > .diary-glow::after {
-    content: "";
-
-    position: absolute;
-
-    width: 320px;
-
-    height: 320px;
-
-    left: 50%;
-
-    top: 50%;
-
-    transform:
-        translate(-50%, -50%);
+    height: 500px;
 
     border-radius: 50%;
 
     background:
         radial-gradient(
-            circle,
-            rgba(255, 255, 255, 0.45),
+            ellipse,
+            rgba(228, 180, 92, 0.17),
             transparent 70%
         );
 
@@ -384,154 +161,82 @@
 }
 
 
-/* =========================================================
-   DIARY ENTRANCE
-========================================================= */
+/* ============================================================
+   ENTRANCE
+   ============================================================ */
 
 .diary-entrance {
-
     position: relative;
 
     z-index: 10;
 
-    width: 100%;
+    width: 1120px;
 
-    max-width: 1180px;
-
-    display: flex;
-
-    flex-direction: column;
-
-    align-items: center;
-
-    justify-content: flex-start;
+    max-width: 92vw;
 
     opacity: 0;
 
-    /*
-     * Initial position:
-     * bottom-right corner.
-     */
     transform:
-        translate3d(
-            48vw,
-            42vh,
-            0
-        )
-        rotateZ(28deg)
-        rotateY(-18deg)
-        scale(0.48);
-
-    transform-origin:
-        center center;
+        translate(45vw, 18vh)
+        rotate(16deg)
+        scale(.72);
 
     transition:
-        transform 2.4s
-        cubic-bezier(
-            0.16,
-            1,
-            0.3,
-            1
-        ),
-        opacity 0.8s ease;
-
-    will-change:
-        transform,
-        opacity;
-
-    perspective: 1800px;
+        transform 2.2s cubic-bezier(.16, 1, .3, 1),
+        opacity 1s ease;
 }
 
 
-/* =========================================================
-   DIARY ARRIVES
-========================================================= */
-
 .diary-entrance.is-arrived {
-
     opacity: 1;
 
     transform:
-        translate3d(
-            0,
-            0,
-            0
-        )
-        rotateZ(-2deg)
-        rotateY(0deg)
-        scale(0.96);
+        translate(0, 0)
+        rotate(0deg)
+        scale(1);
 }
 
-
-/* =========================================================
-   DIARY SETTLES
-========================================================= */
 
 .diary-entrance.is-settled {
-
     transform:
-        translate3d(
-            0,
-            0,
-            0
-        )
-        rotateZ(0deg)
-        rotateY(0deg)
-        scale(0.96);
+        translate(0, 0)
+        rotate(0deg)
+        scale(1);
 }
 
 
-/* =========================================================
-   PAGE FLIP BOOK — DESKTOP
-========================================================= */
+/* ============================================================
+   BOOK
+
+   IMPORTANT:
+   DO NOT ADD:
+   perspective
+   transform-style
+   backface-visibility
+   custom transform
+   to this element.
+
+   StPageFlip handles the 3D book itself.
+   ============================================================ */
 
 .diary-book {
-
     position: relative;
 
     width: 1120px;
 
     height: 440px;
 
-    max-width: none;
+    max-width: 100%;
 
     margin: 0 auto;
-
-    box-sizing: border-box;
-
-    user-select: none;
-
-    overflow: visible;
-
-    filter:
-        drop-shadow(
-            0 28px 30px
-            rgba(
-                67,
-                28,
-                19,
-                0.20
-            )
-        )
-        drop-shadow(
-            0 8px 12px
-            rgba(
-                67,
-                28,
-                19,
-                0.12
-            )
-        );
 }
 
 
-/*
- * Do not manually position pages.
- * StPageFlip controls them.
- */
+/* ============================================================
+   PAGE
+   ============================================================ */
 
 .diary-page {
-
     width: 100%;
 
     height: 100%;
@@ -540,30 +245,25 @@
 
     overflow: hidden;
 
+    position: relative;
+
+    color: #592c2a;
+
     background:
         linear-gradient(
             90deg,
-            #fbf0dc 0%,
-            #fffaf0 50%,
-            #f8ecd8 100%
+            #f3dfbf 0%,
+            #fff9eb 50%,
+            #f3dfbf 100%
         );
-
-    color: #4e2523;
 }
 
-.diary-page,
-.stf__item {
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-    -moz-backface-visibility: hidden;
-}
 
-/* =========================================================
+/* ============================================================
    PAPER TEXTURE
-========================================================= */
+   ============================================================ */
 
 .diary-page::before {
-
     content: "";
 
     position: absolute;
@@ -572,356 +272,29 @@
 
     pointer-events: none;
 
-    opacity: 0.24;
-
-    background-image:
-        radial-gradient(
-            rgba(
-                92,
-                52,
-                32,
-                0.09
-            ) 0.7px,
-            transparent 0.7px
-        );
-
-    background-size: 5px 5px;
-
     z-index: 1;
-}
 
-
-/* =========================================================
-   COVER
-========================================================= */
-
-.diary-cover-page {
-
-    position: relative;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    overflow: hidden;
-
-    color: #f5dfae;
+    opacity: .28;
 
     background:
         radial-gradient(
-            circle at center,
-            #8b2936 0%,
-            #751d2b 55%,
-            #57131f 100%
-        );
-}
-
-
-.diary-cover-page::after {
-
-    content: "";
-
-    position: absolute;
-
-    width: 260px;
-
-    height: 600px;
-
-    top: -100px;
-
-    left: -280px;
-
-    transform: rotate(24deg);
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(
-                255,
-                255,
-                255,
-                0.11
-            ),
-            transparent
+            circle at 15% 20%,
+            rgba(100, 65, 40, .13) 0 1px,
+            transparent 1px
         );
 
-    animation:
-        coverShine
-        5s
-        ease-in-out
-        infinite;
-
-    pointer-events: none;
+    background-size: 8px 8px;
 }
 
 
-@keyframes coverShine {
+/* ============================================================
+   INNER PAGE
+   ============================================================ */
 
-    0% {
-        left: -280px;
-    }
-
-    55%,
-    100% {
-        left: 700px;
-    }
-}
-
-
-/* =========================================================
-   COVER BORDER
-========================================================= */
-
-.cover-border {
-
-    position: absolute;
-
-    inset: 22px;
-
-    border:
-        1px solid
-        rgba(
-            226,
-            190,
-            119,
-            0.75
-        );
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-}
-
-
-.cover-border::before {
-
-    content: "";
-
-    position: absolute;
-
-    inset: 9px;
-
-    border:
-        1px solid
-        rgba(
-            226,
-            190,
-            119,
-            0.28
-        );
-}
-
-
-.cover-content {
-
+.page-inner {
     position: relative;
 
     z-index: 2;
-
-    text-align: center;
-
-    padding: 20px;
-}
-
-
-.cover-small {
-
-    margin-bottom: 13px;
-
-    font-family: Arial, sans-serif;
-
-    font-size: 11px;
-
-    letter-spacing: 7px;
-
-    color: #e7c987;
-}
-
-
-.cover-title {
-
-    margin: 0;
-
-    font-family:
-        "Cormorant Garamond",
-        Georgia,
-        serif;
-
-    font-size: 61px;
-
-    line-height: 0.78;
-
-    font-weight: 500;
-
-    letter-spacing: 2px;
-
-    color: #f4dda8;
-}
-
-
-.cover-title span {
-    display: block;
-}
-
-
-.cover-divider {
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    gap: 10px;
-
-    margin:
-        25px
-        auto
-        18px;
-}
-
-
-.cover-divider span {
-
-    width: 55px;
-
-    height: 1px;
-
-    background: #cfa967;
-}
-
-
-.cover-divider b {
-
-    color: #e3bd73;
-
-    font-size: 14px;
-}
-
-
-.cover-names {
-
-    font-size: 25px;
-
-    letter-spacing: 1px;
-
-    color: #fff0c9;
-}
-
-
-.cover-names span {
-
-    margin: 0 7px;
-
-    color: #d8b46f;
-
-    font-style: italic;
-}
-
-
-.cover-subtitle {
-
-    margin-top: 9px;
-
-    font-family: Arial, sans-serif;
-
-    font-size: 8px;
-
-    letter-spacing: 4px;
-
-    color: #d9b979;
-}
-
-
-.cover-date {
-
-    margin-top: 32px;
-
-    font-family: Arial, sans-serif;
-
-    font-size: 8px;
-
-    letter-spacing: 3px;
-
-    color:
-        rgba(
-            239,
-            212,
-            157,
-            0.7
-        );
-}
-
-
-/* =========================================================
-   COVER DECORATIONS
-========================================================= */
-
-.cover-decoration {
-
-    position: absolute;
-
-    color: #d6af6c;
-
-    font-size: 30px;
-
-    opacity: 0.8;
-}
-
-
-.top-left {
-
-    top: 8px;
-
-    left: 12px;
-}
-
-
-.top-right {
-
-    top: 8px;
-
-    right: 12px;
-
-    transform:
-        scaleX(-1);
-}
-
-
-.bottom-left {
-
-    bottom: 8px;
-
-    left: 12px;
-
-    transform:
-        scaleY(-1);
-}
-
-
-.bottom-right {
-
-    bottom: 8px;
-
-    right: 12px;
-
-    transform:
-        rotate(180deg);
-}
-
-
-/* =========================================================
-   INNER PAGE
-========================================================= */
-
-.page-inner {
-
-    position: relative;
 
     width: 100%;
 
@@ -929,528 +302,518 @@
 
     box-sizing: border-box;
 
-    padding:
-        28px
-        38px
-        25px;
+    padding: 30px 42px;
 
-    display: flex;
-
-    flex-direction: column;
-
-    z-index: 2;
+    transition: opacity .18s ease;
 }
 
 
-/* =========================================================
+/* ============================================================
+   BLANK BACK WHILE FLIPPING
+
+   StPageFlip only ever draws ONE face for a soft page - there is
+   no real "back" side - so while a page curls over, it just shows
+   its own front text again (rotated), instead of a blank back.
+
+   The library always marks whichever page is CURRENTLY turning
+   with an inline z-index of "startZIndex + 5". startZIndex is
+   left at its default (0) here, so the turning page always ends
+   up with "z-index: 5" in its inline style. We use that as a hook
+   to hide its text while it is mid-flip, leaving just the blank
+   paper behind it - the actual page being revealed underneath is
+   a separate element and is unaffected by this rule. Hard pages
+   (the front/back cover) already do a true 3D flip with
+   backface-visibility: hidden and don't need this.
+   ============================================================ */
+
+.diary-book .story-page.stf__item[style*="z-index: 5;"] .page-inner {
+    opacity: 0;
+
+    pointer-events: none;
+}
+
+
+/* ============================================================
    PAGE TOP
-========================================================= */
+   ============================================================ */
 
 .page-top {
-
     display: flex;
 
     justify-content: space-between;
 
     align-items: center;
 
-    padding-bottom: 10px;
+    padding-bottom: 11px;
 
-    border-bottom:
-        1px solid
-        rgba(
-            115,
-            69,
-            49,
-            0.20
-        );
+    border-bottom: 1px solid
+        rgba(130, 85, 55, .28);
 
-    font-family: Arial, sans-serif;
+    color: #a77b49;
 
-    font-size: 7px;
+    font-size: 8px;
 
-    letter-spacing: 2px;
-
-    color: #98705c;
+    letter-spacing: 3px;
 }
 
 
-/* =========================================================
-   PAGE CONTENT
-========================================================= */
+/* ============================================================
+   PAGE FOOTER
+   ============================================================ */
+
+.page-footer {
+    position: absolute;
+
+    left: 42px;
+
+    right: 42px;
+
+    bottom: 22px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    color: #a77b49;
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+}
+
+
+/* ============================================================
+   STORY CONTENT
+   ============================================================ */
 
 .page-content {
-
-    flex: 1;
-
-    display: grid;
-
-    grid-template-columns:
-        1fr
-        0.88fr;
-
-    gap: 28px;
+    display: flex;
 
     align-items: center;
 
-    padding: 15px 0;
+    justify-content: space-between;
+
+    gap: 35px;
+
+    height: calc(100% - 60px);
+
+    padding-bottom: 25px;
+
+    box-sizing: border-box;
 }
 
 
 .page-content.reverse {
-
-    grid-template-columns:
-        0.88fr
-        1fr;
+    flex-direction: row-reverse;
 }
 
-
-/* =========================================================
-   STORY TEXT
-========================================================= */
 
 .story-text {
-
     position: relative;
+
+    width: 52%;
+
+    max-width: 52%;
 }
 
 
+.story-text h2 {
+    position: relative;
+
+    margin: 0;
+
+    color: #642c2d;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 32px;
+
+    line-height: 1.08;
+
+    font-weight: 400;
+}
+
+
+.story-text p {
+    margin: 13px 0;
+
+    color: #74504a;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 13px;
+
+    line-height: 1.65;
+}
+
+
+/* ============================================================
+   CHAPTER NUMBER
+   ============================================================ */
+
 .chapter-number {
+    position: absolute;
 
-    margin-bottom: 3px;
+    top: -28px;
 
-    font-family:
-        "Cormorant Garamond",
-        Georgia,
-        serif;
+    right: 5px;
 
-    font-size: 25px;
+    color: rgba(123, 72, 50, .08);
 
-    font-style: italic;
+    font-family: Georgia, serif;
 
-    color: #9b6b49;
+    font-size: 82px;
+
+    line-height: 1;
 }
 
 
 .chapter-number.large {
+    position: relative;
 
-    font-size: 30px;
+    top: auto;
 
-    margin-top: 12px;
+    right: auto;
+
+    margin-bottom: -15px;
+
+    font-size: 105px;
+
+    color: rgba(123, 72, 50, .09);
 }
 
 
-.story-text h2,
-.center-title,
-.promise-page h2 {
-
-    margin: 0;
-
-    color: #641b25;
-
-    font-size: 35px;
-
-    line-height: 0.93;
-
-    font-weight: 500;
-}
-
+/* ============================================================
+   DIVIDER
+   ============================================================ */
 
 .small-divider {
+    width: 65px;
 
-    width: 50px;
+    height: 2px;
 
-    height: 1px;
+    margin: 17px 0;
 
-    margin:
-        15px 0;
-
-    background: #a77751;
+    background: #b88b50;
 }
 
 
-.story-text p,
-.promise-page p {
+/* ============================================================
+   QUOTE
+   ============================================================ */
 
-    margin:
-        0 0 10px;
+.quote {
+    margin-top: 20px;
 
-    color: #725044;
+    padding-left: 14px;
+
+    border-left: 2px solid #c39a5d;
+
+    color: #8b6259;
+
+    font-family: Georgia, serif;
 
     font-size: 12px;
 
-    line-height: 1.55;
-}
-
-
-.quote {
-
-    margin-top: 12px;
-
-    padding-left: 13px;
-
-    border-left:
-        2px solid
-        #b68b59;
-
-    font-size: 11px;
-
-    line-height: 1.4;
-
     font-style: italic;
 
-    color: #8b5e4d;
+    line-height: 1.6;
 }
 
 
-/* =========================================================
+/* ============================================================
    IMAGE
-========================================================= */
+   ============================================================ */
 
 .story-image-wrap {
+    width: 42%;
 
-    text-align: center;
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
 }
 
 
 .image-frame {
-
-    position: relative;
-
-    display: inline-block;
-
     width: 190px;
 
-    height: 230px;
+    height: 245px;
 
-    padding: 7px;
+    padding: 8px;
 
     box-sizing: border-box;
 
-    background: #f9f1df;
+    background: #fffaf0;
 
     box-shadow:
-        0 12px 22px
-        rgba(
-            65,
-            35,
-            23,
-            0.17
-        );
+        0 10px 25px
+        rgba(73, 36, 25, .22);
 
-    transform:
-        rotate(-2deg);
+    transform: rotate(-3deg);
 }
 
 
 .image-frame.tilted {
-
-    transform:
-        rotate(2.5deg);
-}
-
-
-.image-frame::before {
-
-    content: "";
-
-    position: absolute;
-
-    inset: 4px;
-
-    border:
-        1px solid
-        rgba(
-            120,
-            77,
-            53,
-            0.25
-        );
-
-    pointer-events: none;
+    transform: rotate(4deg);
 }
 
 
 .image-frame img {
-
-    display: block;
-
     width: 100%;
 
     height: 100%;
 
     object-fit: cover;
+
+    display: block;
 }
 
 
 .image-caption {
+    margin-top: 13px;
 
-    display: block;
-
-    margin-top: 10px;
-
-    font-family: Arial, sans-serif;
+    color: #a77b49;
 
     font-size: 7px;
 
     letter-spacing: 2px;
 
-    color: #98705c;
+    text-align: center;
 }
 
 
-/* =========================================================
+/* ============================================================
    MEMORY LIST
-========================================================= */
+   ============================================================ */
 
 .memory-list {
-
     display: flex;
 
     flex-direction: column;
 
-    gap: 5px;
+    gap: 8px;
 
-    margin-top: 12px;
+    margin-top: 18px;
 
-    font-size: 10px;
+    color: #81544b;
 
-    color: #80584a;
+    font-family: Georgia, serif;
+
+    font-size: 12px;
 }
 
 
-/* =========================================================
-   FOOTER
-========================================================= */
-
-.page-footer {
-
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: center;
-
-    padding-top: 9px;
-
-    border-top:
-        1px solid
-        rgba(
-            115,
-            69,
-            49,
-            0.15
-        );
-
-    font-family: Arial, sans-serif;
-
-    font-size: 7px;
-
-    letter-spacing: 2px;
-
-    color: #a07863;
-}
-
-
-.page-footer span:last-child {
-
-    color: #9b6b49;
-}
-
-
-/* =========================================================
+/* ============================================================
    CENTERED PAGE
-========================================================= */
+   ============================================================ */
 
 .centered-page {
+    display: flex;
 
-    text-align: center;
+    flex-direction: column;
+
+    justify-content: center;
 
     align-items: center;
+
+    text-align: center;
 }
 
 
 .centered-page .page-top {
+    position: absolute;
 
-    width: 100%;
+    top: 30px;
+
+    left: 42px;
+
+    right: 42px;
+}
+
+
+.center-title {
+    margin: 0;
+
+    color: #642c2d;
+
+    font-family: Georgia, serif;
+
+    font-size: 34px;
+
+    font-weight: 400;
+
+    line-height: 1.05;
 }
 
 
 .ornament {
-
     display: flex;
 
     align-items: center;
 
-    justify-content: center;
-
     gap: 12px;
 
-    margin: 13px 0;
+    margin: 18px 0;
+
+    color: #b8884c;
 }
 
 
 .ornament span {
-
-    width: 55px;
+    width: 45px;
 
     height: 1px;
 
-    background: #ae8059;
-}
-
-
-.ornament b {
-
-    color: #8b5360;
-
-    font-size: 14px;
+    background: #c49a5c;
 }
 
 
 .center-text {
+    max-width: 450px;
 
-    max-width: 360px;
+    margin: 8px auto;
 
-    margin:
-        0 auto 10px;
+    color: #79564e;
 
-    color: #765248;
+    font-family: Georgia, serif;
 
-    font-size: 12px;
+    font-size: 13px;
 
-    line-height: 1.55;
+    line-height: 1.7;
 }
 
 
 .center-text.emphasis {
-
-    color: #681f2a;
-
     font-style: italic;
-
-    font-size: 14px;
 }
 
 
-/* =========================================================
+/* ============================================================
    MEMORY CARD
-========================================================= */
+   ============================================================ */
 
 .memory-card {
-
     display: flex;
 
-    justify-content: center;
+    gap: 12px;
 
-    gap: 9px;
-
-    margin-top: 13px;
+    margin-top: 17px;
 }
 
 
-.memory-card div {
+.memory-card > div {
+    min-width: 110px;
 
-    width: 95px;
+    padding: 10px 14px;
 
-    padding:
-        11px 5px;
-
-    border:
-        1px solid
-        rgba(
-            137,
-            92,
-            65,
-            0.25
-        );
+    border: 1px solid
+        rgba(160, 113, 64, .3);
 
     background:
-        rgba(
-            255,
-            248,
-            233,
-            0.7
-        );
+        rgba(255, 249, 234, .65);
+}
+
+
+.memory-card strong,
+.memory-card span {
+    display: block;
 }
 
 
 .memory-card strong {
+    color: #754034;
 
-    display: block;
+    font-family: Georgia, serif;
 
-    font-family: Arial, sans-serif;
+    font-size: 11px;
 
-    font-size: 8px;
-
-    letter-spacing: 1.5px;
-
-    color: #6c2831;
+    letter-spacing: 1px;
 }
 
 
 .memory-card span {
+    margin-top: 4px;
 
-    display: block;
-
-    margin-top: 3px;
+    color: #a67b4c;
 
     font-size: 9px;
-
-    color: #8c6759;
 }
 
 
-/* =========================================================
+/* ============================================================
    PROMISE PAGE
-========================================================= */
+   ============================================================ */
 
 .promise-page {
+    position: relative;
 
-    flex: 1;
+    width: 100%;
+
+    height: calc(100% - 35px);
 
     display: flex;
 
     flex-direction: column;
 
-    align-items: center;
-
     justify-content: center;
+
+    align-items: center;
 
     text-align: center;
 }
 
 
-.promise-page h2 {
+.promise-page .chapter-number {
+    top: 35px;
 
-    font-size: 39px;
+    right: 50px;
 }
 
 
-.promise-page .small-divider {
+.promise-page h2 {
+    margin: 0;
 
-    margin:
-        16px auto;
+    color: #642c2d;
+
+    font-family: Georgia, serif;
+
+    font-size: 34px;
+
+    font-weight: 400;
+
+    line-height: 1.05;
+}
+
+
+.promise-page p {
+    max-width: 500px;
+
+    margin: 8px auto;
+
+    color: #77534d;
+
+    font-family: Georgia, serif;
+
+    font-size: 13px;
+
+    line-height: 1.6;
 }
 
 
 .big-heart {
+    margin: 15px 0;
 
-    margin: 6px 0;
+    color: #a94348;
 
-    font-size: 34px;
+    font-size: 38px;
 
-    color: #8a3040;
-
-    animation:
-        heartPulse
-        2s
-        ease-in-out
-        infinite;
+    animation: diaryHeart 2s ease-in-out infinite;
 }
 
 
-@keyframes heartPulse {
+@keyframes diaryHeart {
 
     0%,
     100% {
@@ -1464,1337 +827,675 @@
 
 
 .promise-text {
+    max-width: 480px;
 
-    max-width: 280px;
-
-    font-size: 14px;
-
-    line-height: 1.45;
-
-    color: #81594b;
-
-    font-style: italic;
-}
-
-
-/* =========================================================
-   FINAL PAGE
-========================================================= */
-
-.final-story-page {
-
-    justify-content: center;
-}
-
-
-.final-ornament {
-
-    margin-top: 10px;
-
-    color: #9d714c;
-
-    font-size: 29px;
-}
-
-
-.names-final {
-
-    margin-top: 15px;
-
-    font-size: 20px;
-
-    color: #691f29;
-}
-
-
-.names-final span {
-
-    margin: 0 7px;
-
-    color: #a9784d;
-
-    font-style: italic;
-}
-
-
-/* =========================================================
-   BACK COVER
-========================================================= */
-
-.diary-back-page {
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    color: #ead09a;
-
-    background:
-        radial-gradient(
-            circle at center,
-            #852633,
-            #671724 70%,
-            #50121c
-        );
-}
-
-
-.back-cover-border {
-
-    position: absolute;
-
-    inset: 22px;
-
-    border:
-        1px solid
-        rgba(
-            225,
-            191,
-            123,
-            0.65
-        );
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-}
-
-
-.back-cover-border::before {
-
-    content: "";
-
-    position: absolute;
-
-    inset: 9px;
-
-    border:
-        1px solid
-        rgba(
-            225,
-            191,
-            123,
-            0.25
-        );
-}
-
-
-.back-cover-content {
-
-    position: relative;
-
-    z-index: 2;
-
-    text-align: center;
-}
-
-
-.back-heart {
-
-    margin-bottom: 9px;
-
-    font-size: 27px;
-
-    color: #e0bb76;
-}
-
-
-.back-small {
-
-    font-family: Arial, sans-serif;
-
-    font-size: 8px;
-
-    letter-spacing: 4px;
-
-    color: #d8b474;
-}
-
-
-.back-cover-content h2 {
-
-    margin: 10px 0;
-
-    font-size: 39px;
-
-    line-height: 0.85;
-
-    font-weight: 500;
-
-    color: #f0d89f;
-}
-
-
-.back-divider {
-
-    margin: 12px 0;
-
-    color: #d6ad68;
-
-    font-size: 17px;
-}
-
-
-.back-cover-content p {
-
-    margin: 0;
-
-    font-size: 12px;
-
-    line-height: 1.5;
-
-    color: #dfc38b;
-}
-
-
-.back-names {
-
-    margin-top: 20px;
-
-    font-size: 14px;
-
-    color: #f1dbab;
-}
-
-
-/* =========================================================
-   CONTROLS
-========================================================= */
-
-.diary-controls {
-
-    position: relative;
-
-    z-index: 100;
-
-    width: 100%;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    gap: 18px;
-
-    margin-top: 28px;
-
-    opacity: 0;
-
-    transform:
-        translateY(12px);
-
-    transition:
-        opacity .7s ease,
-        transform .7s ease;
-}
-
-
-.diary-entrance.is-settled .diary-controls {
-
-    opacity: 1;
-
-    transform:
-        translateY(0);
-}
-
-
-.diary-controls button {
-
-    width: 40px;
-
-    height: 40px;
-
-    min-width: 40px;
-
-    min-height: 40px;
-
-    padding: 0;
-
-    border-radius: 50%;
-
-    border:
-        1px solid
-        rgba(
-            105,
-            40,
-            48,
-            0.28
-        );
-
-    background:
-        rgba(
-            255,
-            248,
-            235,
-            0.9
-        );
-
-    color: #6d2530;
+    color: #80574e;
 
     font-family: Georgia, serif;
-
-    font-size: 25px;
-
-    line-height: 1;
-
-    cursor: pointer;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    transition:
-        transform .25s ease,
-        background .25s ease,
-        box-shadow .25s ease;
-}
-
-
-.diary-controls button:hover {
-
-    transform:
-        scale(1.1);
-
-    background: #fffaf0;
-
-    box-shadow:
-        0 8px 20px
-        rgba(
-            78,
-            33,
-            27,
-            0.15
-        );
-}
-
-
-.control-hint {
-
-    font-family:
-        "Cormorant Garamond",
-        Georgia,
-        serif;
 
     font-size: 13px;
 
     font-style: italic;
 
+    line-height: 1.7;
+}
+
+
+/* ============================================================
+   FINAL PAGE
+   ============================================================ */
+
+.final-ornament {
+    margin-bottom: 3px;
+
+    color: #b8884c;
+
+    font-size: 25px;
+}
+
+
+.final-story-page .center-title {
+    font-size: 35px;
+}
+
+
+.names-final {
+    margin-top: 17px;
+
+    color: #754034;
+
+    font-family: Georgia, serif;
+
+    font-size: 19px;
+}
+
+
+.names-final span {
+    padding: 0 8px;
+
+    color: #b8864d;
+
+    font-size: 14px;
+}
+
+
+/* ============================================================
+   COVER
+   ============================================================ */
+
+.diary-cover-page {
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(224, 180, 92, .18),
+            transparent 55%
+        ),
+        linear-gradient(
+            135deg,
+            #3a0e12,
+            #711f27,
+            #3b0e12
+        );
+
+    color: #f1d49a;
+}
+
+
+.cover-border {
+    position: absolute;
+
+    inset: 18px;
+
+    border: 1px solid
+        rgba(221, 183, 102, .55);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+
+.cover-content {
+    text-align: center;
+}
+
+
+.cover-small {
+    color: #d9b46b;
+
+    font-size: 9px;
+
+    letter-spacing: 6px;
+}
+
+
+.cover-title {
+    margin: 15px 0 8px;
+
+    color: #f4dca7;
+
+    font-family: Georgia, serif;
+
+    font-size: 42px;
+
+    font-weight: 400;
+
+    line-height: .95;
+}
+
+
+.cover-title span {
+    display: block;
+
+    font-size: 27px;
+
+    letter-spacing: 5px;
+}
+
+
+.cover-divider {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    margin: 17px 0;
+}
+
+
+.cover-divider span {
+    width: 50px;
+
+    height: 1px;
+
+    background: #cba15d;
+}
+
+
+.cover-divider b {
+    color: #dcb568;
+
+    font-size: 13px;
+}
+
+
+.cover-names {
+    color: #f1d59d;
+
+    font-family: Georgia, serif;
+
+    font-size: 24px;
+}
+
+
+.cover-names span {
+    padding: 0 7px;
+
+    color: #c89b57;
+
+    font-size: 16px;
+}
+
+
+.cover-subtitle {
+    margin-top: 16px;
+
+    color: #d5ae68;
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+}
+
+
+.cover-date {
+    margin-top: 9px;
+
+    color: #bb8e4d;
+
+    font-size: 7px;
+
     letter-spacing: 2px;
-
-    text-transform: uppercase;
-
-    color: #8c6554;
-
-    white-space: nowrap;
 }
 
 
-/* =========================================================
-   TABLET
-========================================================= */
+.cover-decoration {
+    position: absolute;
 
-@media (max-width: 1100px) and (min-width: 769px) {
+    color: #d8b26b;
 
-    .diary-book {
-
-        transform:
-            scale(0.82);
-
-        transform-origin:
-            top center;
-
-        margin-bottom:
-            -78px;
-    }
-
-
-    .diary-area {
-
-        min-height: 540px;
-    }
+    font-size: 22px;
 }
 
 
-/* =========================================================
+.cover-decoration.top-left {
+    top: 12px;
+    left: 14px;
+}
+
+
+.cover-decoration.top-right {
+    top: 12px;
+    right: 14px;
+}
+
+
+.cover-decoration.bottom-left {
+    bottom: 12px;
+    left: 14px;
+}
+
+
+.cover-decoration.bottom-right {
+    bottom: 12px;
+    right: 14px;
+}
+
+
+/* ============================================================
+   BACK COVER
+   ============================================================ */
+
+.diary-back-page {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(224, 180, 92, .17),
+            transparent 55%
+        ),
+        linear-gradient(
+            135deg,
+            #3a0e12,
+            #711f27,
+            #3b0e12
+        );
+}
+
+
+.back-cover-border {
+    width: calc(100% - 40px);
+
+    height: calc(100% - 40px);
+
+    border: 1px solid
+        rgba(221, 183, 102, .55);
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+}
+
+
+.back-cover-content {
+    color: #f1d49a;
+}
+
+
+.back-heart {
+    color: #ddb668;
+
+    font-size: 27px;
+}
+
+
+.back-small {
+    margin-top: 8px;
+
+    color: #d2a65e;
+
+    font-size: 8px;
+
+    letter-spacing: 4px;
+}
+
+
+.back-cover-content h2 {
+    margin: 15px 0;
+
+    color: #f2d7a0;
+
+    font-family: Georgia, serif;
+
+    font-size: 32px;
+
+    font-weight: 400;
+
+    line-height: 1;
+}
+
+
+.back-divider {
+    color: #d1a15a;
+
+    font-size: 20px;
+}
+
+
+.back-cover-content p {
+    color: #dfbf82;
+
+    font-family: Georgia, serif;
+
+    font-size: 12px;
+
+    line-height: 1.6;
+}
+
+
+.back-names {
+    margin-top: 17px;
+
+    color: #dcb66e;
+
+    font-family: Georgia, serif;
+
+    font-size: 14px;
+}
+
+
+/* ============================================================
+   CONTROLS
+   ============================================================ */
+
+.diary-controls {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 25px;
+
+    margin-top: 30px;
+}
+
+
+.diary-controls button {
+    width: 45px;
+
+    height: 45px;
+
+    border: 1px solid
+        rgba(214, 174, 95, .55);
+
+    border-radius: 50%;
+
+    background:
+        rgba(92, 30, 32, .7);
+
+    color: #ead29c;
+
+    font-size: 28px;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition:
+        transform .25s ease,
+        background .25s ease;
+}
+
+
+.diary-controls button:hover {
+    transform: scale(1.08);
+
+    background:
+        rgba(140, 70, 45, .7);
+}
+
+
+.control-hint {
+    color: rgba(232, 207, 155, .65);
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+}
+
+
+/* ============================================================
    MOBILE
-========================================================= */
+   ============================================================ */
 
 @media (max-width: 768px) {
 
     .our-story-section {
-
-        width: 100%;
-
-        min-height: 100vh;
-
         padding:
-            65px
-            8px
-            80px;
-
-        box-sizing: border-box;
-
-        overflow-x: hidden;
-
-        overflow-y: visible;
+            75px
+            10px
+            90px;
     }
 
 
-    /* -----------------------------------------------------
-       HEADING
-    ----------------------------------------------------- */
-
     .journey-heading {
-
-        width: 100%;
-
-        margin-bottom: 28px;
+        margin-bottom: 35px;
     }
 
 
     .journey-heading > span {
-
         font-size: 8px;
 
-        letter-spacing: 3px;
+        letter-spacing: 4px;
     }
 
 
     .journey-heading h1 {
-
-        font-size:
-            clamp(
-                38px,
-                11vw,
-                48px
-            );
-    }
-
-
-    .heading-line {
-
-        gap: 8px;
-
-        margin-top: 12px;
+        font-size: 45px;
     }
 
 
     .heading-line i {
-
-        width: 42px;
+        width: 55px;
     }
 
-
-    /* -----------------------------------------------------
-       DIARY AREA
-    ----------------------------------------------------- */
 
     .diary-area {
-
-        width: 100%;
-
-        min-height: auto;
-
-        display: flex;
-
-        flex-direction: column;
-
-        align-items: center;
-
-        justify-content: flex-start;
-
-        overflow: visible;
+        min-height: 650px;
     }
 
-
-    /* -----------------------------------------------------
-       MOBILE ENTRANCE
-    ----------------------------------------------------- */
 
     .diary-entrance {
-
-        width: 100%;
-
-        max-width: 100%;
-
-        display: flex;
-
-        flex-direction: column;
-
-        align-items: center;
-
-        justify-content: flex-start;
-
-        opacity: 0;
-
-        transform:
-            translate3d(
-                55vw,
-                32vh,
-                0
-            )
-            rotateZ(22deg)
-            scale(0.55);
-
-        transform-origin:
-            center center;
-
-        transition:
-            transform 2.3s
-            cubic-bezier(
-                .16,
-                1,
-                .3,
-                1
-            ),
-            opacity .7s ease;
-
-        will-change:
-            transform,
-            opacity;
-    }
-
-
-    .diary-entrance.is-arrived {
-
-        opacity: 1;
-
-        transform:
-            translate3d(
-                0,
-                0,
-                0
-            )
-            rotateZ(-1deg)
-            scale(1);
-    }
-
-
-    .diary-entrance.is-settled {
-
-        transform:
-            translate3d(
-                0,
-                0,
-                0
-            )
-            rotateZ(0deg)
-            scale(1);
-    }
-
-
-    /* -----------------------------------------------------
-       MOBILE BOOK
-    ----------------------------------------------------- */
-
-    .diary-book {
-
-        /*
-         * ONE COMPLETE PAGE fits inside phone.
-         */
         width: 88vw;
-
-        height:
-            calc(
-                88vw * 1.36
-            );
 
         max-width: 390px;
 
-        max-height: 530px;
-
-        min-width: 270px;
-
-        min-height: 370px;
-
-        margin: 0 auto;
-
-        transform: none !important;
-
-        overflow: visible;
-
-        filter:
-            drop-shadow(
-                0 18px 25px
-                rgba(
-                    67,
-                    28,
-                    19,
-                    .22
-                )
-            );
+        transform:
+            translate(35vw, 18vh)
+            rotate(15deg)
+            scale(.7);
     }
 
 
-    /* -----------------------------------------------------
-       MOBILE PAGE
-    ----------------------------------------------------- */
-
-    .diary-page {
-
-        width: 100%;
-
-        height: 100%;
-
-        overflow: hidden;
+    .diary-entrance.is-arrived,
+    .diary-entrance.is-settled {
+        transform:
+            translate(0, 0)
+            rotate(0)
+            scale(1);
     }
 
 
-    /* -----------------------------------------------------
-       INNER CONTENT
-    ----------------------------------------------------- */
+    .diary-book {
+        width: 88vw;
+
+        height: calc(88vw * 1.36);
+
+        max-width: 390px;
+
+        max-height: 570px;
+    }
+
 
     .page-inner {
-
-        width: 100%;
-
-        height: 100%;
-
-        padding:
-            18px
-            17px
-            14px;
-
-        box-sizing: border-box;
+        padding: 24px;
     }
 
-
-    /* -----------------------------------------------------
-       TOP
-    ----------------------------------------------------- */
 
     .page-top {
+        font-size: 7px;
 
-        width: 100%;
-
-        padding-bottom: 7px;
-
-        font-size: 5.5px;
-
-        letter-spacing: 1.3px;
+        letter-spacing: 1.5px;
     }
 
-
-    /* -----------------------------------------------------
-       STORY CONTENT
-    ----------------------------------------------------- */
 
     .page-content,
     .page-content.reverse {
-
-        width: 100%;
-
-        height: auto;
-
-        flex: 1;
-
-        display: flex;
-
         flex-direction: column;
-
-        align-items: center;
 
         justify-content: center;
 
-        gap: 7px;
+        gap: 12px;
 
-        padding: 7px 0;
+        height: calc(100% - 50px);
     }
 
 
     .story-text {
-
         width: 100%;
+
+        max-width: 100%;
 
         text-align: center;
     }
 
 
-    .chapter-number {
-
-        font-size: 18px;
-
-        line-height: 1;
-
-        margin-bottom: 2px;
+    .story-text h2 {
+        font-size: 26px;
     }
 
 
-    .chapter-number.large {
+    .story-text p {
+        font-size: 11px;
 
-        font-size: 23px;
-
-        margin-top: 5px;
-    }
-
-
-    .story-text h2,
-    .center-title,
-    .promise-page h2 {
-
-        font-size:
-            clamp(
-                22px,
-                7vw,
-                30px
-            );
-
-        line-height: .92;
+        line-height: 1.5;
     }
 
 
     .small-divider {
-
-        width: 35px;
-
         margin:
-            7px
+            10px
             auto;
     }
 
 
-    .story-text p,
-    .promise-page p {
-
-        max-width: 280px;
-
-        margin:
-            0
-            auto
-            6px;
-
-        font-size: 9px;
-
-        line-height: 1.35;
-    }
-
-
     .quote {
+        margin-top: 10px;
 
-        max-width: 235px;
-
-        margin:
-            6px
-            auto
-            0;
-
-        padding-left: 7px;
-
-        font-size: 8px;
-
-        line-height: 1.3;
+        font-size: 10px;
     }
 
-
-    /* -----------------------------------------------------
-       IMAGE
-    ----------------------------------------------------- */
 
     .story-image-wrap {
-
         width: 100%;
-
-        display: flex;
-
-        flex-direction: column;
-
-        align-items: center;
-
-        justify-content: center;
     }
 
 
     .image-frame {
-
-        width: 125px;
+        width: 120px;
 
         height: 150px;
-
-        padding: 5px;
     }
 
 
     .image-caption {
-
-        margin-top: 5px;
-
-        font-size: 5px;
-
-        letter-spacing: 1px;
-    }
-
-
-    /* -----------------------------------------------------
-       MEMORY LIST
-    ----------------------------------------------------- */
-
-    .memory-list {
-
-        align-items: center;
-
-        justify-content: center;
-
-        gap: 2px;
-
-        margin-top: 5px;
-
-        font-size: 7px;
-    }
-
-
-    /* -----------------------------------------------------
-       FOOTER
-    ----------------------------------------------------- */
-
-    .page-footer {
-
-        padding-top: 6px;
-
-        font-size: 5px;
-
-        letter-spacing: 1.3px;
-    }
-
-
-    /* -----------------------------------------------------
-       COVER
-    ----------------------------------------------------- */
-
-    .cover-border {
-
-        inset: 13px;
-    }
-
-
-    .cover-border::before {
-
-        inset: 7px;
-    }
-
-
-    .cover-content {
-
-        padding: 10px;
-    }
-
-
-    .cover-small {
-
-        font-size: 7px;
-
-        letter-spacing: 4px;
-
-        margin-bottom: 9px;
-    }
-
-
-    .cover-title {
-
-        font-size:
-            clamp(
-                40px,
-                13vw,
-                52px
-            );
-
-        line-height: .78;
-    }
-
-
-    .cover-divider {
-
-        gap: 7px;
-
-        margin:
-            17px
-            auto
-            12px;
-    }
-
-
-    .cover-divider span {
-
-        width: 38px;
-    }
-
-
-    .cover-divider b {
-
-        font-size: 11px;
-    }
-
-
-    .cover-names {
-
-        font-size:
-            clamp(
-                15px,
-                5vw,
-                20px
-            );
-
-        letter-spacing: .5px;
-    }
-
-
-    .cover-names span {
-
-        margin: 0 4px;
-    }
-
-
-    .cover-subtitle {
-
-        margin-top: 7px;
-
-        font-size: 5px;
-
-        letter-spacing: 2px;
-    }
-
-
-    .cover-date {
-
-        margin-top: 20px;
-
-        font-size: 5px;
-
-        letter-spacing: 2px;
-    }
-
-
-    .cover-decoration {
-
-        font-size: 20px;
-    }
-
-
-    /* -----------------------------------------------------
-       MEMORY CARDS
-    ----------------------------------------------------- */
-
-    .memory-card {
-
-        display: flex;
-
-        flex-direction: row;
-
-        align-items: stretch;
-
-        justify-content: center;
-
-        gap: 4px;
-
         margin-top: 6px;
-    }
-
-
-    .memory-card div {
-
-        width: 65px;
-
-        padding:
-            6px
-            3px;
-    }
-
-
-    .memory-card strong {
-
-        font-size: 5px;
-
-        letter-spacing: .7px;
-    }
-
-
-    .memory-card span {
-
-        margin-top: 2px;
 
         font-size: 6px;
     }
 
 
-    /* -----------------------------------------------------
-       PROMISE PAGE
-    ----------------------------------------------------- */
+    .chapter-number {
+        top: -15px;
 
-    .promise-page {
+        right: 5px;
 
-        justify-content: center;
-
-        padding:
-            5px 0;
+        font-size: 55px;
     }
 
 
-    .promise-page h2 {
-
-        font-size: 27px;
-    }
-
-
-    .big-heart {
-
-        margin: 4px 0;
-
+    .center-title {
         font-size: 28px;
     }
 
 
-    .promise-text {
-
-        max-width: 230px;
-
-        font-size: 10px;
-
-        line-height: 1.35;
+    .chapter-number.large {
+        font-size: 70px;
     }
 
 
-    /* -----------------------------------------------------
-       FINAL PAGE
-    ----------------------------------------------------- */
-
-    .final-ornament {
-
-        font-size: 23px;
-
-        margin-top: 5px;
-    }
-
-
-    .names-final {
-
-        margin-top: 8px;
-
-        font-size: 17px;
-    }
-
-
-    /* -----------------------------------------------------
-       BACK COVER
-    ----------------------------------------------------- */
-
-    .back-cover-border {
-
-        inset: 13px;
-    }
-
-
-    .back-cover-border::before {
-
-        inset: 7px;
-    }
-
-
-    .back-heart {
-
-        font-size: 23px;
-
-        margin-bottom: 6px;
-    }
-
-
-    .back-small {
-
-        font-size: 6px;
-
-        letter-spacing: 3px;
-    }
-
-
-    .back-cover-content h2 {
-
-        margin: 8px 0;
-
-        font-size: 31px;
-    }
-
-
-    .back-divider {
-
-        margin: 8px 0;
-
-        font-size: 14px;
-    }
-
-
-    .back-cover-content p {
-
-        font-size: 9px;
-    }
-
-
-    .back-names {
-
-        margin-top: 13px;
+    .center-text {
+        max-width: 260px;
 
         font-size: 11px;
     }
 
 
-    /* -----------------------------------------------------
-       CONTROLS
-    ----------------------------------------------------- */
-
-    .diary-controls {
-
-        width: 100%;
-
-        display: flex;
-
-        flex-direction: row;
-
-        align-items: center;
-
-        justify-content: center;
-
-        gap: 11px;
-
-        margin-top: 22px;
-
-        position: relative;
-
-        z-index: 100;
+    .memory-card {
+        gap: 5px;
     }
 
 
-    .diary-controls button {
+    .memory-card > div {
+        min-width: 70px;
 
-        width: 34px;
-
-        height: 34px;
-
-        min-width: 34px;
-
-        min-height: 34px;
-
-        font-size: 21px;
+        padding: 7px 5px;
     }
 
 
-    .control-hint {
-
+    .memory-card strong {
         font-size: 8px;
-
-        letter-spacing: 1.4px;
-
-        white-space: nowrap;
     }
 
 
-    /* -----------------------------------------------------
-       MOBILE DECORATIONS
-    ----------------------------------------------------- */
-
-    .diary-glow {
-
-        width: 100vw;
-
-        height: 500px;
-
-        opacity: .65;
-    }
-
-
-    .our-story-section .diary-area::before {
-
-        left: -15px;
-
-        top: 2%;
-
-        font-size: 50px;
-    }
-
-
-    .our-story-section .diary-area::after {
-
-        right: -15px;
-
-        bottom: 5%;
-
-        font-size: 50px;
-    }
-}
-
-
-/* =========================================================
-   SMALL PHONES
-========================================================= */
-
-@media (max-width: 420px) {
-
-    .our-story-section {
-
-        padding-left: 5px;
-
-        padding-right: 5px;
-    }
-
-
-    .diary-book {
-
-        width: 91vw;
-
-        height:
-            calc(
-                91vw * 1.34
-            );
-
-        max-height: 500px;
-
-        min-width: 0;
-
-        min-height: 0;
-    }
-
-
-    .page-inner {
-
-        padding:
-            15px
-            13px
-            12px;
-    }
-
-
-    .story-text h2,
-    .center-title,
-    .promise-page h2 {
-
-        font-size: 21px;
-    }
-
-
-    .story-text p,
-    .promise-page p {
-
-        font-size: 8px;
-
-        max-width: 235px;
-    }
-
-
-    .image-frame {
-
-        width: 108px;
-
-        height: 132px;
-    }
-
-
-    .control-hint {
-
+    .memory-card span {
         font-size: 7px;
-
-        letter-spacing: 1px;
-    }
-}
-
-
-/* =========================================================
-   VERY SMALL PHONES
-========================================================= */
-
-@media (max-width: 340px) {
-
-    .journey-heading h1 {
-
-        font-size: 36px;
     }
 
 
-    .diary-book {
-
-        width: 92vw;
-
-        height:
-            calc(
-                92vw * 1.32
-            );
-    }
-
-
-    .page-inner {
-
-        padding:
-            13px
-            11px
-            10px;
-    }
-
-
-    .story-text h2,
-    .center-title,
     .promise-page h2 {
-
-        font-size: 19px;
+        font-size: 27px;
     }
 
 
-    .story-text p,
     .promise-page p {
+        max-width: 250px;
 
-        font-size: 7.5px;
-
-        line-height: 1.3;
+        font-size: 11px;
     }
 
 
-    .image-frame {
+    .promise-text {
+        max-width: 260px;
 
-        width: 95px;
+        font-size: 10px;
+    }
 
-        height: 118px;
+
+    .final-story-page .center-title {
+        font-size: 28px;
+    }
+
+
+    .names-final {
+        font-size: 15px;
     }
 
 
     .cover-title {
+        font-size: 31px;
+    }
 
-        font-size: 38px;
+
+    .cover-title span {
+        font-size: 21px;
     }
 
 
     .cover-names {
-
-        font-size: 14px;
+        font-size: 17px;
     }
 
 
-    .diary-controls {
-
-        gap: 7px;
-
-        margin-top: 17px;
+    .cover-subtitle {
+        font-size: 6px;
     }
 
 
-    .diary-controls button {
+    .cover-date {
+        font-size: 6px;
+    }
 
-        width: 31px;
 
-        height: 31px;
-
-        min-width: 31px;
-
-        min-height: 31px;
-
-        font-size: 19px;
+    .back-cover-content h2 {
+        font-size: 26px;
     }
 
 
     .control-hint {
-
-        font-size: 6.5px;
-
-        letter-spacing: .8px;
+        display: none;
     }
+
+
+    .diary-controls {
+        gap: 15px;
+
+        margin-top: 20px;
+    }
+
 }
